@@ -1,4 +1,4 @@
-export type Category = "Commercial" | "Film" | "Documentary" | "Music"
+export type Category = "Corporate" | "Real Estate" | "Commercial" | "Brand"
 
 export type Project = {
   id: string
@@ -13,122 +13,102 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    id: "atlas-skyline",
-    title: "Above the Line",
-    client: "Atlas Aerospace",
-    category: "Commercial",
+    id: "skyline-towers",
+    title: "Skyline Towers",
+    client: "Meridian Developments",
+    category: "Real Estate",
     year: "2025",
     runtime: "1:48",
     featured: true,
     image:
-      "/placeholder.svg?height=900&width=1600&query=cinematic%20aerial%20city%20skyline%20at%20dusk%20moody%20film%20still",
+      "/placeholder.svg?height=900&width=1600&query=luxury%20high-rise%20development%20aerial%20at%20dusk%20cinematic%20film%20still",
   },
   {
-    id: "northern-light",
-    title: "Northern Light",
-    client: "Hverfa Travel",
-    category: "Documentary",
+    id: "future-of-work",
+    title: "The Future of Work",
+    client: "Atlas Group",
+    category: "Corporate",
     year: "2025",
-    runtime: "12:30",
+    runtime: "2:30",
     featured: true,
     image:
-      "/placeholder.svg?height=900&width=1600&query=cinematic%20arctic%20landscape%20aurora%20documentary%20film%20still%20moody",
+      "/placeholder.svg?height=900&width=1600&query=modern%20corporate%20office%20team%20meeting%20cinematic%20film%20still",
   },
   {
-    id: "midnight-run",
-    title: "Midnight Run",
+    id: "drive-the-city",
+    title: "Drive the City",
     client: "Vesper Automotive",
     category: "Commercial",
     year: "2024",
     runtime: "0:60",
     image:
-      "/placeholder.svg?height=900&width=1600&query=cinematic%20luxury%20car%20driving%20at%20night%20neon%20reflections%20film%20still",
+      "/placeholder.svg?height=900&width=1600&query=luxury%20car%20driving%20at%20night%20city%20lights%20cinematic%20commercial",
   },
   {
-    id: "the-quiet-hours",
-    title: "The Quiet Hours",
-    client: "A24 Shorts",
-    category: "Film",
-    year: "2024",
-    runtime: "9:12",
-    image:
-      "/placeholder.svg?height=900&width=1600&query=cinematic%20portrait%20of%20woman%20in%20warm%20window%20light%20film%20still%20moody",
-  },
-  {
-    id: "echoes",
-    title: "Echoes",
-    client: "Lume Records",
-    category: "Music",
-    year: "2024",
-    runtime: "3:54",
-    image:
-      "/placeholder.svg?height=900&width=1600&query=cinematic%20music%20video%20concert%20stage%20smoke%20dramatic%20lighting%20film%20still",
-  },
-  {
-    id: "groundwork",
-    title: "Groundwork",
-    client: "Terra Foods",
-    category: "Commercial",
+    id: "the-residences",
+    title: "The Residences",
+    client: "Coastal Living",
+    category: "Real Estate",
     year: "2024",
     runtime: "1:20",
     image:
-      "/placeholder.svg?height=900&width=1600&query=cinematic%20farm%20fields%20golden%20hour%20hands%20harvesting%20film%20still",
+      "/luxury-waterfront-villa-interior-golden-hour-cinem.jpg",
   },
   {
-    id: "the-makers",
-    title: "The Makers",
-    client: "Hand & Hammer",
-    category: "Documentary",
-    year: "2023",
-    runtime: "18:05",
+    id: "built-different",
+    title: "Built Different",
+    client: "Sahara Steel",
+    category: "Corporate",
+    year: "2024",
+    runtime: "1:54",
     image:
-      "/placeholder.svg?height=900&width=1600&query=cinematic%20craftsman%20workshop%20warm%20light%20documentary%20film%20still",
+      "/industrial-construction-site-workers-cinematic-fil.jpg",
   },
   {
-    id: "afterglow",
-    title: "Afterglow",
-    client: "Nocta Studios",
-    category: "Music",
-    year: "2023",
-    runtime: "4:21",
+    id: "taste-of-home",
+    title: "Taste of Home",
+    client: "Terra Foods",
+    category: "Commercial",
+    year: "2024",
+    runtime: "1:10",
     image:
-      "/placeholder.svg?height=900&width=1600&query=cinematic%20moody%20portrait%20singer%20colored%20gel%20lighting%20film%20still",
+      "/food-brand-commercial-warm-kitchen-cinematic-film-.jpg",
   },
 ]
 
 export const clients = [
-  "Atlas Aerospace",
+  "Meridian Developments",
+  "Atlas Group",
   "Vesper",
-  "A24",
   "Terra Foods",
-  "Lume Records",
-  "Hverfa",
-  "Nocta",
-  "Hand & Hammer",
+  "Coastal Living",
+  "Sahara Steel",
+  "Nile Capital",
+  "Oryx Hospitality",
 ]
 
 export const stats = [
-  { value: "120+", label: "Films delivered" },
-  { value: "38", label: "Countries shot in" },
-  { value: "14", label: "Industry awards" },
-  { value: "9", label: "Years in motion" },
+  { value: "200+", label: "Films delivered" },
+  { value: "14", label: "Countries shot in" },
+  { value: "11", label: "Industry awards" },
+  { value: "8", label: "Years in motion" },
 ]
 
 export const services = [
   {
-    title: "Commercials",
+    title: "Corporate Video",
     description:
-      "Brand films and spots built for broadcast, social and everything in between — concept to final color.",
+      "Brand films, founder stories and internal content that make your company look as good as it actually is.",
   },
   {
-    title: "Documentary",
+    title: "Real Estate",
     description:
-      "Long-form storytelling with a journalist's eye and a cinematographer's heart, shot anywhere on earth.",
+      "Cinematic property and development films — aerials, walkthroughs and lifestyle reels that sell the space.",
   },
   {
-    title: "Branded Content",
+    title: "Commercial Content",
     description:
-      "Episodic series and content systems that keep audiences coming back, not just clicking once.",
+      "Spots and campaigns built for broadcast, social and everything in between — concept to final color.",
   },
   {
     title: "Post & Color",

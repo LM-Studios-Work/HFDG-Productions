@@ -14,38 +14,38 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="scroll-mt-20 border-t border-border px-6 py-24 lg:px-10 lg:py-32"
+      className="scroll-mt-20 border-t-2 border-foreground px-5 py-24 lg:px-8 lg:py-32"
     >
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-14 lg:grid-cols-2 lg:gap-20">
+      <div className="mx-auto grid max-w-[1600px] grid-cols-1 gap-14 lg:grid-cols-2 lg:gap-20">
         <div>
           <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
             004 — Get in touch
           </p>
-          <h2 className="mt-6 text-pretty text-5xl font-semibold leading-[0.95] tracking-tight md:text-7xl">
-            Let&apos;s make
+          <h2 className="mt-6 text-pretty text-5xl font-extrabold uppercase leading-[0.95] tracking-tight md:text-7xl">
+            Book a
             <br />
-            something good.
+            consultation.
           </h2>
           <p className="mt-8 max-w-md text-balance text-lg leading-relaxed text-muted-foreground">
-            Have a project in mind, or just want to talk shop? We&apos;d love to
-            hear from you.
+            Have a project in mind, or just want to talk it through? Tell us what
+            you&apos;re building and we&apos;ll bring the camera.
           </p>
 
           <div className="mt-10 space-y-4">
             <a
-              href="mailto:hello@meridian.studio"
-              className="group flex items-center gap-2 text-2xl font-medium tracking-tight md:text-3xl"
+              href="mailto:hello@hfdgproductions.com"
+              className="group flex items-center gap-2 font-heading text-2xl font-extrabold tracking-tight md:text-3xl"
             >
-              hello@meridian.studio
+              hello@hfdgproductions.com
               <ArrowUpRight className="size-6 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
             </a>
             <p className="font-mono text-sm text-muted-foreground">
-              New York · London · Reykjavík
+              Lagos · Nairobi · Dubai
             </p>
           </div>
         </div>
 
-        <div className="rounded-lg border border-border bg-card p-6 md:p-8">
+        <div className="rounded-lg border-2 border-foreground bg-card p-6 md:p-8">
           {sent ? (
             <div className="flex h-full min-h-64 flex-col items-center justify-center text-center">
               <span className="inline-flex size-14 items-center justify-center rounded-full bg-accent text-accent-foreground">
@@ -100,9 +100,9 @@ export function Contact() {
               </Field>
               <button
                 type="submit"
-                className="mt-1 inline-flex items-center justify-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90"
+                className="mt-1 inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3.5 text-sm font-extrabold uppercase tracking-tight text-accent-foreground transition-transform hover:-translate-y-0.5"
               >
-                Send message
+                Book a consultation
                 <ArrowUpRight className="size-4" />
               </button>
             </form>

@@ -1,18 +1,28 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Bricolage_Grotesque, Hanken_Grotesk, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 
-const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const bricolage = Bricolage_Grotesque({
+  variable: '--font-heading',
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+})
+
+const hanken = Hanken_Grotesk({
+  variable: '--font-sans',
+  subsets: ['latin'],
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: '--font-mono',
   subsets: ['latin'],
 })
 
 export const metadata: Metadata = {
-  title: 'Meridian — Film & Production Studio',
+  title: 'HFDG Productions — Corporate Video, Real Estate & Commercial Content',
   description:
-    'Meridian is an independent film and production studio crafting cinematic stories for brands worldwide. Commercials, films, documentaries and branded content.',
+    'HFDG Productions is a video production studio creating corporate films, real estate films and commercial content for real estate developers, corporate brands and creative entrepreneurs across Africa and the Middle East.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -35,7 +45,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   colorScheme: 'dark',
-  themeColor: '#1a1a1a',
+  themeColor: '#0c0c0c',
 }
 
 export default function RootLayout({
@@ -46,7 +56,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark bg-background ${geistSans.variable} ${geistMono.variable}`}
+      className={`dark bg-background ${bricolage.variable} ${hanken.variable} ${jetbrainsMono.variable}`}
     >
       <body className="font-sans antialiased">
         {children}
