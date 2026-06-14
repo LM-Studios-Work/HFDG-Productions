@@ -12,39 +12,29 @@ const columns = [
   },
   {
     title: "Services",
-    links: ["Commercials", "Documentary", "Branded Content", "Post & Color"],
+    links: ["Corporate Video", "Real Estate", "Commercial Content", "Post & Color"],
   },
 ]
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border">
-      {/* thin spectrum accent line */}
-      <div
-        aria-hidden="true"
-        className="h-1 w-full"
-        style={{
-          background:
-            "linear-gradient(90deg, oklch(0.82 0.062 17), oklch(0.85 0.09 60), oklch(0.86 0.08 120), oklch(0.8 0.08 230), oklch(0.82 0.062 17))",
-        }}
-      />
-
-      <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+    <footer className="border-t-2 border-foreground">
+      <div className="mx-auto max-w-[1600px] px-5 py-16 lg:px-8">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
             <a
               href="#top"
-              className="flex items-center gap-2 text-xl font-semibold tracking-tight"
+              className="flex items-center gap-2 font-heading text-2xl font-extrabold uppercase tracking-tight"
             >
               <span
-                className="inline-block size-2 rounded-full bg-accent"
+                className="inline-block size-2.5 rounded-full bg-accent"
                 aria-hidden="true"
               />
-              MERIDIAN
+              HFDG Productions
             </a>
             <p className="mt-4 max-w-xs text-balance leading-relaxed text-muted-foreground">
-              An independent film &amp; production studio making cinematic work
-              for brands worldwide.
+              A video production studio making corporate, real estate and
+              commercial work for brands across Africa and the Middle East.
             </p>
           </div>
 
@@ -88,9 +78,9 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-16 flex flex-col gap-2 border-t border-border pt-8 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} Meridian Studio. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} HFDG Productions. All rights reserved.</p>
           <p className="font-mono text-xs uppercase tracking-[0.15em]">
-            New York · London · Reykjavík
+            Lagos · Nairobi · Dubai
           </p>
         </div>
       </div>

@@ -4,15 +4,15 @@ export function Approach() {
   return (
     <section
       id="approach"
-      className="scroll-mt-20 border-t border-border px-6 py-24 lg:px-10 lg:py-32"
+      className="scroll-mt-20 border-t-2 border-foreground px-5 py-24 lg:px-8 lg:py-32"
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1600px]">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
               003 — What we do
             </p>
-            <h2 className="mt-4 max-w-2xl text-pretty text-4xl font-semibold tracking-tight md:text-5xl">
+            <h2 className="mt-4 max-w-2xl text-pretty text-4xl font-extrabold uppercase tracking-tight md:text-5xl">
               From the first idea to the final frame.
             </h2>
           </div>
@@ -22,7 +22,7 @@ export function Approach() {
           </p>
         </div>
 
-        <div className="mt-14 border-t border-border">
+        <div className="mt-14 border-t-2 border-foreground">
           {services.map((service, i) => (
             <div
               key={service.title}
@@ -31,7 +31,7 @@ export function Approach() {
               <span className="font-mono text-sm text-muted-foreground md:col-span-1">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="text-2xl font-semibold tracking-tight md:col-span-4 md:text-3xl">
+              <h3 className="font-heading text-2xl font-extrabold uppercase tracking-tight md:col-span-4 md:text-3xl">
                 {service.title}
               </h3>
               <p className="max-w-xl leading-relaxed text-muted-foreground md:col-span-7">
