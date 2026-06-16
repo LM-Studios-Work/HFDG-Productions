@@ -27,7 +27,7 @@ export function FilmCorners({
   inset?: number
   thickness?: number
 }) {
-  const common = "absolute border-accent/70"
+  const common = "absolute border-foreground/70"
   const len = `${size}px`
   const off = `${inset}px`
   const t = `${thickness}px`

@@ -2,8 +2,6 @@
 
 import { useEffect, useState } from "react"
 import { Menu, X, ArrowRight } from "lucide-react"
-import { FilmCorners } from "@/components/film-ui"
-
 const navLinks = [
   { label: "Work", href: "#work" },
   { label: "Services", href: "#approach" },
@@ -54,8 +52,7 @@ export function SiteHeader() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
-      <div className="relative border-b-2 border-foreground bg-background/95 backdrop-blur">
-        <FilmCorners size={16} inset={6} thickness={2} className="hidden md:block" />
+      <div className="border-b-2 border-foreground bg-background/95 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-[1600px] items-center justify-between gap-4 px-5 lg:px-8">
           <Logo />
 

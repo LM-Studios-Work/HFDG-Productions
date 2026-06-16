@@ -35,9 +35,12 @@ export function Hero() {
       id="top"
       className="relative flex min-h-[100svh] flex-col px-5 pt-28 lg:px-8 lg:pt-36"
     >
-      {/* Viewfinder corner brackets framing the hero */}
-      <FilmCorners size={36} inset={12} className="hidden sm:block" />
-      <FilmCorners size={22} inset={8} className="sm:hidden" />
+      {/* Viewfinder corner brackets — fixed to the screen edges so all four corners
+          sit at the actual viewport corners, top-left through bottom-right */}
+      <div className="pointer-events-none fixed inset-0 z-40" aria-hidden="true">
+        <FilmCorners size={36} inset={16} className="hidden sm:block" />
+        <FilmCorners size={22} inset={10} className="sm:hidden" />
+      </div>
 
       <div className="relative z-20 mx-auto w-full max-w-[1600px] flex-1">
         {/* Eyebrow row */}
@@ -56,7 +59,7 @@ export function Hero() {
         <h1 className="mt-6 max-w-6xl text-pretty font-heading text-[2.5rem] font-extrabold uppercase leading-[0.9] tracking-tight sm:text-7xl md:text-8xl lg:text-[9rem]">
           HFDG
           <br />
-          <span className="text-accent">Productions</span>
+          <span className="text-foreground">Productions</span>
         </h1>
 
         {/* Sub copy + CTA row */}
@@ -93,11 +96,8 @@ export function Hero() {
       </div>
 
       {/* Focus-scale ruler — camera focus pull motif from the reference */}
-      <div className="relative z-20 flex flex-col items-center gap-3 pb-10 pt-16">
+      <div className="relative z-20 flex justify-center pb-10 pt-16">
         <FocusScale />
-        <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground/60">
-          Scroll
-        </p>
       </div>
     </section>
   )
