@@ -12,7 +12,7 @@ export function AboutExpertise() {
           <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
-                <span className="font-bold text-accent">006</span> — What we do
+                What we do
               </p>
               <h2 className="mt-4 max-w-2xl text-pretty font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight md:text-5xl">
                 Expertise, end to end.
@@ -37,12 +37,9 @@ export function AboutExpertise() {
           </div>
 
           <ul className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-lg border-2 border-foreground bg-foreground sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((s, i) => (
+            {services.map((s) => (
               <li key={s.title} className="flex flex-col bg-background p-8">
-                <span className="font-mono text-xs font-bold text-accent">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-4 font-heading text-2xl font-extrabold uppercase tracking-tight">
+                <h3 className="font-heading text-2xl font-extrabold uppercase tracking-tight">
                   {s.title}
                 </h3>
                 <p className="mt-3 leading-relaxed text-muted-foreground">
@@ -59,26 +56,24 @@ export function AboutExpertise() {
         <div className="mx-auto flex max-w-[1600px] flex-col gap-8 md:flex-row md:items-center md:justify-between">
           <div className="max-w-2xl">
             <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
-              <span className="font-bold text-accent">007</span> — In good company
+              In good company
             </p>
             <h2 className="mt-4 text-pretty font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight md:text-5xl">
               An affiliate of{" "}
               <span className="text-accent">35Film</span>.
             </h2>
             <p className="mt-5 max-w-xl leading-relaxed text-muted-foreground">
-              Our partnership with 35Film extends our reach, gear and crew —
-              giving HFDG clients access to a deeper bench of talent and a
-              bigger production backbone, without losing the boutique attention
-              that defines us.
+              Our partnership with 35Film extends our reach, gear and crew.
+              HFDG clients get access to a deeper bench of talent and a bigger
+              production backbone, without losing the boutique attention that
+              defines us.
             </p>
           </div>
 
-          {/* 35Film mark — typographic lockup framed like a clapperboard slate */}
           <div className="shrink-0">
             <div className="flex items-center gap-4 rounded-lg border-2 border-foreground bg-background px-8 py-6">
               <span className="font-heading text-5xl font-extrabold tracking-tighter md:text-6xl">
-                35
-                <span className="text-accent">Film</span>
+                35<span className="text-accent">Film</span>
               </span>
             </div>
           </div>
@@ -89,12 +84,12 @@ export function AboutExpertise() {
       <section className="scroll-mt-20 border-t-2 border-foreground px-5 py-24 text-center lg:px-8 lg:py-32">
         <div className="mx-auto max-w-3xl">
           <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
-            <span className="font-bold text-accent">008</span> — Let&apos;s make something
+            Let&apos;s make something
           </p>
           <h2 className="mt-6 text-balance font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight md:text-6xl">
             Got a film worth making?
           </h2>
-          <p className="mx-auto mt-6 max-w-xl text-balance leading-relaxed text-muted-foreground">
+          <p className="mx-auto mt-6 max-w-xl leading-relaxed text-muted-foreground">
             Tell us what you&apos;re building. We&apos;ll tell you how we&apos;d
             shoot it.
           </p>
@@ -107,7 +102,7 @@ export function AboutExpertise() {
               Get in touch
             </a>
             <a
-              href="/work"
+              href="/#work"
               className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-foreground px-7 py-3.5 text-sm font-extrabold uppercase tracking-widest transition-colors hover:border-accent hover:text-accent"
             >
               See the work

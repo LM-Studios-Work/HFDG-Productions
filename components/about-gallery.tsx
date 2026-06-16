@@ -1,31 +1,31 @@
 const shots = [
   {
-    q: "film%20crew%20setting%20up%20camera%20rig%20on%20location%20golden%20hour%20behind%20the%20scenes",
+    q: "film+crew+setting+up+camera+rig+on+location+golden+hour",
     alt: "Crew setting up a camera rig on location",
     span: "md:col-span-2 md:row-span-2",
     ratio: "aspect-[4/5] md:aspect-auto md:h-full",
   },
   {
-    q: "cinematographer%20checking%20monitor%20on%20set%20moody%20lighting",
+    q: "cinematographer+checking+monitor+on+set+moody+lighting",
     alt: "Cinematographer checking the monitor on set",
     span: "",
     ratio: "aspect-square",
   },
   {
-    q: "drone%20aerial%20shoot%20over%20city%20skyline%20production",
+    q: "drone+aerial+shoot+over+city+skyline+production",
     alt: "Aerial drone shoot over a city skyline",
     span: "",
     ratio: "aspect-square",
   },
   {
-    q: "editor%20color%20grading%20suite%20studio%20screens%20dark%20room",
+    q: "editor+color+grading+suite+studio+screens+dark+room",
     alt: "Editor in the color grading suite",
     span: "md:col-span-2",
     ratio: "aspect-[2/1]",
   },
 ]
 
-/** About — Behind the scenes gallery. Asymmetric bordered grid. */
+/** About — Behind the scenes gallery. */
 export function AboutGallery() {
   return (
     <section className="scroll-mt-20 border-t-2 border-foreground px-5 py-24 lg:px-8 lg:py-32">
@@ -33,15 +33,14 @@ export function AboutGallery() {
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
-              <span className="font-bold text-accent">005</span> — On set
+              On set
             </p>
             <h2 className="mt-4 max-w-2xl text-pretty font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight md:text-5xl">
               Behind the frame.
             </h2>
           </div>
-          <p className="max-w-sm text-balance leading-relaxed text-muted-foreground">
-            The unglamorous part nobody posts — the work that makes the film
-            look effortless.
+          <p className="max-w-sm leading-relaxed text-muted-foreground">
+            The work that makes the film look effortless.
           </p>
         </div>
 
