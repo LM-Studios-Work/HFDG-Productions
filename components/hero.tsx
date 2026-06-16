@@ -1,6 +1,7 @@
 "use client"
 
 import { ArrowRight } from "lucide-react"
+import { FilmCorners, FocusScale, RecordDot } from "@/components/film-ui"
 
 /** The HFDG film-frame icon — a camera viewfinder bracket with a blinking red dot.
  *  Inspired by the DGC bracketed logo style. Used as the studio's signature mark. */
@@ -34,27 +35,28 @@ export function Hero() {
       id="top"
       className="relative flex min-h-[100svh] flex-col px-5 pt-28 lg:px-8 lg:pt-36"
     >
-      <div className="mx-auto w-full max-w-[1600px] flex-1">
+      {/* Viewfinder corner brackets framing the hero */}
+      <FilmCorners size={36} inset={12} className="hidden sm:block" />
+      <FilmCorners size={22} inset={8} className="sm:hidden" />
+
+      <div className="relative z-20 mx-auto w-full max-w-[1600px] flex-1">
         {/* Eyebrow row */}
         <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
           <p className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
             {/* Blinking red dot — the "recording" indicator */}
-            <span
-              className="inline-block h-2 w-2 rounded-full bg-accent animate-blink-dot"
-              aria-hidden="true"
-            />
+            <RecordDot />
             Corporate Video · Real Estate · Commercial Content
           </p>
-          <span className="rotate-[-3deg] rounded-sm border border-foreground/40 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+          <span className="rotate-[-3deg] rounded-sm border border-accent/40 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-accent/90">
             An affiliate of 35Film
           </span>
         </div>
 
         {/* Main headline */}
-        <h1 className="mt-6 max-w-6xl text-pretty font-heading text-6xl font-extrabold uppercase leading-[0.88] tracking-tight sm:text-7xl md:text-8xl lg:text-[9rem]">
+        <h1 className="mt-6 max-w-6xl text-pretty font-heading text-[2.5rem] font-extrabold uppercase leading-[0.9] tracking-tight sm:text-7xl md:text-8xl lg:text-[9rem]">
           HFDG
           <br />
-          <span className="text-stroke">Productions</span>
+          <span className="text-accent">Productions</span>
         </h1>
 
         {/* Sub copy + CTA row */}
@@ -74,9 +76,9 @@ export function Hero() {
             {/* "Get in touch" — blinking dot inspired by the reference */}
             <a
               href="#contact"
-              className="group inline-flex items-center gap-3 rounded-full border-2 border-foreground bg-foreground px-6 py-3.5 text-sm font-extrabold uppercase tracking-tight text-background transition-colors hover:border-accent hover:bg-accent hover:text-accent-foreground"
+              className="group inline-flex items-center gap-3 rounded-full border-2 border-accent bg-accent px-6 py-3.5 text-sm font-extrabold uppercase tracking-tight text-accent-foreground transition-colors hover:bg-transparent hover:text-accent"
             >
-              <span className="inline-block h-2 w-2 rounded-full bg-accent animate-blink-dot group-hover:bg-accent-foreground" aria-hidden="true" />
+              <span className="inline-block h-2 w-2 rounded-full bg-accent-foreground animate-blink-dot group-hover:bg-accent" aria-hidden="true" />
               Get in touch
             </a>
             <a
@@ -90,23 +92,9 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Sandwich-style scroll indicator — dotted line + animated arrow */}
-      <div className="flex flex-col items-center gap-3 pb-10 pt-16" aria-hidden="true">
-        {/* Dotted vertical line */}
-        <div className="flex flex-col items-center gap-[5px]">
-          {Array.from({ length: 7 }).map((_, i) => (
-            <span
-              key={i}
-              className="inline-block h-[3px] w-[3px] rounded-full bg-muted-foreground/50"
-            />
-          ))}
-        </div>
-        {/* Bouncing arrow */}
-        <span className="animate-scroll-bounce text-muted-foreground">
-          <svg viewBox="0 0 16 16" fill="none" className="size-4" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 2 L8 13 M3 8 L8 13 L13 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </span>
+      {/* Focus-scale ruler — camera focus pull motif from the reference */}
+      <div className="relative z-20 flex flex-col items-center gap-3 pb-10 pt-16">
+        <FocusScale />
         <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground/60">
           Scroll
         </p>

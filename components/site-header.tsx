@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { Menu, X, ArrowRight } from "lucide-react"
+import { FilmCorners } from "@/components/film-ui"
 
 const navLinks = [
   { label: "Work", href: "#work" },
@@ -53,7 +54,8 @@ export function SiteHeader() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
-      <div className="border-b-2 border-foreground bg-background">
+      <div className="relative border-b-2 border-foreground bg-background/95 backdrop-blur">
+        <FilmCorners size={16} inset={6} thickness={2} className="hidden md:block" />
         <div className="mx-auto flex h-16 max-w-[1600px] items-center justify-between gap-4 px-5 lg:px-8">
           <Logo />
 
@@ -74,7 +76,7 @@ export function SiteHeader() {
               href="#contact"
               className="group inline-flex items-center gap-2.5 rounded-full border border-foreground/30 px-5 py-2 text-sm font-extrabold uppercase tracking-tight text-foreground transition-colors hover:border-accent hover:text-accent"
             >
-              <span className="inline-block h-2 w-2 rounded-full bg-accent animate-blink-dot" aria-hidden="true" />
+              <span className="inline-block h-2 w-2 rounded-full bg-accent dot-glow animate-blink-dot" aria-hidden="true" />
               Get in touch
             </a>
           </div>

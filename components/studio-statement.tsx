@@ -11,7 +11,7 @@ export function StudioStatement() {
         {/* Section header row: label left, CTA right */}
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
-            002 — The studio
+            <span className="font-bold text-accent">002</span> — The studio
           </p>
 
           {/* See more about us — right-aligned on md+ */}

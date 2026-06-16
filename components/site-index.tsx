@@ -11,7 +11,7 @@ export function SiteIndex() {
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
-              005 — Keep looking
+              <span className="font-bold text-accent">005</span> — Keep looking
             </p>
             <h2 className="mt-4 max-w-2xl text-pretty text-4xl font-extrabold uppercase tracking-tight md:text-5xl">
               The rest of the studio.
@@ -30,7 +30,7 @@ export function SiteIndex() {
                 href={page.href}
                 className="group grid grid-cols-1 items-baseline gap-2 border-b-2 border-foreground py-6 transition-colors hover:bg-secondary/40 md:grid-cols-12 md:gap-6 md:px-4 md:py-8"
               >
-                <span className="font-mono text-sm text-muted-foreground md:col-span-1">
+                <span className="font-mono text-sm font-bold text-accent md:col-span-1">
                   {page.index}
                 </span>
                 <span className="flex items-center gap-3 font-heading text-3xl font-extrabold uppercase tracking-tight md:col-span-5 md:text-5xl">

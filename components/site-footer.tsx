@@ -1,3 +1,5 @@
+import { FilmCorners, FocusScale } from "@/components/film-ui"
+
 const socials = [
   { label: "Instagram", short: "IG" },
   { label: "YouTube", short: "YT" },
@@ -28,8 +30,13 @@ const columns = [
 
 export function SiteFooter() {
   return (
-    <footer className="border-t-2 border-foreground">
-      <div className="mx-auto max-w-[1600px] px-5 py-16 lg:px-8">
+    <footer className="relative border-t-2 border-foreground">
+      <FilmCorners size={28} inset={14} className="hidden sm:block" />
+      {/* Focus-scale divider motif */}
+      <div className="flex justify-center pt-12">
+        <FocusScale />
+      </div>
+      <div className="mx-auto max-w-[1600px] px-5 pb-16 pt-12 lg:px-8">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
             <a
@@ -37,7 +44,7 @@ export function SiteFooter() {
               className="flex items-center gap-2 font-heading text-2xl font-extrabold uppercase tracking-tight"
             >
               <span
-                className="inline-block size-2.5 rounded-full bg-accent"
+                className="inline-block size-2.5 rounded-full bg-accent dot-glow animate-blink-dot"
                 aria-hidden="true"
               />
               HFDG Productions

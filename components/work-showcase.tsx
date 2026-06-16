@@ -45,7 +45,7 @@ export function WorkShowcase() {
           {/* Left: headline */}
           <div>
             <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
-              001 — Selected work
+              <span className="font-bold text-accent">001</span> — Selected work
             </p>
             <h2 className="mt-4 max-w-2xl text-pretty font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight md:text-5xl">
               Stories worth

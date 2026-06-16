@@ -12,6 +12,11 @@ import { SiteFooter } from "@/components/site-footer"
 export default function Page() {
   return (
     <>
+      {/* Cinematic red ambient glow bleeding in from the page edges */}
+      <div
+        className="film-edges pointer-events-none fixed inset-0 -z-10"
+        aria-hidden="true"
+      />
       <SiteHeader />
       <main>
         <Hero />
