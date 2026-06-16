@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ArrowUpRight, Check } from "lucide-react"
+import { ArrowUpRight, Check, MessageCircle } from "lucide-react"
 
 export function Contact() {
   const [sent, setSent] = useState(false)
@@ -19,7 +19,7 @@ export function Contact() {
       <div className="mx-auto grid max-w-[1600px] grid-cols-1 gap-14 lg:grid-cols-2 lg:gap-20">
         <div>
           <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
-            004 — Get in touch
+            006 — Get in touch
           </p>
           <h2 className="mt-6 text-pretty text-5xl font-extrabold uppercase leading-[0.95] tracking-tight md:text-7xl">
             Book a
@@ -31,7 +31,7 @@ export function Contact() {
             you&apos;re building and we&apos;ll bring the camera.
           </p>
 
-          <div className="mt-10 space-y-4">
+          <div className="mt-10 space-y-6">
             <a
               href="mailto:hello@hfdgproductions.com"
               className="group flex items-center gap-2 font-heading text-2xl font-extrabold tracking-tight md:text-3xl"
@@ -39,8 +39,17 @@ export function Contact() {
               hello@hfdgproductions.com
               <ArrowUpRight className="size-6 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
             </a>
+            <a
+              href="https://wa.me/27000000000"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-foreground px-6 py-3 text-sm font-extrabold uppercase tracking-tight transition-colors hover:bg-foreground hover:text-background"
+            >
+              <MessageCircle className="size-4" />
+              Message us on WhatsApp
+            </a>
             <p className="font-mono text-sm text-muted-foreground">
-              Lagos · Nairobi · Dubai
+              Johannesburg · Jeddah · Lagos
             </p>
           </div>
         </div>

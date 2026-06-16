@@ -4,10 +4,15 @@ export function Hero() {
   return (
     <section id="top" className="relative px-5 pt-28 lg:px-8 lg:pt-36">
       <div className="mx-auto max-w-[1600px]">
-        <p className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
-          <span className="inline-block h-2 w-2 rounded-full bg-accent" aria-hidden="true" />
-          Corporate Video — Real Estate — Commercial Content
-        </p>
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+          <p className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
+            <span className="inline-block h-2 w-2 rounded-full bg-accent" aria-hidden="true" />
+            Corporate Video — Real Estate — Commercial Content
+          </p>
+          <span className="rotate-[-3deg] rounded-md border-2 border-foreground px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.2em]">
+            An affiliate of 35Film
+          </span>
+        </div>
 
         <h1 className="mt-6 max-w-6xl text-pretty text-6xl font-extrabold uppercase leading-[0.9] tracking-tight sm:text-7xl md:text-8xl lg:text-[8.5rem]">
           HFDG
@@ -58,6 +63,10 @@ export function Hero() {
               className="size-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
           </div>
+
+          <span className="absolute left-4 top-4 rotate-[-4deg] rounded-md border-2 border-background bg-foreground px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-background md:left-8 md:top-8">
+            Best of 2025 · 0:52
+          </span>
 
           <button
             type="button"

@@ -191,6 +191,12 @@
   animation: marquee 32s linear infinite;
 }
 
+.text-stroke {
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: var(--foreground);
+  color: transparent;
+}
+
 .marquee-mask {
   -webkit-mask-image: linear-gradient(
     to right,
