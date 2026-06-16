@@ -35,9 +35,9 @@ export function Hero() {
       id="top"
       className="relative flex min-h-[100svh] flex-col px-5 pt-28 lg:px-8 lg:pt-36"
     >
-      {/* Viewfinder corner brackets — fixed to the screen edges so all four corners
-          sit at the actual viewport corners, top-left through bottom-right */}
-      <div className="pointer-events-none fixed inset-0 z-40" aria-hidden="true">
+      {/* Viewfinder corner brackets — fixed to the screen edges, z-[60] so they
+          sit above the header (z-50) and show at all four viewport corners */}
+      <div className="pointer-events-none fixed inset-0 z-[60]" aria-hidden="true">
         <FilmCorners size={36} inset={16} className="hidden sm:block" />
         <FilmCorners size={22} inset={10} className="sm:hidden" />
       </div>
