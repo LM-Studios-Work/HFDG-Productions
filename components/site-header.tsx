@@ -92,16 +92,30 @@ export function SiteHeader() {
         </div>
       </header>
 
-      {/* Mobile menu — fixed overlay so it never pushes page content down */}
+      {/* Mobile menu — full-screen black overlay above everything */}
       {open && (
-        <div className="fixed inset-0 z-40 flex flex-col bg-background pt-16 md:hidden">
-          <nav className="flex flex-col border-t-2 border-foreground px-5 py-4" aria-label="Mobile">
+        <div className="fixed inset-0 z-[200] flex flex-col bg-black md:hidden">
+          {/* Top bar inside overlay: logo on left, close button on right */}
+          <div className="flex items-center justify-between px-5 h-16 shrink-0">
+            <Logo />
+            <button
+              type="button"
+              onClick={() => setOpen(false)}
+              className="inline-flex size-10 items-center justify-center rounded-md border-2 border-white text-white"
+              aria-label="Close menu"
+            >
+              <X className="size-5" />
+            </button>
+          </div>
+
+          {/* Nav links */}
+          <nav className="flex flex-col border-t-2 border-white/20 px-5 py-4 grow" aria-label="Mobile">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="border-b border-border py-4 text-2xl font-extrabold uppercase tracking-tight last:border-b-0"
+                className="border-b border-white/10 py-5 text-2xl font-extrabold uppercase tracking-tight text-white last:border-b-0 hover:text-accent transition-colors"
               >
                 {link.label}
               </a>
@@ -109,7 +123,7 @@ export function SiteHeader() {
             <a
               href="#contact"
               onClick={() => setOpen(false)}
-              className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-accent px-4 py-3 text-sm font-extrabold uppercase tracking-tight text-accent-foreground"
+              className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-accent px-4 py-3 text-sm font-extrabold uppercase tracking-tight text-accent-foreground"
             >
               Get in touch
               <ArrowRight className="size-4" />
