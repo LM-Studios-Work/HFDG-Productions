@@ -8,11 +8,21 @@ const socials = [
 const columns = [
   {
     title: "Studio",
-    links: ["Work", "About", "Approach", "Careers"],
+    links: [
+      { label: "Portfolio", href: "/work" },
+      { label: "About", href: "/about" },
+      { label: "Locations", href: "/locations" },
+      { label: "Case Studies", href: "/case-studies" },
+    ],
   },
   {
     title: "Services",
-    links: ["Corporate Video", "Real Estate", "Commercial Content", "Post & Color"],
+    links: [
+      { label: "Corporate Video", href: "/services" },
+      { label: "Real Estate Media", href: "/services" },
+      { label: "Commercial Production", href: "/services" },
+      { label: "Music Video", href: "/services" },
+    ],
   },
 ]
 
@@ -45,12 +55,12 @@ export function SiteFooter() {
               </p>
               <ul className="mt-4 space-y-3">
                 {col.links.map((link) => (
-                  <li key={link}>
+                  <li key={link.label}>
                     <a
-                      href="#"
+                      href={link.href}
                       className="text-sm text-foreground/90 transition-colors hover:text-accent"
                     >
-                      {link}
+                      {link.label}
                     </a>
                   </li>
                 ))}
@@ -80,7 +90,7 @@ export function SiteFooter() {
         <div className="mt-16 flex flex-col gap-2 border-t border-border pt-8 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between">
           <p>© {new Date().getFullYear()} HFDG Productions. All rights reserved.</p>
           <p className="font-mono text-xs uppercase tracking-[0.15em]">
-            Lagos · Nairobi · Dubai
+            Johannesburg · Jeddah · Lagos
           </p>
         </div>
       </div>

@@ -1,4 +1,4 @@
-export type Category = "Corporate" | "Real Estate" | "Commercial" | "Brand"
+export type Category = "Corporate" | "Real Estate" | "Commercial" | "Music Video"
 
 export type Project = {
   id: string
@@ -8,6 +8,12 @@ export type Project = {
   year: string
   runtime: string
   image: string
+  /** Short line that lives underneath the film */
+  summary: string
+  /** Where the film links to — a deeper page of the site */
+  href: string
+  /** Label for the link underneath the film */
+  linkLabel: string
   featured?: boolean
 }
 
@@ -20,6 +26,10 @@ export const projects: Project[] = [
     year: "2025",
     runtime: "1:48",
     featured: true,
+    summary:
+      "A 40-storey launch film shot across Jeddah at golden hour — the reel the developer used to pre-sell the top six floors before breaking ground.",
+    href: "/work/real-estate",
+    linkLabel: "See real estate work",
     image:
       "/placeholder.svg?height=900&width=1600&query=luxury%20high-rise%20development%20aerial%20at%20dusk%20cinematic%20film%20still",
   },
@@ -31,6 +41,10 @@ export const projects: Project[] = [
     year: "2025",
     runtime: "2:30",
     featured: true,
+    summary:
+      "A founder-led brand film for an investor roadshow. They closed their round 30 days after the first screening.",
+    href: "/work/corporate",
+    linkLabel: "See corporate work",
     image:
       "/placeholder.svg?height=900&width=1600&query=modern%20corporate%20office%20team%20meeting%20cinematic%20film%20still",
   },
@@ -41,38 +55,26 @@ export const projects: Project[] = [
     category: "Commercial",
     year: "2024",
     runtime: "0:60",
+    summary:
+      "A 60-second broadcast spot, concept to final color in-house — built to run on TV and cut down for social in a single shoot.",
+    href: "/work/commercial",
+    linkLabel: "See commercial work",
     image:
       "/placeholder.svg?height=900&width=1600&query=luxury%20car%20driving%20at%20night%20city%20lights%20cinematic%20commercial",
   },
   {
-    id: "the-residences",
-    title: "The Residences",
-    client: "Coastal Living",
-    category: "Real Estate",
+    id: "midnight-run",
+    title: "Midnight Run",
+    client: "Kola Vibes",
+    category: "Music Video",
     year: "2024",
-    runtime: "1:20",
+    runtime: "3:14",
+    summary:
+      "A neon-soaked music video shot overnight in Lagos — three locations, one camera car, zero sleep.",
+    href: "/work/music-videos",
+    linkLabel: "See music videos",
     image:
-      "/luxury-waterfront-villa-interior-golden-hour-cinem.jpg",
-  },
-  {
-    id: "built-different",
-    title: "Built Different",
-    client: "Sahara Steel",
-    category: "Corporate",
-    year: "2024",
-    runtime: "1:54",
-    image:
-      "/industrial-construction-site-workers-cinematic-fil.jpg",
-  },
-  {
-    id: "taste-of-home",
-    title: "Taste of Home",
-    client: "Terra Foods",
-    category: "Commercial",
-    year: "2024",
-    runtime: "1:10",
-    image:
-      "/food-brand-commercial-warm-kitchen-cinematic-film-.jpg",
+      "/placeholder.svg?height=900&width=1600&query=neon%20night%20music%20video%20lagos%20street%20cinematic%20film%20still",
   },
 ]
 
@@ -88,10 +90,10 @@ export const clients = [
 ]
 
 export const stats = [
+  { value: "10+", label: "Years behind the lens" },
   { value: "200+", label: "Films delivered" },
-  { value: "14", label: "Countries shot in" },
-  { value: "11", label: "Industry awards" },
-  { value: "8", label: "Years in motion" },
+  { value: "3", label: "Cities, one crew" },
+  { value: "35Film", label: "Affiliated partner" },
 ]
 
 export const services = [
@@ -101,18 +103,77 @@ export const services = [
       "Brand films, founder stories and internal content that make your company look as good as it actually is.",
   },
   {
-    title: "Real Estate",
+    title: "Real Estate Media",
     description:
       "Cinematic property and development films — aerials, walkthroughs and lifestyle reels that sell the space.",
   },
   {
-    title: "Commercial Content",
+    title: "Commercial Production",
     description:
       "Spots and campaigns built for broadcast, social and everything in between — concept to final color.",
   },
   {
-    title: "Post & Color",
+    title: "Event Coverage",
     description:
-      "An in-house finishing suite for edit, sound design, color grade and delivery in any format.",
+      "Multi-cam coverage of launches, conferences and live moments, cut and delivered while it still matters.",
+  },
+  {
+    title: "Music Video",
+    description:
+      "Artist-led visuals with a point of view — direction, shoot and edit that match the energy of the track.",
+  },
+  {
+    title: "Social & Monthly Packages",
+    description:
+      "Always-on content packages that keep your channels fed with sharp, on-brand video every month.",
+  },
+]
+
+/** Locations HFDG operates across (per the brief) */
+export const locations = [
+  { city: "Johannesburg", country: "RSA", status: "active" as const },
+  { city: "Jeddah", country: "KSA", status: "active" as const },
+  { city: "Lagos", country: "NG", status: "active" as const },
+  { city: "Riyadh", country: "KSA", status: "soon" as const },
+  { city: "Berlin", country: "DE", status: "soon" as const },
+]
+
+/** The rest of the site — linked from the home page, built later */
+export const sitePages = [
+  {
+    index: "01",
+    title: "Portfolio",
+    href: "/work",
+    blurb: "Corporate, real estate, commercial and music video work.",
+  },
+  {
+    index: "02",
+    title: "Services",
+    href: "/services",
+    blurb: "From a single hero film to monthly content packages.",
+  },
+  {
+    index: "03",
+    title: "About",
+    href: "/about",
+    blurb: "10+ years behind the lens. An affiliate of 35Film.",
+  },
+  {
+    index: "04",
+    title: "Locations",
+    href: "/locations",
+    blurb: "Johannesburg, Jeddah and Lagos — Riyadh and Berlin soon.",
+  },
+  {
+    index: "05",
+    title: "Case Studies",
+    href: "/case-studies",
+    blurb: "Not just the films — what they did for the client.",
+  },
+  {
+    index: "06",
+    title: "Contact",
+    href: "#contact",
+    blurb: "Book a consultation or send a WhatsApp.",
   },
 ]

@@ -17,7 +17,7 @@ export function Approach() {
             </h2>
           </div>
           <p className="max-w-sm text-balance leading-relaxed text-muted-foreground">
-            One team across pre-production, shoot and post — so nothing gets
+            One team across pre-production, shoot and post. Nothing gets
             lost in the handoff.
           </p>
         </div>
