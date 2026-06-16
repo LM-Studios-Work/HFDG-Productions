@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react"
 import { Menu, X, ArrowRight } from "lucide-react"
-
 const navLinks = [
   { label: "Work", href: "#work" },
   { label: "Services", href: "#approach" },
@@ -53,16 +52,16 @@ export function SiteHeader() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
-      <div className="border-b-2 border-foreground bg-background">
+      <div className="bg-background/95 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-[1600px] items-center justify-between gap-4 px-5 lg:px-8">
           <Logo />
 
-          <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
+          <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="rounded-full px-3 py-1.5 text-sm font-bold uppercase tracking-wide text-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                className="text-sm font-bold uppercase tracking-widest text-foreground transition-colors hover:text-accent"
               >
                 {link.label}
               </a>
@@ -72,9 +71,9 @@ export function SiteHeader() {
           <div className="hidden md:block">
             <a
               href="#contact"
-              className="group inline-flex items-center gap-2.5 rounded-full border border-foreground/30 px-5 py-2 text-sm font-extrabold uppercase tracking-tight text-foreground transition-colors hover:border-accent hover:text-accent"
+              className="inline-flex items-center gap-2.5 text-sm font-extrabold uppercase tracking-widest text-foreground transition-colors hover:text-accent"
             >
-              <span className="inline-block h-2 w-2 rounded-full bg-accent animate-blink-dot" aria-hidden="true" />
+              <span className="inline-block h-2 w-2 rounded-full bg-accent dot-glow animate-blink-dot" aria-hidden="true" />
               Get in touch
             </a>
           </div>

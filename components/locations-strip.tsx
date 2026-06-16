@@ -11,7 +11,7 @@ export function LocationsStrip() {
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
-              004 — Where we shoot
+              <span className="font-bold text-accent">004</span> — Where we shoot
             </p>
             <h2 className="mt-4 max-w-2xl text-pretty text-4xl font-extrabold uppercase tracking-tight md:text-5xl">
               Three cities, one crew.

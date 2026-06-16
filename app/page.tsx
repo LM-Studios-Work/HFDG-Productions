@@ -3,9 +3,7 @@ import { Hero } from "@/components/hero"
 import { ClientMarquee } from "@/components/client-marquee"
 import { WorkShowcase } from "@/components/work-showcase"
 import { StudioStatement } from "@/components/studio-statement"
-import { Approach } from "@/components/approach"
 import { LocationsStrip } from "@/components/locations-strip"
-import { SiteIndex } from "@/components/site-index"
 import { Contact } from "@/components/contact"
 import { SiteFooter } from "@/components/site-footer"
 
@@ -18,9 +16,7 @@ export default function Page() {
         <ClientMarquee />
         <WorkShowcase />
         <StudioStatement />
-        <Approach />
         <LocationsStrip />
-        <SiteIndex />
         <Contact />
       </main>
       <SiteFooter />

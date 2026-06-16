@@ -9,7 +9,7 @@ export function WorkShowcase() {
     <section id="work" className="scroll-mt-20">
       {/* The single full-width film */}
       <div className="group relative overflow-hidden border-y-2 border-foreground">
-        <div className="aspect-video w-full overflow-hidden bg-card">
+        <div className="w-full overflow-hidden bg-card" style={{ aspectRatio: "16 / 6.75" }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/placeholder.svg?height=900&width=1600&query=cinematic%20real%20estate%20and%20corporate%20film%20aerial%20golden%20hour%20Africa%20Middle%20East"
@@ -45,7 +45,7 @@ export function WorkShowcase() {
           {/* Left: headline */}
           <div>
             <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
-              001 — Selected work
+              <span className="font-bold text-accent">001</span> — Selected work
             </p>
             <h2 className="mt-4 max-w-2xl text-pretty font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight md:text-5xl">
               Stories worth
