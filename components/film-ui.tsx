@@ -53,7 +53,7 @@ export function FocusScale({ className = "" }: { className?: string }) {
       <div className="flex items-center gap-2 font-mono text-xs tracking-[0.3em] text-muted-foreground sm:text-sm">
         {marks.map((m, i) => (
           <span key={i} className="flex items-center gap-2">
-            <span className={i === 3 ? "text-accent animate-focus-tick" : ""}>{m}</span>
+            <span className={i === 3 ? "text-accent" : ""}>{m}</span>
             {i < marks.length - 1 && (
               <span className="text-muted-foreground/40">{".."}</span>
             )}

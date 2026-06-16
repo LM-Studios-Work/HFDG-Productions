@@ -1,7 +1,7 @@
 "use client"
 
-import { ArrowRight } from "lucide-react"
-import { FilmCorners, FocusScale, RecordDot } from "@/components/film-ui"
+import { useEffect, useRef, useState } from "react"
+import { FocusScale, RecordDot } from "@/components/film-ui"
 
 /** The HFDG film-frame icon — a camera viewfinder bracket with a blinking red dot.
  *  Inspired by the DGC bracketed logo style. Used as the studio's signature mark. */
@@ -29,20 +29,47 @@ export function FilmFrameIcon({ className = "", dotPulse = false }: { className?
   )
 }
 
+function useLiveClock() {
+  const [time, setTime] = useState("")
+  useEffect(() => {
+    function tick() {
+      const now = new Date()
+      const hh = String(now.getHours()).padStart(2, "0")
+      const mm = String(now.getMinutes()).padStart(2, "0")
+      const ss = String(now.getSeconds()).padStart(2, "0")
+      setTime(`${hh}:${mm}:${ss}`)
+    }
+    tick()
+    const id = setInterval(tick, 1000)
+    return () => clearInterval(id)
+  }, [])
+  return time
+}
+
 export function Hero() {
+  const scaleRef = useRef<HTMLDivElement>(null)
+  const [scaleOpacity, setScaleOpacity] = useState(1)
+  const clock = useLiveClock()
+
+  useEffect(() => {
+    function onScroll() {
+      const scrollY = window.scrollY
+      // Start fading at 60px scroll, fully gone by 300px
+      const opacity = Math.max(0, 1 - (scrollY - 60) / 240)
+      setScaleOpacity(opacity)
+    }
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
+
   return (
     <section
       id="top"
-      className="relative flex min-h-[100svh] flex-col px-5 pt-28 lg:px-8 lg:pt-36"
+      className="relative flex min-h-[100svh] flex-col px-5 pt-20 lg:px-8 lg:pt-28"
     >
-      {/* Viewfinder corner brackets — fixed to the screen edges, z-[60] so they
-          sit above the header (z-50) and show at all four viewport corners */}
-      <div className="pointer-events-none fixed inset-0 z-[60]" aria-hidden="true">
-        <FilmCorners size={36} inset={16} className="hidden sm:block" />
-        <FilmCorners size={22} inset={10} className="sm:hidden" />
-      </div>
 
-      <div className="relative z-20 mx-auto w-full max-w-[1600px] flex-1">
+
+      <div className="relative z-20 mx-auto w-full max-w-[1600px] flex-1 flex flex-col justify-center md:block -translate-y-[5%] md:translate-y-0">
         {/* Eyebrow row */}
         <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
           <p className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
@@ -50,9 +77,6 @@ export function Hero() {
             <RecordDot />
             Corporate Video · Real Estate · Commercial Content
           </p>
-          <span className="rotate-[-3deg] rounded-sm border border-accent/40 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-accent/90">
-            An affiliate of 35Film
-          </span>
         </div>
 
         {/* Main headline */}
@@ -62,42 +86,34 @@ export function Hero() {
           <span className="text-foreground">Productions</span>
         </h1>
 
-        {/* Sub copy + CTA row */}
-        <div className="mt-12 grid gap-10 md:grid-cols-2 md:items-end">
-          <div>
-            <p className="text-pretty text-xl font-semibold leading-snug text-foreground md:text-2xl">
-              We work with real estate developers, corporate brands and creative
-              entrepreneurs across Africa and the Middle East.
-            </p>
-            <p className="mt-5 max-w-xl text-balance leading-relaxed text-muted-foreground">
-              From a single hero film to a full content campaign, we turn your
-              vision into footage that sells, shows and stays with people.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-3 md:justify-end">
-            {/* "Get in touch" — blinking dot inspired by the reference */}
-            <a
-              href="#contact"
-              className="group inline-flex items-center gap-3 rounded-full border-2 border-accent bg-accent px-6 py-3.5 text-sm font-extrabold uppercase tracking-tight text-accent-foreground transition-colors hover:bg-transparent hover:text-accent"
-            >
-              <span className="inline-block h-2 w-2 rounded-full bg-accent-foreground animate-blink-dot group-hover:bg-accent" aria-hidden="true" />
-              Get in touch
-            </a>
-            <a
-              href="#work"
-              className="inline-flex items-center gap-2 rounded-full border-2 border-foreground/40 px-6 py-3.5 text-sm font-extrabold uppercase tracking-tight transition-colors hover:border-foreground"
-            >
-              See our work
-              <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-            </a>
-          </div>
+        {/* Sub copy */}
+        <div className="mt-12 max-w-3xl">
+          <p className="text-pretty text-xl font-semibold leading-snug text-foreground md:text-2xl">
+            We work with real estate developers, corporate brands and creative
+            entrepreneurs across Africa and the Middle East.
+          </p>
+          <p className="mt-5 max-w-xl text-balance leading-relaxed text-muted-foreground">
+            From a single hero film to a full content campaign, we turn your
+            vision into footage that sells, shows and stays with people.
+          </p>
         </div>
       </div>
 
-      {/* Focus-scale ruler — camera focus pull motif from the reference */}
-      <div className="relative z-20 flex justify-center pb-10 pt-16">
+      {/* Focus-scale ruler — laptop+ only, fades out on scroll */}
+      <div
+        ref={scaleRef}
+        className="relative z-20 hidden md:flex justify-center pb-10 pt-16 transition-opacity duration-75"
+        style={{ opacity: scaleOpacity }}
+      >
         <FocusScale />
+      </div>
+
+      {/* Live clock — bottom-right, shifted 3% up-left diagonally */}
+      <div
+        className="pointer-events-none absolute bottom-6 right-7 z-20 font-mono text-sm tabular-nums tracking-widest text-foreground/70 sm:text-base"
+        aria-label="Current time"
+      >
+        {clock}
       </div>
     </section>
   )

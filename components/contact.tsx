@@ -19,7 +19,7 @@ export function Contact() {
       <div className="mx-auto grid max-w-[1600px] grid-cols-1 gap-14 lg:grid-cols-2 lg:gap-20">
         <div>
           <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
-            <span className="font-bold text-accent">006</span> — Get in touch
+            <span className="font-bold text-accent">004</span> — Get in touch
           </p>
           <h2 className="mt-6 text-pretty text-5xl font-extrabold uppercase leading-[0.95] tracking-tight md:text-7xl">
             Book a

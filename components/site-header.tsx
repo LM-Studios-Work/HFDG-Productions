@@ -51,54 +51,57 @@ export function SiteHeader() {
   }, [open])
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
-      <div className="bg-background/95 backdrop-blur">
-        <div className="mx-auto flex h-16 max-w-[1600px] items-center justify-between gap-4 px-5 lg:px-8">
-          <Logo />
+    <>
+      <header className="fixed top-3 sm:top-6 left-0 right-0 w-full z-50">
+        <div className="bg-transparent">
+          <div className="mx-auto flex h-16 max-w-[1600px] items-center justify-between gap-4 px-5 lg:px-8">
+            <Logo />
 
-          <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
-            {navLinks.map((link) => (
+            <nav className="hidden flex-1 max-w-3xl mx-12 lg:mx-20 items-center justify-between md:flex" aria-label="Primary">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm font-bold uppercase tracking-widest text-foreground transition-colors hover:text-accent"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+
+            <div className="hidden md:block">
               <a
-                key={link.href}
-                href={link.href}
-                className="text-sm font-bold uppercase tracking-widest text-foreground transition-colors hover:text-accent"
+                href="#contact"
+                className="inline-flex items-center gap-2.5 text-sm font-extrabold uppercase tracking-widest text-foreground transition-colors hover:text-accent"
               >
-                {link.label}
+                <span className="inline-block h-2 w-2 rounded-full bg-accent dot-glow animate-blink-dot" aria-hidden="true" />
+                Get in touch
               </a>
-            ))}
-          </nav>
+            </div>
 
-          <div className="hidden md:block">
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2.5 text-sm font-extrabold uppercase tracking-widest text-foreground transition-colors hover:text-accent"
+            <button
+              type="button"
+              onClick={() => setOpen((v) => !v)}
+              className="inline-flex size-10 items-center justify-center rounded-md border-2 border-foreground md:hidden"
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
             >
-              <span className="inline-block h-2 w-2 rounded-full bg-accent dot-glow animate-blink-dot" aria-hidden="true" />
-              Get in touch
-            </a>
+              {open ? <X className="size-5" /> : <Menu className="size-5" />}
+            </button>
           </div>
-
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            className="inline-flex size-10 items-center justify-center rounded-md border-2 border-foreground md:hidden"
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-          >
-            {open ? <X className="size-5" /> : <Menu className="size-5" />}
-          </button>
         </div>
-      </div>
+      </header>
 
+      {/* Mobile menu — fixed overlay so it never pushes page content down */}
       {open && (
-        <div className="border-b-2 border-foreground bg-background md:hidden">
-          <nav className="flex flex-col px-5 py-3" aria-label="Mobile">
+        <div className="fixed inset-0 z-40 flex flex-col bg-background pt-16 md:hidden">
+          <nav className="flex flex-col border-t-2 border-foreground px-5 py-4" aria-label="Mobile">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="border-b border-border py-3 text-2xl font-extrabold uppercase tracking-tight last:border-b-0"
+                className="border-b border-border py-4 text-2xl font-extrabold uppercase tracking-tight last:border-b-0"
               >
                 {link.label}
               </a>
@@ -106,7 +109,7 @@ export function SiteHeader() {
             <a
               href="#contact"
               onClick={() => setOpen(false)}
-              className="mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-accent px-4 py-3 text-sm font-extrabold uppercase tracking-tight text-accent-foreground"
+              className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-accent px-4 py-3 text-sm font-extrabold uppercase tracking-tight text-accent-foreground"
             >
               Get in touch
               <ArrowRight className="size-4" />
@@ -114,6 +117,6 @@ export function SiteHeader() {
           </nav>
         </div>
       )}
-    </header>
+    </>
   )
 }
