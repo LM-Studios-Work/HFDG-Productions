@@ -9,7 +9,7 @@ export function StudioStatement() {
     >
       {/* Second video — full width, flush above the copy */}
       <div className="group relative overflow-hidden border-b-2 border-foreground">
-        <div className="w-full overflow-hidden bg-card" style={{ aspectRatio: "16 / 6.75" }}>
+        <div className="w-full overflow-hidden bg-card video-block-responsive">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/placeholder.svg?height=675&width=1600&query=cinematic%20behind%20the%20scenes%20film%20crew%20Africa%20production"
@@ -30,7 +30,7 @@ export function StudioStatement() {
         {/* Top-left REC badge */}
         <span className="absolute left-5 top-5 flex items-center gap-2 rounded-sm border border-foreground/30 bg-background/90 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-foreground backdrop-blur md:left-8 md:top-8">
           <span className="inline-block h-2 w-2 rounded-full bg-accent animate-blink-dot" aria-hidden="true" />
-          Behind the scenes
+          Rec · Behind the scenes
         </span>
       </div>
 
@@ -44,12 +44,12 @@ export function StudioStatement() {
           {/* See more about us — right-aligned on md+ */}
           <a
             href="/about"
-            className="group inline-flex items-center gap-4 self-start"
+            className="group inline-flex items-center gap-4 self-start md:self-end"
             aria-label="Read more about HFDG Productions"
           >
             <FilmFrameIcon
-              className="size-10 text-foreground transition-colors duration-200 group-hover:text-accent"
-              dotPulse={false}
+              className="size-12 text-foreground transition-colors duration-200 group-hover:text-accent md:size-14"
+              dotPulse
             />
             <span className="font-mono text-sm font-extrabold uppercase tracking-[0.2em] transition-colors group-hover:text-accent">
               See more about us

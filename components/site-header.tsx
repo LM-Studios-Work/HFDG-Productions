@@ -3,17 +3,17 @@
 import { useEffect, useState } from "react"
 import { Menu, X, ArrowRight } from "lucide-react"
 const navLinks = [
-  { label: "Work", href: "#work" },
-  { label: "Services", href: "#approach" },
+  { label: "Work", href: "/#work" },
+  { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
   { label: "Locations", href: "/locations" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "/#contact" },
 ]
 
 /** The HFDG logo mark — viewfinder brackets + wordmark, DGC-style */
 function Logo() {
   return (
-    <a href="#top" className="group flex items-center gap-3" aria-label="HFDG Productions home">
+    <a href="/#top" className="group flex items-center gap-3" aria-label="HFDG Productions home">
       {/* Bracketed logo — thin corner brackets with blinking red dot */}
       <span className="relative flex items-center justify-center">
         <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="size-8 text-foreground">
@@ -71,7 +71,7 @@ export function SiteHeader() {
 
             <div className="hidden md:block">
               <a
-                href="#contact"
+                href="/#contact"
                 className="inline-flex items-center gap-2.5 text-sm font-extrabold uppercase tracking-widest text-foreground transition-colors hover:text-accent"
               >
                 <span className="inline-block h-2 w-2 rounded-full bg-accent dot-glow animate-blink-dot" aria-hidden="true" />
@@ -121,7 +121,7 @@ export function SiteHeader() {
               </a>
             ))}
             <a
-              href="#contact"
+              href="/#contact"
               onClick={() => setOpen(false)}
               className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-accent px-4 py-3 text-sm font-extrabold uppercase tracking-tight text-accent-foreground"
             >

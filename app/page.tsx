@@ -3,6 +3,7 @@ import { Hero } from "@/components/hero"
 import { ClientMarquee } from "@/components/client-marquee"
 import { WorkShowcase } from "@/components/work-showcase"
 import { StudioStatement } from "@/components/studio-statement"
+import { ServicesPreview } from "@/components/services-preview"
 import { LocationsStrip } from "@/components/locations-strip"
 import { Contact } from "@/components/contact"
 import { SiteFooter } from "@/components/site-footer"
@@ -26,6 +27,7 @@ export default function Page() {
         <ClientMarquee />
         <WorkShowcase />
         <StudioStatement />
+        <ServicesPreview />
         <LocationsStrip />
         <Contact />
       </main>

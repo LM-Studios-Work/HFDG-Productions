@@ -261,3 +261,14 @@
     animation: none;
   }
 }
+
+/* Responsive video aspect ratios: desktop 10% shorter (16/7.425), mobile original (16/6.75) */
+.video-block-responsive {
+  aspect-ratio: 16 / 6.75;
+}
+
+@media (min-width: 768px) {
+  .video-block-responsive {
+    aspect-ratio: 16 / 7.425;
+  }
+}
