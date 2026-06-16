@@ -9,7 +9,7 @@ export function WorkShowcase() {
     <section id="work" className="scroll-mt-20">
       {/* The single full-width film */}
       <div className="group relative overflow-hidden border-y-2 border-foreground">
-        <div className="aspect-video w-full overflow-hidden bg-card">
+        <div className="w-full overflow-hidden bg-card" style={{ aspectRatio: "16 / 6.75" }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/placeholder.svg?height=900&width=1600&query=cinematic%20real%20estate%20and%20corporate%20film%20aerial%20golden%20hour%20Africa%20Middle%20East"
