@@ -23,24 +23,6 @@ export const metadata: Metadata = {
   title: 'HFDG Productions: Corporate Video, Real Estate & Commercial Content',
   description:
     'HFDG Productions is a video production studio creating corporate films, real estate films and commercial content for real estate developers, corporate brands and creative entrepreneurs across Africa and the Middle East.',
-  generator: 'v0.app',
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
-  },
 }
 
 export const viewport: Viewport = {
