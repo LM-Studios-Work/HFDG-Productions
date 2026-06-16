@@ -269,6 +269,16 @@
 
 @media (min-width: 768px) {
   .video-block-responsive {
-    aspect-ratio: 16 / 7.425;
+    aspect-ratio: 16 / 9;
+    max-height: 45vh;
   }
+}
+
+/* Hide scrollbar on horizontal swipe carousels */
+.scrollbar-none {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
 }

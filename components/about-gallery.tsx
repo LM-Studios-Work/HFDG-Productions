@@ -44,7 +44,27 @@ export function AboutGallery() {
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-4 md:grid-cols-4 md:auto-rows-[minmax(0,1fr)]">
+        {/* ── MOBILE: horizontal swipe carousel ── */}
+        <div className="mt-10 md:hidden flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-5 px-[12.5vw] scrollbar-none">
+          {shots.map((s) => (
+            <div
+              key={s.q}
+              className="snap-center shrink-0 w-[75vw] group relative overflow-hidden border-2 border-foreground bg-card"
+            >
+              <div className="aspect-[4/5] w-full overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`/placeholder.svg?height=900&width=720&query=${s.q}`}
+                  alt={s.alt}
+                  className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* ── DESKTOP: bento grid ── */}
+        <div className="mt-14 hidden md:grid grid-cols-4 auto-rows-[minmax(0,1fr)] gap-4">
           {shots.map((s) => (
             <div
               key={s.q}

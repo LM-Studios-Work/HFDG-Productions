@@ -10,7 +10,7 @@ export function AboutHero() {
       {/* ── MOBILE layout (< lg): media → headline → body → stats ── */}
       <div className="lg:hidden">
         {/* Media — contained square with side padding, sits below navbar */}
-        <div className="group relative px-5 pt-6">
+        <div className="group relative px-5 pt-20">
           <div className="relative overflow-hidden border-2 border-foreground bg-card aspect-square w-full">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -78,7 +78,7 @@ export function AboutHero() {
       </div>
 
       {/* ── DESKTOP layout (lg+): split columns ── */}
-      <div className="hidden lg:block px-8 pt-36 pb-24">
+      <div className="hidden lg:block px-8 pt-24 pb-16">
         <div className="mx-auto grid max-w-[1600px] grid-cols-12 items-center gap-16">
           {/* Left — copy */}
           <div className="col-span-6">
@@ -118,11 +118,14 @@ export function AboutHero() {
           </div>
 
           {/* Right — tall film */}
-          <div className="col-span-6">
-            <div className="group relative">
-              <FilmCorners size={40} inset={-1} className="z-20" />
-              <div className="relative overflow-hidden border-2 border-foreground bg-card">
-                <div className="aspect-square w-full overflow-hidden">
+          <div className="col-span-6 flex items-center justify-center">
+            <div className="group relative w-full flex justify-center">
+              <div
+                className="relative overflow-hidden border-2 border-foreground bg-card"
+                style={{ height: 'min(45vw, calc(100svh - 16rem))', width: 'min(45vw, calc(100svh - 16rem))' }}
+              >
+                <FilmCorners size={40} inset={-1} className="z-20" />
+                <div className="absolute inset-0">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/placeholder.svg?height=1000&width=800&query=cinematic+portrait+filmmaker+director+on+set+camera+moody+lighting"
