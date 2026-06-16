@@ -9,9 +9,9 @@ export function AboutHero() {
 
       {/* ── MOBILE layout (< lg): media → headline → body → stats ── */}
       <div className="lg:hidden">
-        {/* Media — full width, no side padding */}
-        <div className="group relative">
-          <div className="relative overflow-hidden border-b-2 border-foreground bg-card video-block-responsive">
+        {/* Media — contained square with side padding, sits below navbar */}
+        <div className="group relative px-5 pt-6">
+          <div className="relative overflow-hidden border-2 border-foreground bg-card aspect-square w-full">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/placeholder.svg?height=900&width=1200&query=cinematic+filmmaker+director+on+set+moody+lighting"
@@ -122,7 +122,7 @@ export function AboutHero() {
             <div className="group relative">
               <FilmCorners size={40} inset={-1} className="z-20" />
               <div className="relative overflow-hidden border-2 border-foreground bg-card">
-                <div className="aspect-[4/5] w-full overflow-hidden">
+                <div className="aspect-square w-full overflow-hidden">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/placeholder.svg?height=1000&width=800&query=cinematic+portrait+filmmaker+director+on+set+camera+moody+lighting"
