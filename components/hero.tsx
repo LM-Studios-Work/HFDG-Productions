@@ -43,7 +43,7 @@ export function Hero() {
               className="inline-block h-2 w-2 rounded-full bg-accent animate-blink-dot"
               aria-hidden="true"
             />
-            Corporate Video — Real Estate — Commercial Content
+            Corporate Video · Real Estate · Commercial Content
           </p>
           <span className="rotate-[-3deg] rounded-sm border border-foreground/40 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
             An affiliate of 35Film

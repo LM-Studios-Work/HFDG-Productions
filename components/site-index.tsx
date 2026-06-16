@@ -18,8 +18,8 @@ export function SiteIndex() {
             </h2>
           </div>
           <p className="max-w-sm text-balance leading-relaxed text-muted-foreground">
-            Everything you&apos;d want to know before you hit the button —
-            pick a thread and follow it.
+            Everything you want to know before you hit the button.
+            Pick a thread and follow it.
           </p>
         </div>
 

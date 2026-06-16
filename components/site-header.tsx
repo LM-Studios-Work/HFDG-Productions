@@ -14,7 +14,7 @@ const navLinks = [
 /** The HFDG logo mark — viewfinder brackets + wordmark, DGC-style */
 function Logo() {
   return (
-    <a href="#top" className="group flex items-center gap-3" aria-label="HFDG Productions — home">
+    <a href="#top" className="group flex items-center gap-3" aria-label="HFDG Productions home">
       {/* Bracketed logo — thin corner brackets with blinking red dot */}
       <span className="relative flex items-center justify-center">
         <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="size-8 text-foreground">

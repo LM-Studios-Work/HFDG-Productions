@@ -64,7 +64,7 @@ export function Contact() {
                 Message sent
               </p>
               <p className="mt-2 max-w-xs text-muted-foreground">
-                Thanks for reaching out — we&apos;ll get back to you within two
+                Thanks for reaching out. We&apos;ll get back to you within two
                 business days.
               </p>
             </div>
