@@ -11,17 +11,31 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ]
 
+/** The HFDG logo mark — viewfinder brackets + wordmark, DGC-style */
 function Logo() {
   return (
-    <a href="#top" className="group flex items-center gap-2.5" aria-label="HFDG Productions — home">
-      <span className="grid grid-cols-2 gap-px rounded-md border-2 border-foreground p-1 leading-none">
-        <span className="flex size-3.5 items-center justify-center rounded-[2px] bg-accent text-[9px] font-extrabold text-accent-foreground">H</span>
-        <span className="flex size-3.5 items-center justify-center rounded-[2px] bg-foreground text-[9px] font-extrabold text-background">F</span>
-        <span className="flex size-3.5 items-center justify-center rounded-[2px] bg-foreground text-[9px] font-extrabold text-background">D</span>
-        <span className="flex size-3.5 items-center justify-center rounded-[2px] bg-accent text-[9px] font-extrabold text-accent-foreground">G</span>
+    <a href="#top" className="group flex items-center gap-3" aria-label="HFDG Productions — home">
+      {/* Bracketed logo — thin corner brackets with blinking red dot */}
+      <span className="relative flex items-center justify-center">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="size-8 text-foreground">
+          {/* TL bracket */}
+          <path d="M2 9 L2 2 L9 2" stroke="currentColor" strokeWidth="2" strokeLinecap="square" />
+          {/* TR bracket */}
+          <path d="M23 2 L30 2 L30 9" stroke="currentColor" strokeWidth="2" strokeLinecap="square" />
+          {/* BL bracket */}
+          <path d="M2 23 L2 30 L9 30" stroke="currentColor" strokeWidth="2" strokeLinecap="square" />
+          {/* BR bracket */}
+          <path d="M23 30 L30 30 L30 23" stroke="currentColor" strokeWidth="2" strokeLinecap="square" />
+          {/* Red dot — always blinking */}
+          <circle cx="16" cy="16" r="4" className="fill-accent animate-blink-dot" />
+        </svg>
       </span>
-      <span className="font-heading text-lg font-extrabold uppercase tracking-tight">
+      {/* Wordmark */}
+      <span className="font-heading text-base font-extrabold uppercase tracking-[0.1em] transition-colors group-hover:text-accent">
         HFDG
+        <span className="ml-1 font-sans text-[10px] font-normal normal-case tracking-normal text-muted-foreground">
+          Productions
+        </span>
       </span>
     </a>
   )
@@ -58,10 +72,10 @@ export function SiteHeader() {
           <div className="hidden md:block">
             <a
               href="#contact"
-              className="group inline-flex items-center gap-2 text-base font-extrabold uppercase tracking-tight text-foreground transition-colors hover:text-accent"
+              className="group inline-flex items-center gap-2.5 rounded-full border border-foreground/30 px-5 py-2 text-sm font-extrabold uppercase tracking-tight text-foreground transition-colors hover:border-accent hover:text-accent"
             >
+              <span className="inline-block h-2 w-2 rounded-full bg-accent animate-blink-dot" aria-hidden="true" />
               Get in touch
-              <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
             </a>
           </div>
 

@@ -93,7 +93,7 @@ export const stats = [
   { value: "10+", label: "Years behind the lens" },
   { value: "200+", label: "Films delivered" },
   { value: "3", label: "Cities, one crew" },
-  { value: "35", label: "Affiliate of 35Film" },
+  { value: "35Film", label: "Affiliated partner" },
 ]
 
 export const services = [
