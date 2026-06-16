@@ -9,7 +9,7 @@ export function StudioStatement() {
     >
       {/* Second video — full width, flush above the copy */}
       <div className="group relative overflow-hidden border-b-2 border-foreground">
-        <div className="w-full overflow-hidden bg-card" style={{ aspectRatio: "16 / 6.75" }}>
+        <div className="w-full overflow-hidden bg-card video-block-responsive">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/placeholder.svg?height=675&width=1600&query=cinematic%20behind%20the%20scenes%20film%20crew%20Africa%20production"

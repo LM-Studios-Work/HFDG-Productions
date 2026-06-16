@@ -9,7 +9,7 @@ export function ServicesPreview() {
     <section id="services" className="scroll-mt-20">
       {/* The featured film — full width */}
       <div className="group relative overflow-hidden border-y-2 border-foreground">
-        <div className="w-full overflow-hidden bg-card" style={{ aspectRatio: "16 / 6.75" }}>
+        <div className="w-full overflow-hidden bg-card video-block-responsive">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/placeholder.svg?height=900&width=1600&query=cinematic%20film%20production%20team%20creative%20studio%20Africa%20modern%20workspace"
