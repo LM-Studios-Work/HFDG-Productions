@@ -1,7 +1,7 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
-import { FocusScale, RecordDot } from "@/components/film-ui"
+import { useEffect, useState } from "react"
+import { FocusScale } from "@/components/film-ui"
 
 /** The HFDG film-frame icon — a camera viewfinder bracket with a blinking red dot.
  *  Inspired by the DGC bracketed logo style. Used as the studio's signature mark. */
@@ -46,76 +46,66 @@ function useLiveClock() {
   return time
 }
 
-export function Hero() {
-  const scaleRef = useRef<HTMLDivElement>(null)
-  const [scaleOpacity, setScaleOpacity] = useState(1)
-  const clock = useLiveClock()
+/** Six film frames that sit in a tidy row beneath the title — like the DGC reference. */
+const heroFrames = [
+  "warehouse film set silhouette walking cinematic moody",
+  "film crew lighting setup behind the scenes black and white",
+  "dancers performing under red stage light cinematic",
+  "hand holding vintage film camera in gloves cinematic",
+  "silhouette in red lit doorway cinematic film still",
+  "film studio set with equipment dark cinematic",
+]
 
-  useEffect(() => {
-    function onScroll() {
-      const scrollY = window.scrollY
-      // Start fading at 60px scroll, fully gone by 300px
-      const opacity = Math.max(0, 1 - (scrollY - 60) / 240)
-      setScaleOpacity(opacity)
-    }
-    window.addEventListener("scroll", onScroll, { passive: true })
-    return () => window.removeEventListener("scroll", onScroll)
-  }, [])
+export function Hero() {
+  const clock = useLiveClock()
 
   return (
     <section
       id="top"
-      className="relative flex min-h-[100svh] flex-col overflow-hidden bg-[#0c0c0c] pt-20"
+      className="relative flex min-h-[100svh] flex-col overflow-hidden bg-[#0c0c0c]"
     >
       {/* Left Red Glow */}
-      <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#E51A1A]/70 via-[#E51A1A]/20 to-transparent blur-xl z-30 mix-blend-screen" />
-      
+      <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-[#E51A1A]/70 via-[#E51A1A]/20 to-transparent blur-xl z-30 mix-blend-screen" />
+
       {/* Right Red Glow */}
-      <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#E51A1A]/70 via-[#E51A1A]/20 to-transparent blur-xl z-30 mix-blend-screen" />
+      <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-[#E51A1A]/70 via-[#E51A1A]/20 to-transparent blur-xl z-30 mix-blend-screen" />
 
-      {/* Hero Text Background Layer */}
-      <div className="absolute inset-x-0 top-[28%] flex justify-center z-10 select-none">
-        <h1 
-          className="font-heading text-[11vw] font-black uppercase leading-none tracking-tight text-[#EAEAEA] drop-shadow-2xl"
-          style={{ fontStretch: "expanded" }}
+      {/* Centered content stack — title sits ABOVE the frame row */}
+      <div className="relative z-20 mx-auto flex w-full max-w-7xl flex-1 flex-col items-center justify-center gap-8 px-6 py-28 sm:gap-10 sm:px-10 lg:px-16">
+        {/* Title */}
+        <h1
+          className="text-balance text-center font-heading text-5xl font-black uppercase leading-[0.95] tracking-tight text-[#EAEAEA] drop-shadow-2xl sm:text-6xl md:text-7xl lg:text-8xl"
         >
-          HFDG PRODUCTIONS
+          HFDG Productions
         </h1>
-      </div>
 
-      {/* 2D Image Arc Carousel */}
-      <div className="relative z-20 mt-[35vh] flex justify-center items-center w-full px-4">
-        <div className="flex justify-center items-center w-full gap-4 sm:gap-6 lg:gap-8">
-          
-          {/* Far Left Image */}
-          <div className="hidden sm:block w-[14vw] aspect-[4/5] bg-zinc-900 shrink-0 overflow-hidden rounded-sm opacity-50 mix-blend-luminosity grayscale">
-            <img src="/placeholder.svg" alt="" className="w-full h-full object-cover" />
-          </div>
-          
-          {/* Mid Left Image */}
-          <div className="w-[20vw] sm:w-[18vw] aspect-[4/5] bg-zinc-900 shrink-0 overflow-hidden rounded-sm opacity-80">
-            <img src="/placeholder.svg" alt="" className="w-full h-full object-cover" />
-          </div>
-
-          {/* Center Image */}
-          <div className="w-[45vw] sm:w-[26vw] aspect-[4/5] bg-zinc-900 shrink-0 overflow-hidden shadow-2xl rounded-sm z-30">
-            <img src="/placeholder.svg" alt="" className="w-full h-full object-cover" />
-          </div>
-
-          {/* Mid Right Image */}
-          <div className="w-[20vw] sm:w-[18vw] aspect-[4/5] bg-zinc-900 shrink-0 overflow-hidden rounded-sm opacity-80">
-            <img src="/placeholder.svg" alt="" className="w-full h-full object-cover" />
-          </div>
-
-          {/* Far Right Image */}
-          <div className="hidden sm:block w-[14vw] aspect-[4/5] bg-zinc-900 shrink-0 overflow-hidden rounded-sm opacity-50 mix-blend-luminosity grayscale">
-            <img src="/placeholder.svg" alt="" className="w-full h-full object-cover" />
-          </div>
-
+        {/* Film frame row */}
+        <div className="grid w-full grid-cols-3 gap-3 sm:grid-cols-6 sm:gap-4">
+          {heroFrames.map((q, i) => (
+            <figure
+              key={i}
+              className="group relative aspect-[4/3] overflow-hidden rounded-sm bg-zinc-900 ring-1 ring-white/5"
+            >
+              <img
+                src={`/placeholder.svg?height=480&width=640&query=${encodeURIComponent(q)}`}
+                alt=""
+                className="h-full w-full object-cover opacity-90 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
+              />
+            </figure>
+          ))}
         </div>
+
+        {/* Studio statement */}
+        <p className="max-w-md text-balance text-center font-mono text-[11px] uppercase leading-relaxed tracking-[0.18em] text-foreground/70 sm:text-xs">
+          We are experts in the production of films, commercials and brand stories
+          that captivate audiences across Africa and the Middle East.
+        </p>
+
+        {/* Focus ruler */}
+        <FocusScale />
       </div>
 
-      {/* Bottom Elements */}
+      {/* Bottom-left language toggle */}
       <div className="absolute bottom-6 left-7 z-30 font-mono text-sm tracking-widest text-foreground/70 sm:text-base">
         EN UA
       </div>
