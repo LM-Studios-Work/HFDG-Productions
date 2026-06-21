@@ -79,25 +79,33 @@ export function Hero() {
           HFDG Productions
         </h1>
 
-        {/* Infinite right-to-left marquee of square frames — sits lower, tucked
-            under the title and bleeding off both edges like the reference. */}
-        <div className="-mx-6 -mt-2 w-screen max-w-none overflow-hidden sm:-mx-10 lg:-mx-16">
-          <div className="flex w-max animate-marquee gap-3 sm:gap-4">
-            {/* duplicate the set so the loop is seamless */}
-            {[...heroFrames, ...heroFrames].map((q, i) => (
-              <figure
-                key={i}
-                className="group relative aspect-square w-[42vw] shrink-0 overflow-hidden rounded-sm bg-zinc-900 shadow-2xl shadow-black/60 ring-1 ring-white/10 sm:w-[26vw] md:w-[22vw] lg:w-[18vw]"
-              >
-                <img
-                  src={`/placeholder.svg?height=600&width=600&query=${encodeURIComponent(q)}`}
-                  alt=""
-                  className="h-full w-full object-cover opacity-90 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
-                />
-                {/* subtle inner vignette to seat frames into the dark stage */}
-                <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-              </figure>
-            ))}
+        {/* Infinite right-to-left marquee of large square frames — sits lower on a
+            concave perspective curve, tucked under the title and bleeding off both
+            edges like the DGC reference. Layering: perspective viewport →
+            rotateX curve wrapper → translateX marquee track (so the curve isn't
+            overwritten by the animation transform). */}
+        <div
+          className="-mx-6 mt-6 w-screen max-w-none overflow-hidden sm:-mx-10 sm:mt-10 lg:-mx-16"
+          style={{ perspective: "1600px", perspectiveOrigin: "50% 0%" }}
+        >
+          <div style={{ transformStyle: "preserve-3d", transform: "rotateX(9deg)" }}>
+            <div className="flex w-max animate-marquee gap-4 sm:gap-5">
+              {/* duplicate the set so the loop is seamless */}
+              {[...heroFrames, ...heroFrames].map((q, i) => (
+                <figure
+                  key={i}
+                  className="group relative aspect-square w-[64vw] shrink-0 overflow-hidden rounded-sm bg-zinc-900 shadow-2xl shadow-black/70 ring-1 ring-white/10 sm:w-[34vw] md:w-[28vw] lg:w-[23vw]"
+                >
+                  <img
+                    src={`/placeholder.svg?height=720&width=720&query=${encodeURIComponent(q)}`}
+                    alt=""
+                    className="h-full w-full object-cover opacity-90 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
+                  />
+                  {/* subtle inner vignette to seat frames into the dark stage */}
+                  <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                </figure>
+              ))}
+            </div>
           </div>
         </div>
 
