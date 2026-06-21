@@ -7,11 +7,16 @@
  *
  *  Every icon is a 24×24 line drawing on `currentColor`, so it inherits the
  *  accent red (or any color) from its parent via `text-*`.
+ *
+ *  Pass `animate` to bring the mark to life — the CSS in globals.css targets
+ *  the `.svc-*` classes only when the wrapper carries `.svc-anim`.
  */
 
 type IconProps = {
   className?: string
   size?: number
+  /** When true, the mark plays its idle animation. */
+  animate?: boolean
 }
 
 const strokeProps = {
@@ -27,13 +32,14 @@ function Frame({
   className = "",
   size = 24,
   label,
+  animate = false,
 }: IconProps & { children: React.ReactNode; label?: string }) {
   return (
     <svg
       viewBox="0 0 24 24"
       width={size}
       height={size}
-      className={className}
+      className={`${animate ? "svc-anim " : ""}${className}`}
       role={label ? "img" : "presentation"}
       aria-label={label}
       aria-hidden={label ? undefined : true}
@@ -48,7 +54,7 @@ export function CorporateVideoIcon(props: IconProps) {
   return (
     <Frame {...props}>
       <rect x="2.5" y="5" width="19" height="14" rx="2.5" {...strokeProps} />
-      <path d="M10 9.4l4.6 2.6-4.6 2.6z" fill="currentColor" />
+      <path className="svc-play" d="M10 9.4l4.6 2.6-4.6 2.6z" fill="currentColor" />
     </Frame>
   )
 }
@@ -57,8 +63,8 @@ export function CorporateVideoIcon(props: IconProps) {
 export function RealEstateIcon(props: IconProps) {
   return (
     <Frame {...props}>
-      <path d="M3.5 11L12 4.5l8.5 6.5" {...strokeProps} />
-      <path d="M6 10v9h12v-9" {...strokeProps} />
+      <path className="svc-draw" d="M3.5 11L12 4.5l8.5 6.5" {...strokeProps} />
+      <path className="svc-draw" d="M6 10v9h12v-9" {...strokeProps} />
       <path d="M10.2 19v-4.2h3.6V19" {...strokeProps} />
     </Frame>
   )
@@ -69,10 +75,12 @@ export function CommercialIcon(props: IconProps) {
   return (
     <Frame {...props}>
       <rect x="3" y="9" width="18" height="11" rx="1.6" {...strokeProps} />
-      <path d="M3.3 9l1.7-3.6L21 6.8V9" {...strokeProps} />
-      <path d="M8.4 5.7L6.6 9" {...strokeProps} />
-      <path d="M13.1 6.2L11.3 9" {...strokeProps} />
-      <path d="M17.8 6.7L16 9" {...strokeProps} />
+      <g className="svc-clap">
+        <path d="M3.3 9l1.7-3.6L21 6.8V9" {...strokeProps} />
+        <path d="M8.4 5.7L6.6 9" {...strokeProps} />
+        <path d="M13.1 6.2L11.3 9" {...strokeProps} />
+        <path d="M17.8 6.7L16 9" {...strokeProps} />
+      </g>
     </Frame>
   )
 }
@@ -81,11 +89,11 @@ export function CommercialIcon(props: IconProps) {
 export function EventIcon(props: IconProps) {
   return (
     <Frame {...props}>
-      <circle cx="12" cy="12" r="2.1" fill="currentColor" />
-      <path d="M8.6 8.6a4.8 4.8 0 000 6.8" {...strokeProps} />
-      <path d="M15.4 8.6a4.8 4.8 0 010 6.8" {...strokeProps} />
-      <path d="M6 6a8.5 8.5 0 000 12" {...strokeProps} />
-      <path d="M18 6a8.5 8.5 0 010 12" {...strokeProps} />
+      <circle className="svc-pulse" cx="12" cy="12" r="2.1" fill="currentColor" />
+      <path className="svc-arc" d="M8.6 8.6a4.8 4.8 0 000 6.8" {...strokeProps} />
+      <path className="svc-arc" d="M15.4 8.6a4.8 4.8 0 010 6.8" {...strokeProps} />
+      <path className="svc-arc svc-arc-3" d="M6 6a8.5 8.5 0 000 12" {...strokeProps} />
+      <path className="svc-arc svc-arc-3" d="M18 6a8.5 8.5 0 010 12" {...strokeProps} />
     </Frame>
   )
 }
@@ -94,11 +102,11 @@ export function EventIcon(props: IconProps) {
 export function MusicVideoIcon(props: IconProps) {
   return (
     <Frame {...props}>
-      <path d="M4 10v4" {...strokeProps} />
-      <path d="M8 6.5v11" {...strokeProps} />
-      <path d="M12 9v6" {...strokeProps} />
-      <path d="M16 4.5v15" {...strokeProps} />
-      <path d="M20 8v8" {...strokeProps} />
+      <path className="svc-bar" d="M4 10v4" {...strokeProps} />
+      <path className="svc-bar" d="M8 6.5v11" {...strokeProps} />
+      <path className="svc-bar" d="M12 9v6" {...strokeProps} />
+      <path className="svc-bar" d="M16 4.5v15" {...strokeProps} />
+      <path className="svc-bar" d="M20 8v8" {...strokeProps} />
     </Frame>
   )
 }
@@ -108,7 +116,7 @@ export function SocialIcon(props: IconProps) {
   return (
     <Frame {...props}>
       <rect x="6.5" y="2.5" width="11" height="19" rx="2.5" {...strokeProps} />
-      <path d="M10.6 9.4l3.8 2.6-3.8 2.6z" fill="currentColor" />
+      <path className="svc-play" d="M10.6 9.4l3.8 2.6-3.8 2.6z" fill="currentColor" />
     </Frame>
   )
 }
@@ -117,9 +125,11 @@ export function SocialIcon(props: IconProps) {
 export function MonthlyIcon(props: IconProps) {
   return (
     <Frame {...props}>
-      <path d="M19 12a7 7 0 11-2-4.9" {...strokeProps} />
-      <path d="M17 3.6V7.1H13.4" {...strokeProps} />
-      <circle cx="12" cy="12" r="2" fill="currentColor" />
+      <g className="svc-spin">
+        <path d="M19 12a7 7 0 11-2-4.9" {...strokeProps} />
+        <path d="M17 3.6V7.1H13.4" {...strokeProps} />
+      </g>
+      <circle className="svc-pulse" cx="12" cy="12" r="2" fill="currentColor" />
     </Frame>
   )
 }

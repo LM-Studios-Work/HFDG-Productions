@@ -253,11 +253,108 @@
   );
 }
 
+/* ── Animated service icons ─────────────────────────────────────────────
+ *  Animations only run when the icon's wrapper carries `.svc-anim`
+ *  (i.e. its service is the active/hovered one). */
+.svc-anim .svc-play {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: svc-play 1.6s ease-in-out infinite;
+}
+@keyframes svc-play {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.18); }
+}
+
+.svc-anim .svc-bar {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: svc-bar 0.9s ease-in-out infinite;
+}
+.svc-anim .svc-bar:nth-of-type(1) { animation-delay: 0s; }
+.svc-anim .svc-bar:nth-of-type(2) { animation-delay: 0.12s; }
+.svc-anim .svc-bar:nth-of-type(3) { animation-delay: 0.24s; }
+.svc-anim .svc-bar:nth-of-type(4) { animation-delay: 0.36s; }
+.svc-anim .svc-bar:nth-of-type(5) { animation-delay: 0.48s; }
+@keyframes svc-bar {
+  0%, 100% { transform: scaleY(0.45); }
+  50% { transform: scaleY(1); }
+}
+
+.svc-anim .svc-spin {
+  transform-box: view-box;
+  transform-origin: 12px 12px;
+  animation: svc-spin 3.4s linear infinite;
+}
+@keyframes svc-spin {
+  to { transform: rotate(360deg); }
+}
+
+.svc-anim .svc-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: svc-pulse 1.4s ease-in-out infinite;
+}
+@keyframes svc-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(0.55); opacity: 0.65; }
+}
+
+.svc-anim .svc-arc {
+  opacity: 0.3;
+  animation: svc-arc 1.8s ease-in-out infinite;
+}
+.svc-anim .svc-arc-2 { animation-delay: 0.3s; }
+.svc-anim .svc-arc-3 { animation-delay: 0.6s; }
+@keyframes svc-arc {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 1; }
+}
+
+.svc-anim .svc-clap {
+  transform-box: fill-box;
+  transform-origin: left center;
+  animation: svc-clap 2.2s ease-in-out infinite;
+}
+@keyframes svc-clap {
+  0%, 100% { transform: rotate(0deg); }
+  14% { transform: rotate(-15deg); }
+  30% { transform: rotate(0deg); }
+}
+
+.svc-anim .svc-draw {
+  stroke-dasharray: 64;
+  animation: svc-draw 2.6s ease-in-out infinite;
+}
+@keyframes svc-draw {
+  0% { stroke-dashoffset: 64; }
+  55%, 100% { stroke-dashoffset: 0; }
+}
+
+/* Detail panel cross-fade when switching services */
+@keyframes svc-panel-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.svc-panel-in {
+  animation: svc-panel-in 0.45s ease-out both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
   .animate-marquee {
+    animation: none;
+  }
+  .svc-anim .svc-play,
+  .svc-anim .svc-bar,
+  .svc-anim .svc-spin,
+  .svc-anim .svc-pulse,
+  .svc-anim .svc-arc,
+  .svc-anim .svc-clap,
+  .svc-anim .svc-draw,
+  .svc-panel-in {
     animation: none;
   }
 }
