@@ -65,52 +65,64 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-[100svh] flex-col px-5 pt-20 lg:px-8 lg:pt-28"
+      className="relative flex min-h-[100svh] flex-col overflow-hidden bg-[#0c0c0c] pt-20"
     >
+      {/* Left Red Glow */}
+      <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#E51A1A]/70 via-[#E51A1A]/20 to-transparent blur-xl z-30 mix-blend-screen" />
+      
+      {/* Right Red Glow */}
+      <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#E51A1A]/70 via-[#E51A1A]/20 to-transparent blur-xl z-30 mix-blend-screen" />
 
-
-      <div className="relative z-20 mx-auto w-full max-w-[1600px] flex-1 flex flex-col justify-center md:block -translate-y-[5%] md:translate-y-0">
-        {/* Eyebrow row */}
-        <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-          <p className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
-            {/* Blinking red dot — the "recording" indicator */}
-            <RecordDot />
-            Corporate Video · Real Estate · Commercial Content
-          </p>
-        </div>
-
-        {/* Main headline */}
-        <h1 className="mt-6 max-w-6xl text-pretty font-heading text-[2.5rem] font-extrabold uppercase leading-[0.9] tracking-tight sm:text-7xl md:text-8xl lg:text-[9rem]">
-          HFDG
-          <br />
-          <span className="text-foreground">Productions</span>
+      {/* Hero Text Background Layer */}
+      <div className="absolute inset-x-0 top-[28%] flex justify-center z-10 select-none">
+        <h1 
+          className="font-heading text-[11vw] font-black uppercase leading-none tracking-tight text-[#EAEAEA] drop-shadow-2xl"
+          style={{ fontStretch: "expanded" }}
+        >
+          HFDG PRODUCTIONS
         </h1>
+      </div>
 
-        {/* Sub copy */}
-        <div className="mt-12 max-w-3xl">
-          <p className="text-pretty text-xl font-semibold leading-snug text-foreground md:text-2xl">
-            We work with real estate developers, corporate brands and creative
-            entrepreneurs across Africa and the Middle East.
-          </p>
-          <p className="mt-5 max-w-xl text-balance leading-relaxed text-muted-foreground">
-            From a single hero film to a full content campaign, we turn your
-            vision into footage that sells, shows and stays with people.
-          </p>
+      {/* 2D Image Arc Carousel */}
+      <div className="relative z-20 mt-[35vh] flex justify-center items-center w-full px-4">
+        <div className="flex justify-center items-center w-full gap-4 sm:gap-6 lg:gap-8">
+          
+          {/* Far Left Image */}
+          <div className="hidden sm:block w-[14vw] aspect-[4/5] bg-zinc-900 shrink-0 overflow-hidden rounded-sm opacity-50 mix-blend-luminosity grayscale">
+            <img src="/placeholder.svg" alt="" className="w-full h-full object-cover" />
+          </div>
+          
+          {/* Mid Left Image */}
+          <div className="w-[20vw] sm:w-[18vw] aspect-[4/5] bg-zinc-900 shrink-0 overflow-hidden rounded-sm opacity-80">
+            <img src="/placeholder.svg" alt="" className="w-full h-full object-cover" />
+          </div>
+
+          {/* Center Image */}
+          <div className="w-[45vw] sm:w-[26vw] aspect-[4/5] bg-zinc-900 shrink-0 overflow-hidden shadow-2xl rounded-sm z-30">
+            <img src="/placeholder.svg" alt="" className="w-full h-full object-cover" />
+          </div>
+
+          {/* Mid Right Image */}
+          <div className="w-[20vw] sm:w-[18vw] aspect-[4/5] bg-zinc-900 shrink-0 overflow-hidden rounded-sm opacity-80">
+            <img src="/placeholder.svg" alt="" className="w-full h-full object-cover" />
+          </div>
+
+          {/* Far Right Image */}
+          <div className="hidden sm:block w-[14vw] aspect-[4/5] bg-zinc-900 shrink-0 overflow-hidden rounded-sm opacity-50 mix-blend-luminosity grayscale">
+            <img src="/placeholder.svg" alt="" className="w-full h-full object-cover" />
+          </div>
+
         </div>
       </div>
 
-      {/* Focus-scale ruler — laptop+ only, fades out on scroll */}
-      <div
-        ref={scaleRef}
-        className="relative z-20 hidden md:flex justify-center pb-10 pt-16 transition-opacity duration-75"
-        style={{ opacity: scaleOpacity }}
-      >
-        <FocusScale />
+      {/* Bottom Elements */}
+      <div className="absolute bottom-6 left-7 z-30 font-mono text-sm tracking-widest text-foreground/70 sm:text-base">
+        EN UA
       </div>
 
-      {/* Live clock — bottom-right, shifted 3% up-left diagonally */}
+      {/* Live clock — bottom-right */}
       <div
-        className="pointer-events-none absolute bottom-6 right-7 z-20 font-mono text-sm tabular-nums tracking-widest text-foreground/70 sm:text-base"
+        className="pointer-events-none absolute bottom-6 right-7 z-30 font-mono text-sm tabular-nums tracking-widest text-foreground/70 sm:text-base"
         aria-label="Current time"
       >
         {clock}

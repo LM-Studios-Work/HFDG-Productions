@@ -5,8 +5,8 @@ import {
   Hanken_Grotesk,
   JetBrains_Mono,
 } from "next/font/google";
+import { LoadingScreen } from "@/components/loading-screen";
 import "./globals.css";
-
 const bricolage = Bricolage_Grotesque({
   variable: "--font-heading",
   subsets: ["latin"],
@@ -48,6 +48,7 @@ export default function RootLayout({
       className={`dark bg-background ${bricolage.variable} ${hanken.variable} ${jetbrainsMono.variable}`}
     >
       <body className="font-sans antialiased">
+        <LoadingScreen />
         {children}
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
