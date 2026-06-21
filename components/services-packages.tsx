@@ -35,40 +35,45 @@ export function ServicesPackages() {
                 pkg.featured ? "bg-accent text-accent-foreground" : "bg-background"
               }`}
             >
+              {/* Most-chosen badge — absolute so it never shifts the title */}
               {pkg.featured && (
                 <span className="absolute right-6 top-8 rounded-full border border-accent-foreground/40 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em]">
                   Most chosen
                 </span>
               )}
 
-              <h3 className="font-heading text-3xl font-extrabold uppercase tracking-tight">
-                {pkg.name}
-              </h3>
-              <p
-                className={`mt-2 text-sm font-semibold ${
-                  pkg.featured ? "text-accent-foreground/90" : "text-foreground"
-                }`}
-              >
-                {pkg.positioning}
-              </p>
+              {/* ── Top block: title + positioning + anchor + description ── */}
+              <div>
+                <h3 className="font-heading text-3xl font-extrabold uppercase tracking-tight">
+                  {pkg.name}
+                </h3>
+                <p
+                  className={`mt-2 text-sm font-semibold ${
+                    pkg.featured ? "text-accent-foreground/90" : "text-foreground"
+                  }`}
+                >
+                  {pkg.positioning}
+                </p>
 
-              <p
-                className={`mt-6 font-mono text-[10px] uppercase tracking-[0.25em] ${
-                  pkg.featured ? "text-accent-foreground/70" : "text-muted-foreground"
-                }`}
-              >
-                {pkg.anchor}
-              </p>
-              <p
-                className={`mt-3 leading-relaxed ${
-                  pkg.featured ? "text-accent-foreground/90" : "text-muted-foreground"
-                }`}
-              >
-                {pkg.description}
-              </p>
+                <p
+                  className={`mt-6 font-mono text-[10px] uppercase tracking-[0.25em] ${
+                    pkg.featured ? "text-accent-foreground/70" : "text-muted-foreground"
+                  }`}
+                >
+                  {pkg.anchor}
+                </p>
+                <p
+                  className={`mt-3 min-h-[4.5rem] leading-relaxed ${
+                    pkg.featured ? "text-accent-foreground/90" : "text-muted-foreground"
+                  }`}
+                >
+                  {pkg.description}
+                </p>
+              </div>
 
+              {/* ── Features list — grows to fill space so CTA pins bottom ── */}
               <ul
-                className={`mt-8 space-y-3 border-t pt-8 ${
+                className={`mt-8 grow space-y-3 border-t pt-8 ${
                   pkg.featured ? "border-accent-foreground/25" : "border-border"
                 }`}
               >
@@ -84,12 +89,13 @@ export function ServicesPackages() {
                 ))}
               </ul>
 
+              {/* ── CTA — identical shape/size across all three tiers ── */}
               <a
                 href="/#contact"
-                className={`group mt-10 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-extrabold uppercase tracking-widest transition-transform hover:scale-[1.02] ${
+                className={`group mt-10 inline-flex w-full items-center justify-center gap-2 rounded-full border-2 px-6 py-4 text-sm font-extrabold uppercase tracking-widest transition-all hover:scale-[1.02] ${
                   pkg.featured
-                    ? "bg-accent-foreground text-accent"
-                    : "border-2 border-foreground text-foreground hover:border-accent hover:text-accent"
+                    ? "border-accent-foreground bg-accent-foreground text-accent hover:bg-transparent hover:text-accent-foreground"
+                    : "border-foreground bg-transparent text-foreground hover:border-accent hover:text-accent"
                 }`}
               >
                 Start here

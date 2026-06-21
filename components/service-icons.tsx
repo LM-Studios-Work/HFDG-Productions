@@ -111,12 +111,17 @@ export function MusicVideoIcon(props: IconProps) {
   )
 }
 
-/** 06 · Social Media Content — a vertical, feed-native reel (frame + play). */
+/** 06 · Social Media Content — a phone-shaped crop marks + play, same stroke
+ *  weight and visual mass as the other marks (fits a 24×24 grid cleanly). */
 export function SocialIcon(props: IconProps) {
   return (
     <Frame {...props}>
-      <rect x="6.5" y="2.5" width="11" height="19" rx="2.5" {...strokeProps} />
-      <path className="svc-play" d="M10.6 9.4l3.8 2.6-3.8 2.6z" fill="currentColor" />
+      {/* Phone outline — same 19×14 bounding box, rotated concept (portrait) */}
+      <rect x="7" y="2" width="10" height="20" rx="2.5" {...strokeProps} />
+      {/* Home notch */}
+      <circle cx="12" cy="18.4" r="1" fill="currentColor" />
+      {/* Play mark — centred in the screen area */}
+      <path className="svc-play" d="M10.4 8.4l4 2.8-4 2.8z" fill="currentColor" />
     </Frame>
   )
 }
