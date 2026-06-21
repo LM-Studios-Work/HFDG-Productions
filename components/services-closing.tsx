@@ -17,7 +17,7 @@ export function ServicesClosing() {
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a
-            href="/#contact"
+            href="/contact"
             className="inline-flex items-center justify-center gap-2.5 rounded-full bg-accent px-7 py-3.5 text-sm font-extrabold uppercase tracking-widest text-accent-foreground transition-transform hover:scale-[1.03]"
           >
             <span className="inline-block h-2 w-2 rounded-full bg-accent-foreground" aria-hidden="true" />

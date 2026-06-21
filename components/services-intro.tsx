@@ -1,24 +1,27 @@
+"use client"
+
 import { ArrowDown } from "lucide-react"
-import { RecordDot } from "@/components/film-ui"
 import { serviceDetails } from "@/lib/site-data"
 
 /** Services hero — text-led, no top-corner film brackets.
  *  Headline on the left, a "contents sheet" of every capability on the right
- *  that doubles as in-page jump navigation. */
+ *  that doubles as in-page jump navigation. Clicking an item scrolls to it
+ *  and also opens the accordion for that service. */
 export function ServicesIntro() {
+  const handleServiceClick = (slug: string) => {
+    // Set the hash (triggers hashchange + scroll to element)
+    window.location.hash = slug
+    // Also dispatch a custom event — handles re-clicks on the same hash
+    window.dispatchEvent(new CustomEvent("open-service", { detail: slug }))
+  }
+
   return (
     <section id="top" className="scroll-mt-20 px-5 pt-28 pb-16 lg:px-8 lg:pt-36 lg:pb-24">
       <div className="mx-auto max-w-[1600px]">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           {/* Left — the statement */}
           <div className="lg:col-span-7">
-            <p className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
-              <RecordDot />
-              <span>
-                <span className="font-bold text-accent">02</span> — Services
-              </span>
-            </p>
-            <h1 className="mt-6 text-pretty font-heading text-[2.75rem] font-extrabold uppercase leading-[0.9] tracking-tight sm:text-6xl lg:text-7xl xl:text-8xl">
+            <h1 className="text-pretty font-heading text-[2.75rem] font-extrabold uppercase leading-[0.9] tracking-tight sm:text-6xl lg:text-7xl xl:text-8xl">
               Every kind
               <br />
               of film.
@@ -43,7 +46,7 @@ export function ServicesIntro() {
           </div>
 
           {/* Right — contents sheet / jump nav */}
-          <div className="lg:col-span-5">
+          <div className="hidden lg:block lg:col-span-5">
             <div className="rounded-lg border-2 border-foreground">
               <p className="flex items-center justify-between border-b-2 border-foreground px-5 py-3.5 font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
                 <span>What we offer</span>
@@ -57,6 +60,7 @@ export function ServicesIntro() {
                   >
                     <a
                       href={`#${s.slug}`}
+                      onClick={() => handleServiceClick(s.slug)}
                       className="group flex items-center gap-4 px-5 py-3.5 transition-colors hover:bg-secondary/50"
                     >
                       <span className="font-mono text-xs font-bold text-accent">{s.index}</span>

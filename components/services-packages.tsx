@@ -1,5 +1,5 @@
-import { Check, ArrowRight } from "lucide-react"
-import { packages } from "@/lib/site-data"
+import { Check, ArrowRight } from "lucide-react";
+import { packages } from "@/lib/site-data";
 
 /** Pricing anchors — three tiers, no exact prices. A genuine comparison, so a
  *  three-column layout earns its place here. Middle tier carries the accent. */
@@ -7,24 +7,17 @@ export function ServicesPackages() {
   return (
     <section
       id="packages"
-      className="scroll-mt-20 border-t-2 border-foreground px-5 py-24 lg:px-8 lg:py-32"
+      className="scroll-mt-20 border-t-2 border-foreground px-5 py-12 lg:px-8 lg:py-16"
     >
       <div className="mx-auto max-w-[1600px]">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
-              <span className="font-bold text-accent">C</span> — Where to start
-            </p>
-            <h2 className="mt-4 max-w-2xl text-pretty font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight md:text-5xl">
+            <h2 className="max-w-2xl text-pretty font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight md:text-5xl">
               Pick a starting
               <br />
               point.
             </h2>
           </div>
-          <p className="max-w-sm text-balance leading-relaxed text-muted-foreground">
-            Every project is quoted to scope — these tiers show roughly where
-            you&apos;d land. The final number comes after a quick consult.
-          </p>
         </div>
 
         <div className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-lg border-2 border-foreground bg-foreground md:grid-cols-3">
@@ -32,7 +25,9 @@ export function ServicesPackages() {
             <div
               key={pkg.name}
               className={`relative flex flex-col p-8 lg:p-10 ${
-                pkg.featured ? "bg-accent text-accent-foreground" : "bg-background"
+                pkg.featured
+                  ? "bg-accent text-accent-foreground"
+                  : "bg-background"
               }`}
             >
               {/* Most-chosen badge — absolute so it never shifts the title */}
@@ -49,7 +44,9 @@ export function ServicesPackages() {
                 </h3>
                 <p
                   className={`mt-2 text-sm font-semibold ${
-                    pkg.featured ? "text-accent-foreground/90" : "text-foreground"
+                    pkg.featured
+                      ? "text-accent-foreground/90"
+                      : "text-foreground"
                   }`}
                 >
                   {pkg.positioning}
@@ -57,14 +54,18 @@ export function ServicesPackages() {
 
                 <p
                   className={`mt-6 font-mono text-[10px] uppercase tracking-[0.25em] ${
-                    pkg.featured ? "text-accent-foreground/70" : "text-muted-foreground"
+                    pkg.featured
+                      ? "text-accent-foreground/70"
+                      : "text-muted-foreground"
                   }`}
                 >
                   {pkg.anchor}
                 </p>
                 <p
                   className={`mt-3 min-h-[4.5rem] leading-relaxed ${
-                    pkg.featured ? "text-accent-foreground/90" : "text-muted-foreground"
+                    pkg.featured
+                      ? "text-accent-foreground/90"
+                      : "text-muted-foreground"
                   }`}
                 >
                   {pkg.description}
@@ -91,7 +92,7 @@ export function ServicesPackages() {
 
               {/* ── CTA — identical shape/size across all three tiers ── */}
               <a
-                href="/#contact"
+                href="/contact"
                 className={`group mt-10 inline-flex w-full items-center justify-center gap-2 rounded-full border-2 px-6 py-4 text-sm font-extrabold uppercase tracking-widest transition-all hover:scale-[1.02] ${
                   pkg.featured
                     ? "border-accent-foreground bg-accent-foreground text-accent hover:bg-transparent hover:text-accent-foreground"
@@ -106,9 +107,16 @@ export function ServicesPackages() {
         </div>
 
         <p className="mt-8 text-center font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground">
-          Not sure which fits? <a href="/#contact" className="text-accent underline-offset-4 hover:underline">Tell us about the project</a> and we&apos;ll point you to the right one.
+          Not sure which fits?{" "}
+          <a
+            href="/contact"
+            className="text-accent underline-offset-4 hover:underline"
+          >
+            Tell us about the project
+          </a>{" "}
+          and we&apos;ll point you to the right one.
         </p>
       </div>
     </section>
-  )
+  );
 }

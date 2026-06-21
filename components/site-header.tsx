@@ -1,13 +1,14 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { usePathname } from "next/navigation"
 import { Menu, X, ArrowRight } from "lucide-react"
 const navLinks = [
-  { label: "Work", href: "/#work" },
+  { label: "Work", href: "/projects" },
   { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
   { label: "Locations", href: "/locations" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "/contact" },
 ]
 
 /** The HFDG logo mark — viewfinder brackets + wordmark, DGC-style */
@@ -42,6 +43,7 @@ function Logo() {
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : ""
@@ -58,20 +60,25 @@ export function SiteHeader() {
             <Logo />
 
             <nav className="hidden flex-1 max-w-3xl mx-12 lg:mx-20 items-center justify-between md:flex" aria-label="Primary">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm font-bold uppercase tracking-widest text-foreground transition-colors hover:text-accent"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href))
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className={`text-sm font-bold uppercase tracking-widest transition-colors hover:text-accent ${
+                      isActive ? "text-accent" : "text-foreground"
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                )
+              })}
             </nav>
 
             <div className="hidden md:block">
               <a
-                href="/#contact"
+                href="/contact"
                 className="inline-flex items-center gap-2.5 text-sm font-extrabold uppercase tracking-widest text-foreground transition-colors hover:text-accent"
               >
                 <span className="inline-block h-2 w-2 rounded-full bg-accent dot-glow animate-blink-dot" aria-hidden="true" />
@@ -110,18 +117,23 @@ export function SiteHeader() {
 
           {/* Nav links */}
           <nav className="flex flex-col border-t-2 border-white/20 px-5 py-4 grow" aria-label="Mobile">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="border-b border-white/10 py-5 text-2xl font-extrabold uppercase tracking-tight text-white last:border-b-0 hover:text-accent transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href))
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className={`border-b border-white/10 py-5 text-2xl font-extrabold uppercase tracking-tight last:border-b-0 hover:text-accent transition-colors ${
+                    isActive ? "text-accent" : "text-white"
+                  }`}
+                >
+                  {link.label}
+                </a>
+              )
+            })}
             <a
-              href="/#contact"
+              href="/contact"
               onClick={() => setOpen(false)}
               className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-accent px-4 py-3 text-sm font-extrabold uppercase tracking-tight text-accent-foreground"
             >

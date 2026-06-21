@@ -78,10 +78,10 @@ const columns = [
   {
     title: "Studio",
     links: [
-      { label: "Portfolio", href: "/work" },
+      { label: "Portfolio", href: "/projects" },
       { label: "About", href: "/about" },
       { label: "Locations", href: "/locations" },
-      { label: "Case Studies", href: "/case-studies" },
+      { label: "Case Studies", href: "/projects#case-studies" },
     ],
   },
   {
