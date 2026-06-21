@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { FocusScale } from "@/components/film-ui"
 
 /** The HFDG film-frame icon — a camera viewfinder bracket with a blinking red dot.
@@ -46,7 +46,7 @@ function useLiveClock() {
   return time
 }
 
-/** Film frames that scroll in an infinite right-to-left marquee — like the DGC reference. */
+/** Film frames that scroll in an infinite right-to-left arc — like the DGC reference. */
 const heroFrames = [
   "warehouse film set silhouette walking cinematic moody",
   "film crew lighting setup behind the scenes black and white",
@@ -55,6 +55,101 @@ const heroFrames = [
   "silhouette in red lit doorway cinematic film still",
   "film studio set with equipment dark cinematic",
 ]
+
+/**
+ * A continuously scrolling (right → left) carousel whose cards ride a concave
+ * arc: the card nearest the centre is the SMALLEST and the cards gradually grow,
+ * tilt, and lift as they travel toward the edges. Because each card's size
+ * depends on its live horizontal position, this is driven by a requestAnimationFrame
+ * loop rather than a pure CSS marquee.
+ */
+function CurvedCarousel() {
+  const viewportRef = useRef<HTMLDivElement>(null)
+  const trackRef = useRef<HTMLDivElement>(null)
+  const cardsRef = useRef<Array<HTMLElement | null>>([])
+  // duplicate the set so the loop is seamless
+  const frames = [...heroFrames, ...heroFrames]
+
+  useEffect(() => {
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    let offset = 0
+    let last: number | null = null
+    let raf = 0
+    const speed = 55 // px / second, moving left
+
+    function frame(now: number) {
+      const viewport = viewportRef.current
+      const track = trackRef.current
+      if (!viewport || !track) {
+        raf = requestAnimationFrame(frame)
+        return
+      }
+
+      if (last == null) last = now
+      const dt = (now - last) / 1000
+      last = now
+
+      if (!prefersReduced) {
+        offset -= speed * dt
+        const setWidth = track.scrollWidth / 2 // width of one (un-duplicated) set
+        if (setWidth > 0 && -offset >= setWidth) offset += setWidth
+        track.style.transform = `translate3d(${offset}px,0,0)`
+      }
+
+      // Shape each card based on its distance from the viewport centre.
+      const vRect = viewport.getBoundingClientRect()
+      const centerX = vRect.left + vRect.width / 2
+      const half = vRect.width / 2
+      for (const card of cardsRef.current) {
+        if (!card) continue
+        const r = card.getBoundingClientRect()
+        const cardCenter = r.left + r.width / 2
+        const d = Math.max(-1, Math.min(1, (cardCenter - centerX) / half)) // -1 (left) → 1 (right)
+        const t = Math.abs(d) // 0 at centre, 1 at edge
+        const scale = 0.74 + t * 0.42 // centre smallest, edges biggest
+        const rotateY = d * -26 // edges angle inward (concave cylinder)
+        const lift = -t * t * 46 // edges rise up to form the arc
+        card.style.transform = `translateY(${lift}px) rotateY(${rotateY}deg) scale(${scale})`
+        card.style.zIndex = String(Math.round((1 - t) * 100))
+      }
+
+      raf = requestAnimationFrame(frame)
+    }
+
+    raf = requestAnimationFrame(frame)
+    return () => cancelAnimationFrame(raf)
+  }, [])
+
+  return (
+    <div
+      ref={viewportRef}
+      className="-mx-6 mt-10 w-screen max-w-none overflow-hidden py-10 sm:-mx-10 sm:mt-14 lg:-mx-16"
+      style={{ perspective: "1700px", perspectiveOrigin: "50% 50%" }}
+    >
+      <div ref={trackRef} className="flex w-max items-center will-change-transform" style={{ transformStyle: "preserve-3d" }}>
+        {frames.map((q, i) => (
+          <div key={i} className="px-2 sm:px-2.5" style={{ transformStyle: "preserve-3d" }}>
+            <figure
+              ref={(el) => {
+                cardsRef.current[i] = el
+              }}
+              className="group relative aspect-square w-[60vw] shrink-0 overflow-hidden rounded-sm bg-zinc-900 shadow-2xl shadow-black/70 ring-1 ring-white/10 will-change-transform sm:w-[34vw] md:w-[27vw] lg:w-[22vw]"
+              style={{ transformOrigin: "center center" }}
+            >
+              <img
+                src={`/placeholder.svg?height=720&width=720&query=${encodeURIComponent(q)}`}
+                alt=""
+                className="h-full w-full object-cover opacity-90 transition duration-500 group-hover:opacity-100"
+              />
+              {/* subtle inner vignette to seat frames into the dark stage */}
+              <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+            </figure>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 export function Hero() {
   const clock = useLiveClock()
@@ -79,35 +174,9 @@ export function Hero() {
           HFDG Productions
         </h1>
 
-        {/* Infinite right-to-left marquee of large square frames — sits lower on a
-            concave perspective curve, tucked under the title and bleeding off both
-            edges like the DGC reference. Layering: perspective viewport →
-            rotateX curve wrapper → translateX marquee track (so the curve isn't
-            overwritten by the animation transform). */}
-        <div
-          className="-mx-6 mt-6 w-screen max-w-none overflow-hidden sm:-mx-10 sm:mt-10 lg:-mx-16"
-          style={{ perspective: "1600px", perspectiveOrigin: "50% 0%" }}
-        >
-          <div style={{ transformStyle: "preserve-3d", transform: "rotateX(9deg)" }}>
-            <div className="flex w-max animate-marquee gap-4 sm:gap-5">
-              {/* duplicate the set so the loop is seamless */}
-              {[...heroFrames, ...heroFrames].map((q, i) => (
-                <figure
-                  key={i}
-                  className="group relative aspect-square w-[64vw] shrink-0 overflow-hidden rounded-sm bg-zinc-900 shadow-2xl shadow-black/70 ring-1 ring-white/10 sm:w-[34vw] md:w-[28vw] lg:w-[23vw]"
-                >
-                  <img
-                    src={`/placeholder.svg?height=720&width=720&query=${encodeURIComponent(q)}`}
-                    alt=""
-                    className="h-full w-full object-cover opacity-90 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
-                  />
-                  {/* subtle inner vignette to seat frames into the dark stage */}
-                  <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                </figure>
-              ))}
-            </div>
-          </div>
-        </div>
+        {/* Curved, auto-scrolling film-frame carousel (right → left).
+            Centre card smallest, edge cards gradually larger on a concave arc. */}
+        <CurvedCarousel />
 
         {/* Studio statement */}
         <p className="max-w-md text-balance text-center font-mono text-[11px] uppercase leading-relaxed tracking-[0.18em] text-foreground/70 sm:text-xs">
