@@ -46,7 +46,7 @@ function useLiveClock() {
   return time
 }
 
-/** Six film frames that sit in a tidy row beneath the title — like the DGC reference. */
+/** Six film frames that sit in a curved 3D arc beneath the title — like the DGC reference. */
 const heroFrames = [
   "warehouse film set silhouette walking cinematic moody",
   "film crew lighting setup behind the scenes black and white",
@@ -55,6 +55,23 @@ const heroFrames = [
   "silhouette in red lit doorway cinematic film still",
   "film studio set with equipment dark cinematic",
 ]
+
+/** Builds the per-frame 3D transform so the strip curves like the inside of a
+ *  cylinder: edge frames rotate toward the centre, sit slightly higher, recede
+ *  and dim — giving the professional bowed-carousel look from the reference. */
+function frameTransform(index: number, total: number) {
+  const center = (total - 1) / 2
+  const offset = index - center // negative = left, positive = right
+  const rotateY = -offset * 9 // edges angle in toward the viewer (concave)
+  const translateY = Math.abs(offset) * -10 // edges lift up, centre dips down
+  const translateZ = Math.abs(offset) * -36 // edges recede into depth
+  const scale = 1 - Math.abs(offset) * 0.03
+  const opacity = 1 - Math.abs(offset) * 0.12
+  return {
+    transform: `rotateY(${rotateY}deg) translateY(${translateY}px) translateZ(${translateZ}px) scale(${scale})`,
+    opacity,
+  }
+}
 
 export function Hero() {
   const clock = useLiveClock()
@@ -79,20 +96,34 @@ export function Hero() {
           HFDG Productions
         </h1>
 
-        {/* Film frame row */}
-        <div className="grid w-full grid-cols-3 gap-3 sm:grid-cols-6 sm:gap-4">
-          {heroFrames.map((q, i) => (
-            <figure
-              key={i}
-              className="group relative aspect-[4/3] overflow-hidden rounded-sm bg-zinc-900 ring-1 ring-white/5"
-            >
-              <img
-                src={`/placeholder.svg?height=480&width=640&query=${encodeURIComponent(q)}`}
-                alt=""
-                className="h-full w-full object-cover opacity-90 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
-              />
-            </figure>
-          ))}
+        {/* Curved 3D film-frame carousel — bowed perspective like the reference */}
+        <div
+          className="-mt-2 w-full sm:-mt-6"
+          style={{ perspective: "1400px", perspectiveOrigin: "50% 40%" }}
+        >
+          <div
+            className="flex items-center justify-center gap-3 sm:gap-4"
+            style={{ transformStyle: "preserve-3d", transform: "rotateX(6deg)" }}
+          >
+            {heroFrames.map((q, i) => {
+              const { transform, opacity } = frameTransform(i, heroFrames.length)
+              return (
+                <figure
+                  key={i}
+                  style={{ transform, opacity }}
+                  className="group relative aspect-[3/4] w-1/6 min-w-0 flex-1 overflow-hidden rounded-sm bg-zinc-900 shadow-2xl shadow-black/60 ring-1 ring-white/10 transition-[transform,opacity] duration-500 will-change-transform"
+                >
+                  <img
+                    src={`/placeholder.svg?height=640&width=480&query=${encodeURIComponent(q)}`}
+                    alt=""
+                    className="h-full w-full object-cover opacity-90 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
+                  />
+                  {/* subtle inner vignette to seat frames into the dark stage */}
+                  <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                </figure>
+              )
+            })}
+          </div>
         </div>
 
         {/* Studio statement */}
