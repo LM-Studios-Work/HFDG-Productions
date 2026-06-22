@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react"
 import { services } from "@/lib/site-data"
-import { FilmFrameIcon } from "@/components/hero"
+import { FilmFrameIcon } from "@/components/film-ui"
 
 /** About — Expertise grid + 35Film affiliate band + closing CTA. */
 export function AboutExpertise() {

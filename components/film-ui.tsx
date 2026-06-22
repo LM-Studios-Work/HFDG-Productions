@@ -4,6 +4,26 @@
  *  - RecordDot: the blinking red "recording" indicator with a soft halo
  */
 
+/** The HFDG film-frame icon — a camera viewfinder bracket with a blinking red dot. */
+export function FilmFrameIcon({ className = "", dotPulse = false }: { className?: string; dotPulse?: boolean }) {
+  return (
+    <span className={`inline-flex items-center justify-center ${className}`} aria-hidden="true">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+        <path d="M2 12 L2 2 L12 2" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" />
+        <path d="M28 2 L38 2 L38 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" />
+        <path d="M2 28 L2 38 L12 38" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" />
+        <path d="M28 38 L38 38 L38 28" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" />
+        <circle
+          cx="20"
+          cy="20"
+          r="5"
+          className={`fill-accent ${dotPulse ? "animate-blink-dot" : ""}`}
+        />
+      </svg>
+    </span>
+  )
+}
+
 /** Blinking red record dot with a soft red halo. */
 export function RecordDot({ className = "" }: { className?: string }) {
   return (

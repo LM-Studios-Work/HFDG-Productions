@@ -1,7 +1,7 @@
 "use client"
 
 import { Play, ArrowRight } from "lucide-react"
-import { FilmFrameIcon } from "@/components/hero"
+import { FilmFrameIcon } from "@/components/film-ui"
 
 /** Section 003: Services preview — Video, manifesto copy, link to services page */
 export function ServicesPreview() {

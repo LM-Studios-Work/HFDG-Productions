@@ -1,7 +1,7 @@
 "use client"
 
 import { Play, ArrowRight } from "lucide-react"
-import { FilmFrameIcon } from "@/components/hero"
+import { FilmFrameIcon } from "@/components/film-ui"
 
 /** One full-width featured film with "View Our Work" underneath — Sandwich-style. */
 export function WorkShowcase() {

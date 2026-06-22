@@ -1,5 +1,5 @@
 import { ArrowRight, Play } from "lucide-react"
-import { FilmFrameIcon } from "@/components/hero"
+import { FilmFrameIcon } from "@/components/film-ui"
 
 export function StudioStatement() {
   return (

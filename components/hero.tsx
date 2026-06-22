@@ -1,27 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { FocusScale } from "@/components/film-ui"
-
-/** The HFDG film-frame icon — a camera viewfinder bracket with a blinking red dot. */
-export function FilmFrameIcon({ className = "", dotPulse = false }: { className?: string; dotPulse?: boolean }) {
-  return (
-    <span className={`inline-flex items-center justify-center ${className}`} aria-hidden="true">
-      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-        <path d="M2 12 L2 2 L12 2" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" />
-        <path d="M28 2 L38 2 L38 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" />
-        <path d="M2 28 L2 38 L12 38" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" />
-        <path d="M28 38 L38 38 L38 28" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" />
-        <circle
-          cx="20"
-          cy="20"
-          r="5"
-          className={`fill-accent ${dotPulse ? "animate-blink-dot" : ""}`}
-        />
-      </svg>
-    </span>
-  )
-}
+import { FilmCorners, FocusScale, RecordDot } from "@/components/film-ui"
 
 function useLiveClock() {
   const [time, setTime] = useState("")
@@ -40,96 +20,121 @@ function useLiveClock() {
   return time
 }
 
-// 5 placeholder stills — each a different cinematic scene
-const stills = [
-  { q: "silhouette dancer red stage light cinematic", w: 420, h: 520 },
-  { q: "film crew camera operator behind scenes", w: 420, h: 520 },
-  { q: "hand holding film camera red glow cinematic", w: 420, h: 520 },
-  { q: "woman walking warehouse cinematic moody", w: 420, h: 520 },
-  { q: "film lighting rig studio setup dark", w: 420, h: 520 },
-]
-
 export function Hero() {
   const clock = useLiveClock()
 
   return (
     <section
       id="top"
-      className="relative flex min-h-[100svh] flex-col overflow-hidden bg-[#0c0c0c]"
+      className="relative flex min-h-[100svh] flex-col overflow-hidden bg-background"
     >
-      {/* Left red glow column */}
+      {/* ── Side glows — same muted crimson as the rest of the site ── */}
       <div
-        className="pointer-events-none absolute inset-y-0 left-0 z-20 w-16 sm:w-28"
+        className="pointer-events-none absolute inset-y-0 left-0 z-20 w-20 sm:w-36"
         style={{
-          background:
-            "linear-gradient(to right, oklch(0.42 0.22 27 / 0.85) 0%, oklch(0.42 0.22 27 / 0.28) 55%, transparent 100%)",
+          background: "linear-gradient(to right, oklch(0.42 0.22 27 / 0.7) 0%, oklch(0.42 0.22 27 / 0.18) 60%, transparent 100%)",
         }}
       />
-      {/* Right red glow column */}
       <div
-        className="pointer-events-none absolute inset-y-0 right-0 z-20 w-16 sm:w-28"
+        className="pointer-events-none absolute inset-y-0 right-0 z-20 w-20 sm:w-36"
         style={{
-          background:
-            "linear-gradient(to left, oklch(0.42 0.22 27 / 0.85) 0%, oklch(0.42 0.22 27 / 0.28) 55%, transparent 100%)",
+          background: "linear-gradient(to left, oklch(0.42 0.22 27 / 0.7) 0%, oklch(0.42 0.22 27 / 0.18) 60%, transparent 100%)",
         }}
       />
 
-      {/* ── Main content ─────────────────────────────────────────── */}
-      <div className="relative z-10 flex flex-1 flex-col">
+      {/* ── Viewfinder corners on the whole section ── */}
+      <FilmCorners inset={20} size={32} thickness={2} />
 
-        {/* Large cinematic title — sits above the image strip */}
-        <div className="flex flex-1 items-end justify-center px-6 pb-6 pt-28 sm:pb-8 sm:pt-32">
+      {/* ── Record indicator top-left ── */}
+      <div className="absolute left-7 top-24 z-30 flex items-center gap-2">
+        <RecordDot />
+        <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-foreground/40">
+          REC
+        </span>
+      </div>
+
+      {/* ══════════════════════════════════════════════
+          MAIN LAYOUT — three columns on desktop:
+          [image left] [title + copy] [image right]
+          Stacks vertically on mobile.
+      ══════════════════════════════════════════════ */}
+      <div className="relative z-10 flex flex-1 flex-col items-stretch justify-between gap-0 md:flex-row">
+
+        {/* Left image — tall portrait, bleeds from top */}
+        <div className="relative hidden w-[28%] shrink-0 overflow-hidden md:block">
+          <img
+            src="/placeholder.svg?height=900&width=560&query=silhouette+dancer+red+stage+light+cinematic+dark"
+            alt=""
+            className="h-full w-full object-cover opacity-75"
+          />
+          {/* fade into background at edges */}
+          <span className="pointer-events-none absolute inset-0 bg-gradient-to-r from-background/90 via-transparent to-transparent" />
+          <span className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background/80" />
+        </div>
+
+        {/* Centre column — title + statement */}
+        <div className="flex flex-1 flex-col items-center justify-center gap-8 px-6 pb-20 pt-32 sm:gap-10 sm:pb-24 sm:pt-36">
+
+          {/* Thin overline */}
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent/60">
+            Film &nbsp;&middot;&nbsp; Commercials &nbsp;&middot;&nbsp; Brand Stories
+          </p>
+
+          {/* Main title */}
           <h1
-            className="text-center font-heading font-black uppercase text-foreground"
+            className="text-balance text-center font-heading font-black uppercase text-foreground"
             style={{
-              fontSize: "clamp(3.2rem, 10vw, 9rem)",
-              lineHeight: 0.92,
-              letterSpacing: "-0.02em",
+              fontSize: "clamp(3rem, 8vw, 7.5rem)",
+              lineHeight: 0.9,
+              letterSpacing: "-0.025em",
             }}
           >
-            HFDG Productions
+            HFDG
+            <br />
+            <span className="text-stroke">Productions</span>
           </h1>
-        </div>
 
-        {/* ── Image strip ─────────────────────────────────────────
-            Five near-square frames in a full-width row that bleeds
-            off both edges. No carousel — clean, static, professional. */}
-        <div className="-mx-1 mt-0 flex items-stretch gap-1.5 overflow-hidden sm:gap-2">
-          {stills.map((s, i) => (
-            <figure
-              key={i}
-              className="relative min-w-0 flex-1 overflow-hidden bg-zinc-900"
-              style={{ aspectRatio: "420 / 520" }}
-            >
-              <img
-                src={`/placeholder.svg?height=${s.h}&width=${s.w}&query=${encodeURIComponent(s.q)}`}
-                alt=""
-                className="h-full w-full object-cover opacity-90"
-              />
-              {/* bottom vignette so the strip seats into the dark background */}
-              <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-            </figure>
-          ))}
-        </div>
+          {/* Divider */}
+          <span className="h-px w-12 bg-accent/50" />
 
-        {/* ── Statement + focus ruler ──────────────────────────── */}
-        <div className="flex flex-col items-center gap-6 px-6 pb-16 pt-10 sm:pb-20 sm:pt-12">
-          <p className="max-w-sm text-center font-mono text-[11px] uppercase leading-relaxed tracking-[0.18em] text-foreground/60 sm:text-xs">
-            We are experts in the production of films, commercials and brand
-            stories that captivate audiences across Africa and the Middle East.
+          {/* Statement copy */}
+          <p className="max-w-xs text-center font-mono text-[11px] uppercase leading-relaxed tracking-[0.16em] text-foreground/50 sm:text-xs">
+            We create stories that captivate audiences across Africa and the
+            Middle East.
           </p>
+
+          {/* Focus ruler */}
           <FocusScale />
         </div>
+
+        {/* Right image — tall portrait, bleeds from top */}
+        <div className="relative hidden w-[28%] shrink-0 overflow-hidden md:block">
+          <img
+            src="/placeholder.svg?height=900&width=560&query=film+crew+camera+operator+dark+cinematic+red+light"
+            alt=""
+            className="h-full w-full object-cover opacity-75"
+          />
+          <span className="pointer-events-none absolute inset-0 bg-gradient-to-l from-background/90 via-transparent to-transparent" />
+          <span className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background/80" />
+        </div>
+
+        {/* Mobile — single image strip below the title */}
+        <div className="relative h-56 w-full overflow-hidden md:hidden">
+          <img
+            src="/placeholder.svg?height=400&width=800&query=cinematic+film+production+dark+moody+red"
+            alt=""
+            className="h-full w-full object-cover opacity-70"
+          />
+          <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+        </div>
       </div>
 
-      {/* Bottom-left language toggle */}
-      <div className="absolute bottom-6 left-7 z-30 font-mono text-sm tracking-widest text-foreground/60">
+      {/* ── Bottom bar ── */}
+      <div className="absolute bottom-6 left-7 z-30 font-mono text-xs tracking-widest text-foreground/40">
         EN&nbsp;&nbsp;UA
       </div>
-
-      {/* Live clock — bottom-right */}
       <div
-        className="pointer-events-none absolute bottom-6 right-7 z-30 font-mono text-sm tabular-nums tracking-widest text-foreground/60"
+        className="pointer-events-none absolute bottom-6 right-7 z-30 font-mono text-xs tabular-nums tracking-widest text-foreground/40"
         aria-label="Current time"
       >
         {clock}
