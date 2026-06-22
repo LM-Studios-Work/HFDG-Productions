@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/reveal"
 import { Plus } from "lucide-react"
 
 const contactFaqs = [
@@ -26,35 +27,38 @@ export function ContactPageFaq() {
         {/* Left — sticky label */}
         <div className="lg:col-span-4">
           <div className="lg:sticky lg:top-32">
-            <h2 className="text-pretty font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight md:text-5xl">
-              Before you
-              <br />
-              hit send.
-            </h2>
-            <p className="mt-6 max-w-sm text-lg text-muted-foreground leading-relaxed">
-              A few things clients typically ask before reaching out to us.
-            </p>
+            <Reveal>
+              <h2 className="text-pretty font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight md:text-5xl">
+                Before you
+                <br />
+                hit send.
+              </h2>
+              <p className="mt-6 max-w-sm text-lg text-muted-foreground leading-relaxed">
+                A few things clients typically ask before reaching out to us.
+              </p>
+            </Reveal>
           </div>
         </div>
 
         {/* Right — accordion */}
         <div className="lg:col-span-8">
           <div className="border-t-2 border-foreground">
-            {contactFaqs.map((faq) => (
-              <details
-                key={faq.q}
-                className="group border-b border-border [&_svg]:open:rotate-45"
-              >
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-8 transition-colors hover:text-accent [&::-webkit-details-marker]:hidden">
-                  <span className="font-heading text-xl font-extrabold uppercase tracking-tight md:text-2xl">
-                    {faq.q}
-                  </span>
-                  <Plus className="size-5 shrink-0 text-accent transition-transform duration-200" />
-                </summary>
-                <p className="max-w-2xl pb-8 text-lg leading-relaxed text-muted-foreground">
-                  {faq.a}
-                </p>
-              </details>
+            {contactFaqs.map((faq, i) => (
+              <Reveal key={faq.q} delay={i * 0.06}>
+                <details
+                  className="group border-b border-border [&_svg]:open:rotate-45"
+                >
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-8 transition-colors hover:text-accent [&::-webkit-details-marker]:hidden">
+                    <span className="font-heading text-xl font-extrabold uppercase tracking-tight md:text-2xl">
+                      {faq.q}
+                    </span>
+                    <Plus className="size-5 shrink-0 text-accent transition-transform duration-200" />
+                  </summary>
+                  <p className="max-w-2xl pb-8 text-lg leading-relaxed text-muted-foreground">
+                    {faq.a}
+                  </p>
+                </details>
+              </Reveal>
             ))}
           </div>
         </div>

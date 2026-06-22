@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+
 import { usePathname } from "next/navigation";
 
 export function LoadingScreen() {
@@ -78,12 +78,9 @@ export function LoadingScreen() {
             <div className="absolute bottom-0 right-0 h-6 w-6 border-b-[3px] border-r-[3px] border-white sm:h-8 sm:w-8"></div>
 
             {/* Top Right: Red Dot */}
-            <motion.div
-              initial={{ opacity: 0.5 }}
-              animate={{ opacity: [0.5, 1, 0.5] }}
-              transition={{ repeat: Infinity, duration: 1, ease: "easeInOut" }}
-              className="absolute right-0 top-0 h-3 w-3 sm:h-4 sm:w-4 rounded-full bg-red-600 shadow-[0_0_12px_rgba(220,38,38,0.8)]"
-            ></motion.div>
+            <div
+              className="absolute right-0 top-0 h-3 w-3 sm:h-4 sm:w-4 rounded-full bg-red-600 shadow-[0_0_12px_rgba(220,38,38,0.8)] animate-pulse"
+            ></div>
 
             {/* Percentage Text */}
             <div 
@@ -103,18 +100,16 @@ export function LoadingScreen() {
       <div className="absolute inset-0 z-50 flex h-full w-full pointer-events-none">
         {[...Array(5)].map((_, i) => (
           <div key={i} className="h-full w-1/5 flex justify-center">
-            <motion.div
+            <div
               className="h-full w-full bg-[#E51A1A]"
-              initial={{ scaleX: 0 }}
-              animate={{ 
-                scaleX: phase === "revealing" ? 0 : (progress >= 80 ? 1.05 : 0) 
+              style={{
+                transform: `scaleX(${phase === "revealing" ? 0 : (progress >= 80 ? 1.05 : 0)})`,
+                transformOrigin: "center",
+                transitionProperty: "transform",
+                transitionDuration: phase === "revealing" ? "1.1s" : "0.8s",
+                transitionTimingFunction: phase === "revealing" ? "cubic-bezier(0.8, 0, 0.2, 1)" : "cubic-bezier(0.6, 0.05, -0.01, 0.9)",
+                transitionDelay: phase === "revealing" ? `${i * 0.08}s` : "0s"
               }}
-              transition={{
-                duration: phase === "revealing" ? 1.1 : 0.8,
-                ease: phase === "revealing" ? [0.8, 0, 0.2, 1] : [0.6, 0.05, -0.01, 0.9],
-                delay: phase === "revealing" ? i * 0.08 : 0
-              }}
-              style={{ originX: 0.5 }}
             />
           </div>
         ))}

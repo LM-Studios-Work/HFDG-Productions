@@ -6,6 +6,7 @@ import {
   JetBrains_Mono,
 } from "next/font/google";
 import { LoadingScreen } from "@/components/loading-screen";
+import { SmoothScroll } from "@/components/smooth-scroll";
 import "./globals.css";
 const bricolage = Bricolage_Grotesque({
   variable: "--font-heading",
@@ -48,9 +49,11 @@ export default function RootLayout({
       className={`dark bg-background ${bricolage.variable} ${hanken.variable} ${jetbrainsMono.variable}`}
     >
       <body className="font-sans antialiased">
-        <LoadingScreen />
-        {children}
-        {process.env.NODE_ENV === "production" && <Analytics />}
+        <SmoothScroll>
+          <LoadingScreen />
+          {children}
+          {process.env.NODE_ENV === "production" && <Analytics />}
+        </SmoothScroll>
       </body>
     </html>
   );

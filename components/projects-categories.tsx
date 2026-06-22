@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+
 import { ArrowUpRight } from "lucide-react"
 
 type Project = {
@@ -92,10 +92,8 @@ export function ProjectsCategories() {
                   }`}
                 >
                   {isActive && (
-                    <motion.div
-                      layoutId="activeCategoryBg"
-                      className="absolute inset-0 rounded-full bg-foreground"
-                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                    <div
+                      className="absolute inset-0 rounded-full bg-foreground transition-all duration-300"
                     />
                   )}
                   <span className="relative z-10">{cat.label}</span>
@@ -107,14 +105,9 @@ export function ProjectsCategories() {
 
         {/* Dynamic Content Grid */}
         <div className="min-h-[600px]">
-          <AnimatePresence mode="wait">
-            <motion.div
+            <div
               key={activeCategory}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="flex flex-col gap-12"
+              className="flex flex-col gap-12 animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-both"
             >
               {/* Category Intro */}
               <div className="border-l-2 border-accent pl-6 py-2">
@@ -125,12 +118,10 @@ export function ProjectsCategories() {
               {/* Projects Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                 {activeData.projects.map((project, index) => (
-                  <motion.div
+                  <div
                     key={project.id}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="group relative overflow-hidden rounded-lg bg-secondary border border-border aspect-[4/5] cursor-pointer flex flex-col justify-between p-6 sm:p-8 hover:bg-secondary/80 transition-colors"
+                    className="group relative overflow-hidden rounded-lg bg-secondary border border-border aspect-[4/5] cursor-pointer flex flex-col justify-between p-6 sm:p-8 hover:bg-secondary/80 transition-all duration-300 animate-in fade-in zoom-in-95 fill-mode-both"
+                    style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <div className="flex justify-between items-start">
                       <p className="font-mono text-xs uppercase tracking-widest text-accent">
@@ -146,11 +137,10 @@ export function ProjectsCategories() {
                         {project.title}
                       </h4>
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
-            </motion.div>
-          </AnimatePresence>
+            </div>
         </div>
 
       </div>
