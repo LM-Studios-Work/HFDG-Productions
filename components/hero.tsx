@@ -109,7 +109,7 @@ export function Hero() {
 
       {/* Hero Intro Text */}
       <div
-        className="relative z-20 mt-10 sm:mt-14 px-5 max-w-2xl text-center animate-in fade-in slide-in-from-bottom-5 duration-1000 delay-500 ease-out fill-mode-both"
+        className="hidden sm:block relative z-20 mt-10 sm:mt-14 px-5 max-w-2xl text-center animate-in fade-in slide-in-from-bottom-5 duration-1000 delay-500 ease-out fill-mode-both"
       >
         <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight text-foreground mb-4">
           Visuals that <span className="text-accent">Captivate.</span>
@@ -120,7 +120,7 @@ export function Hero() {
       </div>
 
       {/* Decorative Film Metadata (Bottom Info) */}
-      <div className="absolute bottom-6 left-5 sm:left-8 z-30 flex flex-col gap-1 font-mono text-[10px] sm:text-xs tracking-[0.2em] text-muted-foreground uppercase">
+      <div className="hidden sm:flex absolute bottom-6 left-5 sm:left-8 z-30 flex-col gap-1 font-mono text-[10px] sm:text-xs tracking-[0.2em] text-muted-foreground uppercase">
         <span>ISO 800</span>
         <span>5600K</span>
       </div>
