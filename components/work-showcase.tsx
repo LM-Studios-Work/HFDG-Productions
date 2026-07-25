@@ -11,34 +11,23 @@ export function WorkShowcase() {
       {/* The single full-width film */}
       <Reveal>
         <div className="group relative overflow-hidden border-y-2 border-foreground">
-          <div className="w-full overflow-hidden bg-card video-block-responsive">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/placeholder.svg?height=900&width=1600&query=cinematic%20real%20estate%20and%20corporate%20film%20aerial%20golden%20hour%20Africa%20Middle%20East"
-              alt="Still from the HFDG Productions showreel — selected work 2025"
+          <div className="w-full overflow-hidden bg-card aspect-[16/9] md:aspect-[2.65/1] max-h-[600px]">
+            <video
+              src="/api/media/file/PotAround.mp4"
+              title="Pot Around Video"
+              autoPlay
+              muted
+              loop
+              playsInline
               className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
             />
           </div>
 
-          {/* Blinking REC badge — top left */}
-          <span className="absolute left-5 top-5 flex items-center gap-2 rounded-sm border border-foreground/30 bg-background/90 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-foreground backdrop-blur md:left-8 md:top-8">
-            <span className="inline-block h-2 w-2 rounded-full bg-accent animate-blink-dot" aria-hidden="true" />
-            Rec · Showreel 2025
-          </span>
 
-          {/* Center play button */}
-          <button
-            type="button"
-            className="absolute left-1/2 top-1/2 inline-flex size-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-background bg-accent text-accent-foreground transition-all duration-300 group-hover:scale-110 md:size-28"
-            aria-label="Play HFDG showreel"
-          >
-            <Play className="size-7 fill-current md:size-9" />
-          </button>
 
-          {/* Bottom runtime label */}
-          <span className="absolute bottom-5 right-5 rounded-sm bg-background/90 px-3 py-1.5 font-mono text-xs text-foreground backdrop-blur md:bottom-8 md:right-8">
-            0:52
-          </span>
+
+
+
         </div>
       </Reveal>
 
@@ -62,7 +51,7 @@ export function WorkShowcase() {
           {/* Right: the CTA — film icon + VIEW OUR WORK, sandwich-style */}
           <Reveal delay={0.2} direction="right">
             <a
-              href="/work"
+              href="/projects"
               className="group inline-flex items-center gap-4 self-start md:self-end"
               aria-label="View our full portfolio"
             >
@@ -71,7 +60,7 @@ export function WorkShowcase() {
                 dotPulse
               />
               <span className="font-mono text-sm font-extrabold uppercase tracking-[0.2em] transition-colors group-hover:text-accent">
-                View our work
+                View our portfolio
                 <span className="ml-3 inline-block transition-transform group-hover:translate-x-1">
                   <ArrowRight className="inline size-4" />
                 </span>

@@ -70,7 +70,7 @@ export function AboutExpertise() {
               </p>
               <h2 className="mt-4 text-pretty font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight md:text-5xl">
                 An affiliate of{" "}
-                <span className="text-accent">35Film</span>.
+                <span style={{ color: "#1BBFBF" }}>35Film</span>.
               </h2>
               <p className="mt-5 max-w-xl leading-relaxed text-muted-foreground">
                 Our partnership with 35Film extends our reach, gear and crew.
@@ -83,11 +83,11 @@ export function AboutExpertise() {
 
           <Reveal delay={0.15} direction="right">
             <div className="shrink-0">
-              <div className="flex items-center gap-4 rounded-lg border-2 border-foreground bg-background px-8 py-6">
-                <span className="font-heading text-5xl font-extrabold tracking-tighter md:text-6xl">
-                  35<span className="text-accent">Film</span>
-                </span>
-              </div>
+              <img
+                src="/35filmlogo.png"
+                alt="35Film logo"
+                className="h-40 w-auto object-contain"
+              />
             </div>
           </Reveal>
         </div>
@@ -116,10 +116,10 @@ export function AboutExpertise() {
                 Get in touch
               </a>
               <a
-                href="/#work"
+                href="/projects"
                 className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-foreground px-7 py-3.5 text-sm font-extrabold uppercase tracking-widest transition-colors hover:border-accent hover:text-accent"
               >
-                See the work
+                See our portfolio
                 <ArrowRight className="size-4" />
               </a>
             </div>

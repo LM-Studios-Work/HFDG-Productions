@@ -26,10 +26,10 @@ export function ServicesClosing() {
               Book a consultation
             </a>
             <a
-              href="/work"
+              href="/projects"
               className="group inline-flex items-center justify-center gap-2 rounded-full border-2 border-foreground px-7 py-3.5 text-sm font-extrabold uppercase tracking-widest transition-colors hover:border-accent hover:text-accent"
             >
-              See the work
+              See our portfolio
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
             </a>
           </div>

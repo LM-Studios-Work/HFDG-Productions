@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { usePathname } from "next/navigation"
 import { Menu, X, ArrowRight } from "lucide-react"
 const navLinks = [
-  { label: "Work", href: "/projects" },
+  { label: "Portfolio", href: "/projects" },
   { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
   { label: "Locations", href: "/locations" },

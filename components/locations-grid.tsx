@@ -4,23 +4,23 @@ import { locations } from "@/lib/site-data"
 const locationDetails: Record<string, { desc: string; image: string }> = {
   Johannesburg: {
     desc: "Our primary hub in Southern Africa. Home to our core post-production facility and main gear room.",
-    image: "/placeholder.svg?height=800&width=1200&query=johannesburg%20skyline%20cinematic%20night",
+    image: "/Locations/Johannesburg Hero.jpg",
   },
   Jeddah: {
     desc: "Our Middle East base. A dedicated commercial and real estate team working across KSA.",
-    image: "/placeholder.svg?height=800&width=1200&query=jeddah%20coastal%20city%20modern%20architecture%20cinematic",
+    image: "/Locations/Jeddah.jpg",
   },
   Lagos: {
     desc: "The heartbeat of our West African operations. Focused on high-energy commercials and music videos.",
-    image: "/placeholder.svg?height=800&width=1200&query=lagos%20cityscape%20vibrant%20street%20cinematic",
+    image: "/Locations/Lagos.webp",
   },
   Riyadh: {
     desc: "Expanding to support our growing portfolio of corporate and commercial work in the capital.",
-    image: "/placeholder.svg?height=800&width=1200&query=riyadh%20skyline%20modern%20abstract%20monochrome",
+    image: "/Locations/Riyadh.jpg",
   },
   Berlin: {
     desc: "Our upcoming European foothold, bridging operations between the Middle East and the EU.",
-    image: "/placeholder.svg?height=800&width=1200&query=berlin%20architecture%20abstract%20monochrome",
+    image: "/Locations/Berlin.jpg",
   },
 }
 
@@ -34,9 +34,9 @@ export function LocationsGrid() {
             const isActive = loc.status === "active"
 
             return (
-              <Reveal key={loc.city} delay={i * 0.08}>
+              <Reveal key={loc.city} delay={i * 0.08} className="h-full">
                 <div
-                  className={`group flex flex-col border-2 border-foreground bg-background ${
+                  className={`group flex h-full flex-col border-2 border-foreground bg-background ${
                     isActive ? "" : "opacity-60 grayscale transition-all hover:grayscale-0 hover:opacity-100"
                   }`}
                 >
@@ -70,11 +70,11 @@ export function LocationsGrid() {
                   </div>
 
                   <div className="flex flex-1 flex-col p-6 lg:p-8">
-                    <div className="mb-8 flex items-center justify-between border-b-2 border-foreground/10 pb-6">
-                      <h2 className="font-heading text-4xl font-extrabold uppercase tracking-tight sm:text-5xl">
+                    <div className="mb-8 flex items-baseline justify-between border-b-2 border-foreground/10 pb-6 gap-3">
+                      <h2 className="font-heading text-3xl font-extrabold uppercase tracking-tight shrink-0">
                         {loc.city}
                       </h2>
-                      <span className="font-mono text-sm font-bold uppercase tracking-widest text-muted-foreground">
+                      <span className="font-mono text-lg font-bold uppercase tracking-widest text-foreground">
                         {loc.country}
                       </span>
                     </div>
