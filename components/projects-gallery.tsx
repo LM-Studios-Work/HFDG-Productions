@@ -1,7 +1,7 @@
 "use client"
 
 import { Reveal } from "@/components/reveal"
-import { AutoPlayVideo } from "@/components/autoplay-video"
+import { InteractiveVideoStrip } from "@/components/interactive-video-strip"
 
 // Types matching the Payload schema
 export interface ProjectMedia {
@@ -76,10 +76,9 @@ export function ProjectsGallery({ projects }: ProjectsGalleryProps) {
             <Reveal>
               <div className="group relative w-full border-t-2 border-foreground aspect-[16/9] md:aspect-[2.65/1] overflow-hidden bg-card max-h-[600px]">
                 {videoUrl ? (
-                  <AutoPlayVideo
-                    src={videoUrl}
+                  <InteractiveVideoStrip
+                    videoUrl={videoUrl}
                     title={project.title}
-                    className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                   />
                 ) : (
                   <div className="flex size-full items-center justify-center bg-zinc-900">
