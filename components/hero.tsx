@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-
+import { AutoPlayVideo } from "@/components/autoplay-video"
 import { FocusScale, RecordDot, FilmCorners } from "@/components/film-ui"
 
 /** The HFDG film-frame icon — a camera viewfinder bracket with a blinking red dot.
@@ -47,7 +47,7 @@ function useLiveClock() {
   return time
 }
 
-export function Hero() {
+export function Hero({ videoUrl }: { videoUrl?: string }) {
   const containerRef = useRef<HTMLDivElement>(null)
   const clock = useLiveClock()
 
@@ -80,18 +80,11 @@ export function Hero() {
       <div
         className="relative z-20 w-[92vw] sm:w-[85vw] md:w-[75vw] lg:w-[65vw] max-w-6xl aspect-[4/5] sm:aspect-video lg:aspect-[21/9] bg-zinc-950 border border-white/10 shadow-2xl overflow-hidden group cursor-pointer animate-in fade-in slide-in-from-bottom-16 duration-1000 delay-200 ease-out fill-mode-both"
       >
-        <img 
-          src="/placeholder.svg" 
-          alt="Showreel placeholder" 
-          className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out grayscale group-hover:grayscale-0" 
+        <AutoPlayVideo 
+          src={videoUrl || "/api/media/file/PotAround.mp4"} 
+          title="Hero Showreel" 
+          className="w-full h-full object-cover opacity-85 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" 
         />
-        
-        {/* Play Button Overlay */}
-        <div className="absolute inset-0 flex items-center justify-center z-20">
-          <div className="flex h-20 w-20 sm:h-24 sm:w-24 items-center justify-center rounded-full border border-white/20 bg-black/40 backdrop-blur-md transition-all duration-500 group-hover:scale-110 group-hover:border-accent/50 group-hover:bg-accent/20">
-            <div className="ml-2 w-0 h-0 border-y-[10px] sm:border-y-[12px] border-y-transparent border-l-[16px] sm:border-l-[20px] border-l-white transition-colors group-hover:border-l-white" />
-          </div>
-        </div>
 
         {/* Cinematic Inner Corners */}
         <FilmCorners size={32} inset={16} thickness={2} className="opacity-50 transition-opacity duration-500 group-hover:opacity-100 text-white" />

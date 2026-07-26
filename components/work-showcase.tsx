@@ -1,24 +1,21 @@
 "use client"
 
-import { Play, ArrowRight } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { FilmFrameIcon } from "@/components/hero"
 import { Reveal } from "@/components/reveal"
+import { AutoPlayVideo } from "@/components/autoplay-video"
 
 /** One full-width featured film with "View Our Work" underneath — Sandwich-style. */
-export function WorkShowcase() {
+export function WorkShowcase({ videoUrl }: { videoUrl?: string }) {
   return (
     <section id="work" className="scroll-mt-20">
       {/* The single full-width film */}
       <Reveal>
         <div className="group relative overflow-hidden border-y-2 border-foreground">
           <div className="w-full overflow-hidden bg-card aspect-[16/9] md:aspect-[2.65/1] max-h-[600px]">
-            <video
-              src="/api/media/file/PotAround.mp4"
+            <AutoPlayVideo
+              src={videoUrl || "/api/media/file/PotAround.mp4"}
               title="Pot Around Video"
-              autoPlay
-              muted
-              loop
-              playsInline
               className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
             />
           </div>

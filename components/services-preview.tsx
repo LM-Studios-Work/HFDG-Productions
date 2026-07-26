@@ -1,21 +1,21 @@
 "use client"
 
-import { Play, ArrowRight } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { FilmFrameIcon } from "@/components/hero"
 import { Reveal } from "@/components/reveal"
+import { AutoPlayVideo } from "@/components/autoplay-video"
 
 /** Section 003: Services preview — Video, manifesto copy, link to services page */
-export function ServicesPreview() {
+export function ServicesPreview({ videoUrl }: { videoUrl?: string }) {
   return (
     <section id="services" className="scroll-mt-20">
       {/* The featured film — full width */}
       <Reveal>
         <div className="group relative overflow-hidden border-y-2 border-foreground">
-          <div className="w-full overflow-hidden bg-card video-block-responsive">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/placeholder.svg?height=900&width=1600&query=cinematic%20film%20production%20team%20creative%20studio%20Africa%20modern%20workspace"
-              alt="HFDG Productions services — what we do"
+          <div className="w-full overflow-hidden bg-card aspect-[16/9] md:aspect-[2.65/1] max-h-[600px]">
+            <AutoPlayVideo
+              src={videoUrl || "/api/media/file/Fight%20Sports%20Centre.mp4"}
+              title="What We Do Reel"
               className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
             />
           </div>
@@ -24,20 +24,6 @@ export function ServicesPreview() {
           <span className="absolute left-5 top-5 flex items-center gap-2 rounded-sm border border-foreground/30 bg-background/90 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-foreground backdrop-blur md:left-8 md:top-8">
             <span className="inline-block h-2 w-2 rounded-full bg-accent animate-blink-dot" aria-hidden="true" />
             Rec · What we do
-          </span>
-
-          {/* Center play button */}
-          <button
-            type="button"
-            className="absolute left-1/2 top-1/2 inline-flex size-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-background bg-accent text-accent-foreground transition-all duration-300 group-hover:scale-110 md:size-28"
-            aria-label="Play services reel"
-          >
-            <Play className="size-7 fill-current md:size-9" />
-          </button>
-
-          {/* Bottom runtime label */}
-          <span className="absolute bottom-5 right-5 rounded-sm bg-background/90 px-3 py-1.5 font-mono text-xs text-foreground backdrop-blur md:bottom-8 md:right-8">
-            1:35
           </span>
         </div>
       </Reveal>

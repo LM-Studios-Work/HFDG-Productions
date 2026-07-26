@@ -1,7 +1,7 @@
 "use client"
 
 import { Reveal } from "@/components/reveal"
-import { Play } from "lucide-react"
+import { AutoPlayVideo } from "@/components/autoplay-video"
 
 // Types matching the Payload schema
 export interface ProjectMedia {
@@ -67,16 +67,6 @@ export function ProjectsGallery({ projects }: ProjectsGalleryProps) {
                     <p className="font-sans text-base leading-relaxed text-muted-foreground md:text-lg text-pretty">
                       {project.description}
                     </p>
-                    
-                    {/* Play Action (Visual Only) */}
-                    <button className="mt-8 group/btn inline-flex items-center gap-4 text-left">
-                      <span className="flex size-12 items-center justify-center rounded-full border-2 border-foreground transition-colors group-hover/btn:bg-foreground group-hover/btn:text-background">
-                        <Play className="size-4 fill-current ml-1" />
-                      </span>
-                      <span className="font-mono text-xs font-bold uppercase tracking-[0.2em]">
-                        View Details
-                      </span>
-                    </button>
                   </div>
                 </div>
               </Reveal>
@@ -86,13 +76,9 @@ export function ProjectsGallery({ projects }: ProjectsGalleryProps) {
             <Reveal>
               <div className="group relative w-full border-t-2 border-foreground aspect-[16/9] md:aspect-[2.65/1] overflow-hidden bg-card max-h-[600px]">
                 {videoUrl ? (
-                  <video
+                  <AutoPlayVideo
                     src={videoUrl}
                     title={project.title}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
                     className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                   />
                 ) : (
