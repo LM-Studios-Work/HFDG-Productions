@@ -17,6 +17,7 @@ export function ServicesPreview({ videoUrl }: { videoUrl?: string }) {
               src={videoUrl || "/api/media/file/Fight%20Sports%20Centre.mp4"}
               title="What We Do Reel"
               className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+            />
           </div>
         </div>
       </Reveal>
