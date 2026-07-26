@@ -71,7 +71,7 @@ export function LocationsGrid() {
 
                   <div className="flex flex-1 flex-col p-6 lg:p-8">
                     <div className="mb-8 flex items-baseline justify-between border-b-2 border-foreground/10 pb-6 gap-3">
-                      <h2 className="font-heading text-3xl font-extrabold uppercase tracking-tight shrink-0">
+                      <h2 className="font-heading text-2xl sm:text-3xl font-extrabold uppercase tracking-tight shrink-0 break-words">
                         {loc.city}
                       </h2>
                       <span className="font-mono text-lg font-bold uppercase tracking-widest text-foreground">

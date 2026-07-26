@@ -34,7 +34,7 @@ export function LocationsStrip() {
         </div>
 
         <RevealGroup stagger={0.06} className="mt-14">
-          <ul className="grid grid-cols-2 gap-px overflow-hidden rounded-lg border-2 border-foreground bg-foreground md:grid-cols-3 lg:grid-cols-5">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-px overflow-hidden rounded-lg border-2 border-foreground bg-foreground md:grid-cols-3 lg:grid-cols-5">
             {locations.map((loc) => (
               <RevealItem key={loc.city}>
                 <li className="bg-background p-6 md:p-8">
@@ -54,7 +54,7 @@ export function LocationsStrip() {
                     )}
                   </div>
                   <p
-                    className={`mt-6 font-heading text-2xl font-extrabold uppercase tracking-tight md:text-3xl ${
+                    className={`mt-6 font-heading text-xl sm:text-2xl font-extrabold uppercase tracking-tight md:text-3xl break-words ${
                       loc.status === "soon" ? "text-muted-foreground" : ""
                     }`}
                   >

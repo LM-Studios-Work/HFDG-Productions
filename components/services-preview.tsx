@@ -17,14 +17,7 @@ export function ServicesPreview({ videoUrl }: { videoUrl?: string }) {
               src={videoUrl || "/api/media/file/Fight%20Sports%20Centre.mp4"}
               title="What We Do Reel"
               className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-            />
           </div>
-
-          {/* Blinking REC badge — top left */}
-          <span className="absolute left-5 top-5 flex items-center gap-2 rounded-sm border border-foreground/30 bg-background/90 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-foreground backdrop-blur md:left-8 md:top-8">
-            <span className="inline-block h-2 w-2 rounded-full bg-accent animate-blink-dot" aria-hidden="true" />
-            Rec · What we do
-          </span>
         </div>
       </Reveal>
 
