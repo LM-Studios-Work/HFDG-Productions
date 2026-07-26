@@ -33,6 +33,7 @@ export default buildConfig({
         media: true, // Applies to the 'media' collection
       },
       bucket: process.env.S3_BUCKET || '',
+      clientUploads: true, // Enable direct client uploads to bypass Vercel serverless 4.5MB limit
       config: {
         credentials: {
           accessKeyId: process.env.S3_ACCESS_KEY_ID || '',
