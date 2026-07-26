@@ -63,7 +63,7 @@ export default async function Page() {
           <FilmCorners size={120} inset={16} className="hidden sm:block" />
           <FilmCorners size={70} inset={10} className="sm:hidden" />
         </div>
-        <Hero videoUrl={heroVideoUrl} />
+        <Hero />
       </div>
       <main>
         <ClientMarquee />

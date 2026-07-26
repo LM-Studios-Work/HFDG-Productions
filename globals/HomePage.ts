@@ -8,16 +8,6 @@ export const HomePage: GlobalConfig = {
   },
   fields: [
     {
-      name: 'heroVideo',
-      label: 'Hero Showreel Video',
-      type: 'upload',
-      relationTo: 'media',
-      required: false,
-      admin: {
-        description: 'The background video played in the main Hero showreel on the Home Page. Defaults to Pot Around video if blank.',
-      },
-    },
-    {
       name: 'featuredWorkVideo',
       label: 'Featured Work Video (Work Showcase Section)',
       type: 'upload',

@@ -11,6 +11,11 @@ const navLinks = [
   { label: "Contact", href: "/contact" },
 ]
 
+const mobileNavLinks = [
+  { label: "Home", href: "/" },
+  ...navLinks,
+]
+
 /** The HFDG logo mark — viewfinder brackets + wordmark, DGC-style */
 function Logo() {
   return (
@@ -117,7 +122,7 @@ export function SiteHeader() {
 
           {/* Nav links */}
           <nav className="flex flex-col border-t-2 border-white/20 px-5 py-4 grow" aria-label="Mobile">
-            {navLinks.map((link) => {
+            {mobileNavLinks.map((link) => {
               const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href))
               return (
                 <a
