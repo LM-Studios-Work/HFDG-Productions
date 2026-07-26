@@ -87,16 +87,25 @@ export function InteractiveVideoStrip({ videoUrl, title }: InteractiveVideoStrip
     if (!video) return
     if (isModalOpen) {
       video.pause()
+      video.muted = true
     } else {
+      video.muted = isMuted
       video.play().catch(() => {})
     }
-  }, [isModalOpen])
+  }, [isModalOpen, isMuted])
 
   return (
     <>
       {/* Clickable video ribbon container */}
       <div
-        onClick={() => setIsModalOpen(true)}
+        onClick={() => {
+          const video = videoRef.current
+          if (video) {
+            video.pause()
+            video.muted = true
+          }
+          setIsModalOpen(true)
+        }}
         className="group relative w-full h-full cursor-pointer overflow-hidden bg-card"
         role="button"
         tabIndex={0}
@@ -173,7 +182,7 @@ export function InteractiveVideoStrip({ videoUrl, title }: InteractiveVideoStrip
                   <span className="font-heading text-lg md:text-xl font-extrabold uppercase tracking-tight text-white">
                     {title}
                   </span>
-                  <span className="font-mono text-xs text-white/50 uppercase tracking-widest">
+                  <span className="hidden md:inline-block font-mono text-xs text-white/50 uppercase tracking-widest">
                     Press ESC to close
                   </span>
                 </div>
