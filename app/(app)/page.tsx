@@ -36,8 +36,11 @@ export default async function Page() {
 
   const potAroundMedia = mediaDocs.find((m: any) => m.filename?.toLowerCase().includes("potaround"))
   const fightMedia = mediaDocs.find((m: any) => m.filename?.toLowerCase().includes("fight"))
+  const carMedia = mediaDocs.find((m: any) => m.filename?.toLowerCase().includes("car video")) || mediaDocs.find((m: any) => m.filename?.toLowerCase().includes("car"))
+  
   const defaultPotAroundUrl = potAroundMedia?.url || "/api/media/file/PotAround.mp4"
   const defaultServicesUrl = fightMedia?.url || "/api/media/file/Fight%20Sports%20Centre.mp4"
+  const defaultCarUrl = carMedia?.url || "/api/media/file/car%20video.mp4"
 
   const heroVideoUrl =
     typeof homeData?.heroVideo === "object" && homeData?.heroVideo?.url
@@ -47,12 +50,12 @@ export default async function Page() {
   const workVideoUrl =
     typeof homeData?.featuredWorkVideo === "object" && homeData?.featuredWorkVideo?.url
       ? homeData.featuredWorkVideo.url
-      : defaultPotAroundUrl
+      : defaultServicesUrl // The boxing video
 
   const servicesVideoUrl =
     typeof homeData?.servicesVideo === "object" && homeData?.servicesVideo?.url
       ? homeData.servicesVideo.url
-      : defaultServicesUrl
+      : defaultCarUrl // The car video
 
   return (
     <>

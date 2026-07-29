@@ -366,11 +366,11 @@ export const packages: Package[] = [
 export const serviceFaqs = [
   {
     q: "How much does a video cost?",
-    a: "It depends on scope — a single social cutdown and a multi-day brand campaign aren't the same project. Our tiers give you a sense of the range, and after a quick consult you'll get a clear, fixed quote before anything is booked.",
+    a: "It depends on scope — a single social cutdown and a multi-day brand campaign aren't the same project. Our tiers give you a sense of the range, and after a quick consultation you'll get a clear, fixed quote before anything is booked.",
   },
   {
     q: "How long does a project take?",
-    a: "Most single films run two to four weeks from consult to final delivery. Larger campaigns and monthly retainers run on a schedule we set together. Need it faster? Premium and retainer clients get priority turnaround.",
+    a: "Most single films run two to four weeks from consultation to final delivery. Larger campaigns and monthly retainers run on a schedule we set together. Need it faster? Premium and retainer clients get priority turnaround.",
   },
   {
     q: "Do you travel for shoots?",

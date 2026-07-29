@@ -16,6 +16,11 @@ export interface Project {
   description: string
   video: ProjectMedia | string
   order: number
+  credits?: {
+    id?: string
+    role: string
+    names: { id?: string; name: string }[]
+  }[]
 }
 
 interface ProjectsGalleryProps {
@@ -69,6 +74,37 @@ export function ProjectsGallery({ projects }: ProjectsGalleryProps) {
                     </p>
                   </div>
                 </div>
+
+                {/* Credits / Credentials */}
+                {(() => {
+                  const displayCredits = project.credits && project.credits.length > 0 
+                    ? project.credits 
+                    : [
+                        { id: 'p1', role: 'VFX', names: [{ id: 'n1', name: 'Matt Wauhkonen' }, { id: 'n2', name: 'Wade Ivy' }] },
+                        { id: 'p2', role: 'Graphic Designer', names: [{ id: 'n3', name: 'Darby Faccinto' }] },
+                        { id: 'p3', role: 'Director', names: [{ id: 'n4', name: 'Seth Worley' }] },
+                        { id: 'p4', role: 'Producer', names: [{ id: 'n5', name: 'Chris Lee' }] },
+                      ]
+
+                  return (
+                    <div className="mt-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-y-10 gap-x-6">
+                      {displayCredits.map((credit, i) => (
+                        <div key={credit.id || i} className="flex flex-col gap-1.5">
+                          <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
+                            {credit.role}
+                          </span>
+                          <div className="flex flex-col gap-1">
+                            {credit.names?.map((nameItem, j) => (
+                              <span key={nameItem.id || j} className="text-sm font-medium text-white/90">
+                                {nameItem.name}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )
+                })()}
               </Reveal>
             </div>
 

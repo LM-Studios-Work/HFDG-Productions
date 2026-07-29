@@ -21,9 +21,11 @@ export function ProjectsHero() {
         </p>
       </div>
       {/* Scroll indicator */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-in fade-in duration-1000 delay-1000 fill-mode-both">
-        <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">Scroll to explore</span>
-        <div className="h-12 w-[1px] bg-gradient-to-b from-accent to-transparent" />
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-in fade-in duration-1000 delay-1000 fill-mode-both">
+        <div className="flex flex-col items-center gap-2 animate-scroll-bounce">
+          <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">Scroll to explore</span>
+          <div className="h-12 w-[1px] bg-gradient-to-b from-accent to-transparent" />
+        </div>
       </div>
     </section>
   );

@@ -226,7 +226,7 @@ function ServiceDetailPanel({ s }: { s: ServiceDetail }) {
           href="#contact"
           className="inline-flex w-fit items-center gap-2 border-b border-accent pb-0.5 font-mono text-xs uppercase tracking-widest text-accent transition-opacity hover:opacity-70"
         >
-          Book a consult →
+          Book a consultation →
         </a>
       </div>
     </div>

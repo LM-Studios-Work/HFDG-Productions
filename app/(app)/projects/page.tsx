@@ -26,6 +26,7 @@ export default async function ProjectsPage() {
     description: doc.description,
     video: doc.video,
     order: doc.order,
+    credits: doc.credits,
   }))
 
   return (

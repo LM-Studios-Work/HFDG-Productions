@@ -48,7 +48,27 @@ function Logo() {
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
   const pathname = usePathname()
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY
+    
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+      
+      if (currentScrollY > 50 && currentScrollY > lastScrollY) {
+        setIsVisible(false)
+      } else {
+        setIsVisible(true)
+      }
+      
+      lastScrollY = currentScrollY
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : ""
@@ -59,7 +79,7 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="fixed top-3 sm:top-6 left-0 right-0 w-full z-50">
+      <header className={`fixed top-3 sm:top-6 left-0 right-0 w-full z-50 transition-transform duration-300 ease-in-out ${isVisible ? "translate-y-0" : "-translate-y-[150%]"}`}>
         <div className="bg-transparent">
           <div className="mx-auto flex h-16 max-w-[1600px] items-center justify-between gap-4 px-5 lg:px-8">
             <Logo />
