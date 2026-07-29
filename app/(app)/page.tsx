@@ -36,11 +36,11 @@ export default async function Page() {
 
   const potAroundMedia = mediaDocs.find((m: any) => m.filename?.toLowerCase().includes("potaround"))
   const fightMedia = mediaDocs.find((m: any) => m.filename?.toLowerCase().includes("fight"))
-  const carMedia = mediaDocs.find((m: any) => m.filename?.toLowerCase().includes("car video")) || mediaDocs.find((m: any) => m.filename?.toLowerCase().includes("car"))
+  const agentsMedia = mediaDocs.find((m: any) => m.filename?.toLowerCase().includes("agents"))
   
   const defaultPotAroundUrl = potAroundMedia?.url || "/api/media/file/PotAround.mp4"
   const defaultServicesUrl = fightMedia?.url || "/api/media/file/Fight%20Sports%20Centre.mp4"
-  const defaultCarUrl = carMedia?.url || "/api/media/file/car%20video.mp4"
+  const defaultAgentsUrl = agentsMedia?.url || "/api/media/file/The%20Agents%20Full%20Hd.mp4"
 
   const heroVideoUrl =
     typeof homeData?.heroVideo === "object" && homeData?.heroVideo?.url
@@ -50,12 +50,14 @@ export default async function Page() {
   const workVideoUrl =
     typeof homeData?.featuredWorkVideo === "object" && homeData?.featuredWorkVideo?.url
       ? homeData.featuredWorkVideo.url
-      : defaultServicesUrl // The boxing video
+      : defaultPotAroundUrl // The smoke shop video
+
+  const studioVideoUrl = defaultServicesUrl // The boxing video
 
   const servicesVideoUrl =
     typeof homeData?.servicesVideo === "object" && homeData?.servicesVideo?.url
       ? homeData.servicesVideo.url
-      : defaultCarUrl // The car video
+      : defaultAgentsUrl // The agents video
 
   return (
     <>
@@ -71,7 +73,7 @@ export default async function Page() {
       <main>
         <ClientMarquee />
         <WorkShowcase videoUrl={workVideoUrl} />
-        <StudioStatement />
+        <StudioStatement videoUrl={studioVideoUrl} />
         <ServicesPreview videoUrl={servicesVideoUrl} />
         <LocationsStrip />
         <Contact />

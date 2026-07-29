@@ -52,16 +52,11 @@ export const Projects: CollectionConfig = {
         },
         {
           name: 'names',
-          type: 'array',
+          type: 'text',
           required: true,
-          minRows: 1,
-          fields: [
-            {
-              name: 'name',
-              type: 'text',
-              required: true,
-            },
-          ],
+          admin: {
+            description: 'Comma separated names (e.g. John Doe, Jane Smith)',
+          },
         },
       ],
     },

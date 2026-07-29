@@ -1,8 +1,9 @@
 import { ArrowRight, Play } from "lucide-react"
 import { FilmFrameIcon } from "@/components/hero"
 import { Reveal } from "@/components/reveal"
+import { AutoPlayVideo } from "@/components/autoplay-video"
 
-export function StudioStatement() {
+export function StudioStatement({ videoUrl }: { videoUrl?: string }) {
   return (
     <section
       id="studio"
@@ -12,10 +13,9 @@ export function StudioStatement() {
       <Reveal>
         <div className="group relative overflow-hidden border-b-2 border-foreground">
           <div className="w-full overflow-hidden bg-card video-block-responsive">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/placeholder.svg?height=675&width=1600&query=cinematic%20behind%20the%20scenes%20film%20crew%20Africa%20production"
-              alt="Behind the scenes — HFDG Productions crew on set"
+            <AutoPlayVideo
+              src={videoUrl || "/api/media/file/Fight%20Sports%20Centre.mp4"}
+              title="Behind the scenes — HFDG Productions crew on set"
               className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
             />
           </div>

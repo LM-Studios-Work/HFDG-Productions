@@ -19,7 +19,7 @@ export interface Project {
   credits?: {
     id?: string
     role: string
-    names: { id?: string; name: string }[]
+    names: string
   }[]
 }
 
@@ -80,10 +80,10 @@ export function ProjectsGallery({ projects }: ProjectsGalleryProps) {
                   const displayCredits = project.credits && project.credits.length > 0 
                     ? project.credits 
                     : [
-                        { id: 'p1', role: 'VFX', names: [{ id: 'n1', name: 'Matt Wauhkonen' }, { id: 'n2', name: 'Wade Ivy' }] },
-                        { id: 'p2', role: 'Graphic Designer', names: [{ id: 'n3', name: 'Darby Faccinto' }] },
-                        { id: 'p3', role: 'Director', names: [{ id: 'n4', name: 'Seth Worley' }] },
-                        { id: 'p4', role: 'Producer', names: [{ id: 'n5', name: 'Chris Lee' }] },
+                        { id: 'p1', role: 'VFX', names: 'Matt Wauhkonen, Wade Ivy' },
+                        { id: 'p2', role: 'Graphic Designer', names: 'Darby Faccinto' },
+                        { id: 'p3', role: 'Director', names: 'Seth Worley' },
+                        { id: 'p4', role: 'Producer', names: 'Chris Lee' },
                       ]
 
                   return (
@@ -94,9 +94,9 @@ export function ProjectsGallery({ projects }: ProjectsGalleryProps) {
                             {credit.role}
                           </span>
                           <div className="flex flex-col gap-1">
-                            {credit.names?.map((nameItem, j) => (
-                              <span key={nameItem.id || j} className="text-sm font-medium text-white/90">
-                                {nameItem.name}
+                            {credit.names?.split(',').map((name, j) => (
+                              <span key={j} className="text-sm font-medium text-white/90">
+                                {name.trim()}
                               </span>
                             ))}
                           </div>
