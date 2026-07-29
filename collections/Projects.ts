@@ -37,26 +37,17 @@ export const Projects: CollectionConfig = {
     {
       name: 'credits',
       type: 'array',
-      label: 'Credits / Credentials',
-      admin: {
-        description: 'Add team members and their roles for this project (e.g., Director, VFX).',
-      },
+      label: 'Credits',
       fields: [
         {
           name: 'role',
           type: 'text',
           required: true,
-          admin: {
-            description: 'e.g., DIRECTOR, VFX, PRODUCER',
-          },
         },
         {
           name: 'names',
           type: 'text',
           required: true,
-          admin: {
-            description: 'Comma separated names (e.g. John Doe, Jane Smith)',
-          },
         },
       ],
     },

@@ -12,28 +12,13 @@ export function StudioStatement({ videoUrl }: { videoUrl?: string }) {
       {/* Second video — full width, flush above the copy */}
       <Reveal>
         <div className="group relative overflow-hidden border-b-2 border-foreground">
-          <div className="w-full overflow-hidden bg-card video-block-responsive">
+          <div className="w-full overflow-hidden bg-card aspect-[16/9] md:aspect-[2.65/1] max-h-[600px]">
             <AutoPlayVideo
               src={videoUrl || "/api/media/file/Fight%20Sports%20Centre.mp4"}
               title="Behind the scenes — HFDG Productions crew on set"
               className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
             />
           </div>
-
-          {/* Center play button */}
-          <button
-            type="button"
-            className="absolute left-1/2 top-1/2 inline-flex size-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-background bg-accent text-accent-foreground transition-all duration-300 group-hover:scale-110 md:size-28"
-            aria-label="Play behind the scenes reel"
-          >
-            <Play className="size-7 fill-current md:size-9" />
-          </button>
-
-          {/* Top-left REC badge */}
-          <span className="absolute left-5 top-5 flex items-center gap-2 rounded-sm border border-foreground/30 bg-background/90 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-foreground backdrop-blur md:left-8 md:top-8">
-            <span className="inline-block h-2 w-2 rounded-full bg-accent animate-blink-dot" aria-hidden="true" />
-            Rec · Behind the scenes
-          </span>
         </div>
       </Reveal>
 

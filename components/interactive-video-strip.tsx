@@ -123,13 +123,6 @@ export function InteractiveVideoStrip({ videoUrl, title }: InteractiveVideoStrip
           className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
         />
 
-        {/* Subtle hover prompt in center */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-black/20">
-          <div className="flex items-center gap-2 rounded-full border border-white/30 bg-black/60 px-4 py-2 backdrop-blur-md text-white shadow-lg">
-            <Maximize2 className="size-4" />
-            <span className="font-mono text-xs uppercase tracking-widest font-bold">View Mode</span>
-          </div>
-        </div>
 
         {/* Small mute button at bottom right */}
         <button
