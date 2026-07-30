@@ -33,7 +33,21 @@ export default buildConfig({
   plugins: [
     s3Storage({
       collections: {
-        media: true, // Applies to the 'media' collection
+        media: {
+          disablePayloadAccessControl: true,
+          generateFileURL: ({ filename, prefix }) => {
+            const baseUrl = (
+              process.env.R2_PUBLIC_URL ||
+              process.env.S3_PUBLIC_URL ||
+              process.env.R2_SUBDOMAIN ||
+              process.env.R2_URL ||
+              process.env.S3_URL ||
+              ''
+            ).replace(/\/$/, '')
+            const key = prefix ? `${prefix}/${filename}` : filename
+            return baseUrl ? `${baseUrl}/${key}` : key
+          },
+        },
       },
       bucket: process.env.S3_BUCKET || '',
       clientUploads: true, // Enable direct client uploads to bypass Vercel serverless 4.5MB limit
