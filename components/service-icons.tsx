@@ -1,14 +1,14 @@
 /** Custom, brand-built icon family for HFDG services.
  *
  *  These are NOT off-the-shelf icons. They're drawn from the same vocabulary
- *  as the rest of the site — frames, lenses, record dots, play triangles,
- *  broadcast arcs, waveforms — so the set reads as one cohesive system and can
+ *  as the rest of the site: frames, lenses, record dots, play triangles,
+ *  broadcast arcs, waveforms: so the set reads as one cohesive system and can
  *  be reused anywhere (nav, cards, footers) by slug.
  *
  *  Every icon is a 24×24 line drawing on `currentColor`, so it inherits the
  *  accent red (or any color) from its parent via `text-*`.
  *
- *  Pass `animate` to bring the mark to life — the CSS in globals.css targets
+ *  Pass `animate` to bring the mark to life: the CSS in globals.css targets
  *  the `.svc-*` classes only when the wrapper carries `.svc-anim`.
  */
 
@@ -49,7 +49,7 @@ function Frame({
   )
 }
 
-/** 01 · Corporate Video — a horizontal screen telling a story (frame + play). */
+/** 01 · Corporate Video: a horizontal screen telling a story (frame + play). */
 export function CorporateVideoIcon(props: IconProps) {
   return (
     <Frame {...props}>
@@ -59,7 +59,7 @@ export function CorporateVideoIcon(props: IconProps) {
   )
 }
 
-/** 02 · Real Estate Media — a building, framed (roof, walls, opening). */
+/** 02 · Real Estate Media: a building, framed (roof, walls, opening). */
 export function RealEstateIcon(props: IconProps) {
   return (
     <Frame {...props}>
@@ -70,7 +70,7 @@ export function RealEstateIcon(props: IconProps) {
   )
 }
 
-/** 03 · Commercial Production — a clapperboard (lid + teeth + body). */
+/** 03 · Commercial Production: a clapperboard (lid + teeth + body). */
 export function CommercialIcon(props: IconProps) {
   return (
     <Frame {...props}>
@@ -85,7 +85,7 @@ export function CommercialIcon(props: IconProps) {
   )
 }
 
-/** 04 · Event Coverage — a live broadcast signal (record dot + arcs). */
+/** 04 · Event Coverage: a live broadcast signal (record dot + arcs). */
 export function EventIcon(props: IconProps) {
   return (
     <Frame {...props}>
@@ -98,7 +98,7 @@ export function EventIcon(props: IconProps) {
   )
 }
 
-/** 05 · Music Video — an audio waveform. */
+/** 05 · Music Video: an audio waveform. */
 export function MusicVideoIcon(props: IconProps) {
   return (
     <Frame {...props}>
@@ -111,22 +111,22 @@ export function MusicVideoIcon(props: IconProps) {
   )
 }
 
-/** 06 · Social Media Content — a phone-shaped crop marks + play, same stroke
+/** 06 · Social Media Content: a phone-shaped crop marks + play, same stroke
  *  weight and visual mass as the other marks (fits a 24×24 grid cleanly). */
 export function SocialIcon(props: IconProps) {
   return (
     <Frame {...props}>
-      {/* Phone outline — same 19×14 bounding box, rotated concept (portrait) */}
+      {/* Phone outline: same 19×14 bounding box, rotated concept (portrait) */}
       <rect x="7" y="2" width="10" height="20" rx="2.5" {...strokeProps} />
       {/* Home notch */}
       <circle cx="12" cy="18.4" r="1" fill="currentColor" />
-      {/* Play mark — centred in the screen area */}
+      {/* Play mark: centred in the screen area */}
       <path className="svc-play" d="M10.4 8.4l4 2.8-4 2.8z" fill="currentColor" />
     </Frame>
   )
 }
 
-/** 07 · Monthly Content Packages — a recurring cycle around a content dot. */
+/** 07 · Monthly Content Packages: a recurring cycle around a content dot. */
 export function MonthlyIcon(props: IconProps) {
   return (
     <Frame {...props}>
@@ -139,7 +139,7 @@ export function MonthlyIcon(props: IconProps) {
   )
 }
 
-/** Lookup by service slug — use anywhere the catalog is referenced. */
+/** Lookup by service slug: use anywhere the catalog is referenced. */
 export const serviceIcons: Record<string, (props: IconProps) => React.ReactElement> = {
   "corporate-video": CorporateVideoIcon,
   "real-estate-media": RealEstateIcon,

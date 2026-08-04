@@ -3,7 +3,7 @@ import { services } from "@/lib/site-data"
 import { FilmFrameIcon } from "@/components/hero"
 import { Reveal, RevealGroup, RevealItem } from "@/components/reveal"
 
-/** About — Expertise grid + 35Film affiliate band + closing CTA. */
+/** About: Expertise grid + 35Film affiliate band + closing CTA. */
 export function AboutExpertise() {
   return (
     <>
@@ -44,8 +44,8 @@ export function AboutExpertise() {
           <RevealGroup stagger={0.06} className="mt-14">
             <ul className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border-2 border-foreground bg-foreground sm:grid-cols-2 lg:grid-cols-3">
               {services.map((s) => (
-                <RevealItem key={s.title}>
-                  <li className="flex flex-col bg-background p-8">
+                <RevealItem key={s.title} className="h-full">
+                  <li className="flex flex-col bg-background p-8 h-full grow w-full">
                     <h3 className="font-heading text-2xl font-extrabold uppercase tracking-tight">
                       {s.title}
                     </h3>

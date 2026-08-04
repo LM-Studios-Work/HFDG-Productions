@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import { FocusScale, RecordDot, FilmCorners } from "@/components/film-ui"
 
-/** The HFDG film-frame icon — a camera viewfinder bracket with a blinking red dot.
+/** The HFDG film-frame icon: a camera viewfinder bracket with a blinking red dot.
  *  Inspired by the DGC bracketed logo style. Used as the studio's signature mark. */
 export function FilmFrameIcon({ className = "", dotPulse = false }: { className?: string; dotPulse?: boolean }) {
   return (
@@ -17,7 +17,7 @@ export function FilmFrameIcon({ className = "", dotPulse = false }: { className?
         <path d="M2 28 L2 38 L12 38" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" />
         {/* Bottom-right bracket */}
         <path d="M28 38 L38 38 L38 28" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" />
-        {/* Red recording dot — fill via Tailwind so CSS var resolves */}
+        {/* Red recording dot: fill via Tailwind so CSS var resolves */}
         <circle
           cx="20"
           cy="20"

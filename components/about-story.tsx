@@ -1,12 +1,12 @@
 import { Reveal } from "@/components/reveal"
 
-/** About — The Story. */
+/** About: The Story. */
 export function AboutStory() {
   return (
     <section className="scroll-mt-20 border-t-2 border-foreground px-5 py-24 lg:px-8 lg:py-32">
       <div className="mx-auto grid max-w-[1600px] grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
 
-        {/* Left — sticky label */}
+        {/* Left: sticky label */}
         <div className="lg:col-span-4">
           <div className="lg:sticky lg:top-28">
             <Reveal>
@@ -26,7 +26,7 @@ export function AboutStory() {
           </div>
         </div>
 
-        {/* Right — prose */}
+        {/* Right: prose */}
         <div className="lg:col-span-8">
           <div className="max-w-3xl space-y-7 text-lg leading-relaxed text-foreground/90">
             <Reveal delay={0.05}>

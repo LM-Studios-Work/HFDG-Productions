@@ -15,7 +15,7 @@ const principles = [
   },
 ]
 
-/** About — Mission / Vision / Values. */
+/** About: Mission / Vision / Values. */
 export function AboutValues() {
   return (
     <section className="scroll-mt-20 border-t-2 border-foreground px-5 py-24 lg:px-8 lg:py-32">
@@ -34,10 +34,10 @@ export function AboutValues() {
         </Reveal>
 
         <RevealGroup stagger={0.1} className="mt-14">
-          <ul className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border-2 border-foreground bg-foreground md:grid-cols-3">
+          <ul className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border-2 border-foreground bg-foreground lg:grid-cols-3">
             {principles.map((p) => (
-              <RevealItem key={p.title}>
-                <li className="flex flex-col bg-background p-8 lg:p-10">
+              <RevealItem key={p.title} className="h-full">
+                <li className="flex h-full grow w-full flex-col bg-background p-8 lg:p-10">
                   <h3 className="font-heading text-3xl font-extrabold uppercase tracking-tight">
                     {p.title}
                   </h3>

@@ -9,7 +9,7 @@ import { ServicesFaq } from "@/components/services-faq"
 import { ServicesClosing } from "@/components/services-closing"
 
 export const metadata: Metadata = {
-  title: "Services — Corporate, Real Estate & Commercial Video | HFDG Productions",
+  title: "Services: Corporate, Real Estate & Commercial Video | HFDG Productions",
   description:
     "From a single hero film to monthly content packages: corporate video, real estate media, commercial production, event coverage, music videos and social content. See how we work and where to start.",
 }

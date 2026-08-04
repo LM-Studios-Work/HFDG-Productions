@@ -9,7 +9,7 @@ import { AboutGallery } from "@/components/about-gallery"
 import { AboutExpertise } from "@/components/about-expertise"
 
 export const metadata: Metadata = {
-  title: "About HFDG Productions — 10+ Years Behind the Lens | Affiliate of 35Film",
+  title: "About HFDG Productions: 10+ Years Behind the Lens | Affiliate of 35Film",
   description:
     "HFDG Productions is a filmmaker-led video studio with 10+ years of experience, based in Jeddah and Johannesburg. An affiliate of 35Film, creating corporate, real estate and commercial films across Africa and the Middle East.",
 }

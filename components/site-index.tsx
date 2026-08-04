@@ -11,7 +11,7 @@ export function SiteIndex() {
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
-              <span className="font-bold text-accent">005</span> — Keep looking
+              <span className="font-bold text-accent">005</span>: Keep looking
             </p>
             <h2 className="mt-4 max-w-2xl text-pretty text-4xl font-extrabold uppercase tracking-tight md:text-5xl">
               The rest of the studio.

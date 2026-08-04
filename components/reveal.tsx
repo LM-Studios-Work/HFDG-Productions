@@ -6,9 +6,9 @@ import { useEffect, useRef, type ReactNode, type CSSProperties } from "react"
  * Subtle scroll-reveal wrapper using Intersection Observer (zero deps).
  *
  * Usage:
- *   <Reveal>              — default fade-up (20px)
- *   <Reveal delay={0.1}>  — staggered
- *   <Reveal direction="left">  — slide from left
+ *   <Reveal>: default fade-up (20px)
+ *   <Reveal delay={0.1}>: staggered
+ *   <Reveal direction="left">: slide from left
  *
  * Animations are intentionally quiet:
  *   - Short translate (16-20px)
@@ -89,7 +89,7 @@ export function Reveal({
 }
 
 /**
- * Stagger container — wraps children so each <RevealItem> inside
+ * Stagger container: wraps children so each <RevealItem> inside
  * gets a progressive delay automatically.
  */
 export function RevealGroup({
@@ -163,7 +163,11 @@ export function RevealItem({
   }
 
   return (
-    <div data-reveal-item className={className} style={initialStyle}>
+    <div
+      data-reveal-item
+      className={`flex flex-col w-full ${className}`}
+      style={initialStyle}
+    >
       {children}
     </div>
   )

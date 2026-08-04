@@ -5,7 +5,7 @@ import { FilmFrameIcon } from "@/components/hero"
 import { Reveal } from "@/components/reveal"
 import { AutoPlayVideo } from "@/components/autoplay-video"
 
-/** One full-width featured film with "View Our Work" underneath — Sandwich-style. */
+/** One full-width featured film with "View Our Work" underneath: Sandwich-style. */
 export function WorkShowcase({ videoUrl }: { videoUrl?: string }) {
   return (
     <section id="work" className="scroll-mt-20">
@@ -28,14 +28,14 @@ export function WorkShowcase({ videoUrl }: { videoUrl?: string }) {
         </div>
       </Reveal>
 
-      {/* Underneath the film: title line + VIEW OUR WORK link — sandwich-style */}
+      {/* Underneath the film: title line + VIEW OUR WORK link: sandwich-style */}
       <div className="border-b-2 border-foreground px-5 py-10 lg:px-8 lg:py-14">
         <div className="mx-auto flex max-w-[1600px] flex-col gap-8 md:flex-row md:items-end md:justify-between">
           {/* Left: headline */}
           <Reveal delay={0.1}>
             <div>
               <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
-                <span className="font-bold text-accent">001</span> — Selected work
+                <span className="font-bold text-accent">001</span>: Selected work
               </p>
               <h2 className="mt-4 max-w-2xl text-pretty font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight md:text-5xl">
                 Stories worth
@@ -45,7 +45,7 @@ export function WorkShowcase({ videoUrl }: { videoUrl?: string }) {
             </div>
           </Reveal>
 
-          {/* Right: the CTA — film icon + VIEW OUR WORK, sandwich-style */}
+          {/* Right: the CTA: film icon + VIEW OUR WORK, sandwich-style */}
           <Reveal delay={0.2} direction="right">
             <a
               href="/projects"

@@ -10,7 +10,7 @@ export type Project = {
   image: string
   /** Short line that lives underneath the film */
   summary: string
-  /** Where the film links to — a deeper page of the site */
+  /** Where the film links to: a deeper page of the site */
   href: string
   /** Label for the link underneath the film */
   linkLabel: string
@@ -27,7 +27,7 @@ export const projects: Project[] = [
     runtime: "1:48",
     featured: true,
     summary:
-      "A 40-storey launch film shot across Jeddah at golden hour — the reel the developer used to pre-sell the top six floors before breaking ground.",
+      "A 40-storey launch film shot across Jeddah at golden hour. This is the reel the developer used to pre-sell the top six floors before breaking ground.",
     href: "/work/real-estate",
     linkLabel: "See real estate work",
     image:
@@ -56,7 +56,7 @@ export const projects: Project[] = [
     year: "2024",
     runtime: "0:60",
     summary:
-      "A 60-second broadcast spot, concept to final color in-house — built to run on TV and cut down for social in a single shoot.",
+      "A 60-second broadcast spot, taking it from concept to final color in-house. It was built to run on TV and cut down for social media in a single shoot.",
     href: "/work/commercial",
     linkLabel: "See commercial work",
     image:
@@ -70,7 +70,7 @@ export const projects: Project[] = [
     year: "2024",
     runtime: "3:14",
     summary:
-      "A neon-soaked music video shot overnight in Lagos — three locations, one camera car, zero sleep.",
+      "A neon-soaked music video shot overnight in Lagos. We hit three locations with one camera car on zero sleep.",
     href: "/work/music-videos",
     linkLabel: "See music videos",
     image:
@@ -105,12 +105,12 @@ export const services = [
   {
     title: "Real Estate Media",
     description:
-      "Cinematic property and development films — aerials, walkthroughs and lifestyle reels that sell the space.",
+      "Cinematic property and development films, featuring aerials, walkthroughs and lifestyle reels that sell the space.",
   },
   {
     title: "Commercial Production",
     description:
-      "Spots and campaigns built for broadcast, social and everything in between — concept to final color.",
+      "Spots and campaigns built for broadcast, social, and everything in between, taking it from concept to final color.",
   },
   {
     title: "Event Coverage",
@@ -120,7 +120,7 @@ export const services = [
   {
     title: "Music Video",
     description:
-      "Artist-led visuals with a point of view — direction, shoot and edit that match the energy of the track.",
+      "Artist-led visuals with a strong point of view, delivering direction, shooting, and editing that match the energy of the track.",
   },
   {
     title: "Social & Monthly Packages",
@@ -130,7 +130,7 @@ export const services = [
 ]
 
 /** ── Services page content ─────────────────────────────────────────────
- *  Full, detailed breakdown of every capability — used on /services.
+ *  Full, detailed breakdown of every capability: used on /services.
  *  The shorter `services` array above still feeds the home + about previews. */
 export type ServiceDetail = {
   slug: string
@@ -142,7 +142,7 @@ export type ServiceDetail = {
   description: string
   /** Concrete things the client walks away with */
   deliverables: string[]
-  /** Best-for line — who this is for */
+  /** Best-for line: who this is for */
   bestFor: string
   image: string
   imageAlt: string
@@ -156,7 +156,7 @@ export const serviceDetails: ServiceDetail[] = [
     title: "Corporate Video",
     tagline: "Make the company look as good as it actually is.",
     description:
-      "Brand films, founder stories and internal content with a point of view. We turn the way you talk about your business into something people actually want to watch — built to win investors, recruits and customers.",
+      "Brand films, founder stories and internal content with a point of view. We turn the way you talk about your business into something people actually want to watch. Our work is built to win investors, recruits and customers.",
     deliverables: [
       "Brand & founder films",
       "Recruitment & culture videos",
@@ -167,7 +167,7 @@ export const serviceDetails: ServiceDetail[] = [
     runtime: "2:30",
     image:
       "/placeholder.svg?height=1000&width=900&query=modern%20corporate%20founder%20interview%20cinematic%20film%20still%20moody",
-    imageAlt: "Corporate brand film still — founder interview on set",
+    imageAlt: "Corporate brand film still showing founder interview on set",
   },
   {
     slug: "real-estate-media",
@@ -175,7 +175,7 @@ export const serviceDetails: ServiceDetail[] = [
     title: "Real Estate Media",
     tagline: "Sell the space before it's even finished.",
     description:
-      "Cinematic property and development films — aerials, walkthroughs and lifestyle reels that make a building feel like a place to live. The kind of footage developers use to pre-sell floors before breaking ground.",
+      "Cinematic property and development films featuring aerials, walkthroughs and lifestyle reels that make a building feel like a place to live. This is the kind of footage developers use to pre-sell floors before breaking ground.",
     deliverables: [
       "Aerial & drone cinematography",
       "Property & unit walkthroughs",
@@ -186,7 +186,7 @@ export const serviceDetails: ServiceDetail[] = [
     runtime: "1:48",
     image:
       "/placeholder.svg?height=1000&width=900&query=luxury%20real%20estate%20high%20rise%20aerial%20golden%20hour%20cinematic",
-    imageAlt: "Real estate development film still — aerial at golden hour",
+    imageAlt: "Real estate development film still of an aerial view at golden hour",
   },
   {
     slug: "commercial-production",
@@ -194,7 +194,7 @@ export const serviceDetails: ServiceDetail[] = [
     title: "Commercial Production",
     tagline: "Concept to final color, in one house.",
     description:
-      "Spots and campaigns built for broadcast, social and everything between. We handle the idea, the shoot and the post — so a single production day becomes a TV spot and a stack of social cutdowns.",
+      "Spots and campaigns built for broadcast, social and everything between. We handle the idea, the shoot and the post, ensuring a single production day becomes a TV spot and a stack of social cutdowns.",
     deliverables: [
       "TV & broadcast spots",
       "Social-first cutdowns",
@@ -205,7 +205,7 @@ export const serviceDetails: ServiceDetail[] = [
     runtime: "0:60",
     image:
       "/placeholder.svg?height=1000&width=900&query=luxury%20car%20commercial%20night%20city%20lights%20cinematic%20film%20still",
-    imageAlt: "Commercial spot still — product at night with city lights",
+    imageAlt: "Commercial spot still featuring a product at night with city lights",
   },
   {
     slug: "event-coverage",
@@ -213,7 +213,7 @@ export const serviceDetails: ServiceDetail[] = [
     title: "Event Coverage",
     tagline: "Capture the moment while it still matters.",
     description:
-      "Multi-cam coverage of launches, conferences and live moments — cut and delivered fast. From a same-day highlight to a full recap film, we keep the energy of the room on screen.",
+      "Multi-cam coverage of launches, conferences and live moments, cut and delivered fast. From a same-day highlight to a full recap film, we keep the energy of the room on screen.",
     deliverables: [
       "Multi-camera capture",
       "Same-day highlight edits",
@@ -224,7 +224,7 @@ export const serviceDetails: ServiceDetail[] = [
     runtime: "3:05",
     image:
       "/placeholder.svg?height=1000&width=900&query=live%20event%20conference%20stage%20lights%20crowd%20cinematic%20film%20still",
-    imageAlt: "Event coverage still — stage lights and live audience",
+    imageAlt: "Event coverage still showing stage lights and live audience",
   },
   {
     slug: "music-video",
@@ -232,7 +232,7 @@ export const serviceDetails: ServiceDetail[] = [
     title: "Music Video",
     tagline: "Visuals that match the energy of the track.",
     description:
-      "Artist-led music videos with direction, not just coverage. Treatment, shoot and edit built around the song — performance, narrative or something in between.",
+      "Artist-led music videos with direction, not just coverage. The treatment, shoot, and edit are built around the song, whether it focuses on performance, narrative, or something in between.",
     deliverables: [
       "Treatment & creative direction",
       "Performance & narrative shoots",
@@ -243,7 +243,7 @@ export const serviceDetails: ServiceDetail[] = [
     runtime: "3:14",
     image:
       "/placeholder.svg?height=1000&width=900&query=neon%20music%20video%20artist%20performance%20night%20cinematic%20film%20still",
-    imageAlt: "Music video still — neon-lit performance at night",
+    imageAlt: "Music video still of a neon-lit performance at night",
   },
   {
     slug: "social-content",
@@ -262,7 +262,7 @@ export const serviceDetails: ServiceDetail[] = [
     runtime: "0:15",
     image:
       "/placeholder.svg?height=1000&width=900&query=vertical%20social%20media%20content%20shoot%20creator%20studio%20cinematic",
-    imageAlt: "Social content still — vertical-format studio shoot",
+    imageAlt: "Social content still from a vertical-format studio shoot",
   },
   {
     slug: "monthly-packages",
@@ -270,7 +270,7 @@ export const serviceDetails: ServiceDetail[] = [
     title: "Monthly Content Packages",
     tagline: "Always-on video, fully handled.",
     description:
-      "A retainer for brands that need a steady stream of video. Recurring shoot days, a content calendar and priority scheduling — your channels stay fed without you chasing a crew every month.",
+      "A retainer for brands that need a steady stream of video. With recurring shoot days, a content calendar, and priority scheduling, your channels stay fed without you chasing a crew every month.",
     deliverables: [
       "Recurring shoot days",
       "Content calendar & planning",
@@ -281,22 +281,22 @@ export const serviceDetails: ServiceDetail[] = [
     runtime: "∞",
     image:
       "/placeholder.svg?height=1000&width=900&query=content%20calendar%20planning%20film%20crew%20studio%20cinematic%20workspace",
-    imageAlt: "Monthly content still — planning a recurring shoot schedule",
+    imageAlt: "Monthly content still showing planning for a recurring shoot schedule",
   },
 ]
 
-/** How we work — three-step process. */
+/** How we work: three-step process. */
 export const processSteps = [
   {
     step: "01",
     title: "Consult",
-    body: "We start with a conversation — your goals, your audience, your budget. You leave knowing exactly what we'd shoot, how, and what it'll deliver. No vague quotes.",
+    body: "We start with a conversation about your goals, your audience, and your budget. You leave knowing exactly what we'd shoot, how, and what it'll deliver. There are no vague quotes.",
     points: ["Discovery call", "Creative direction", "Clear scope & quote"],
   },
   {
     step: "02",
     title: "Produce",
-    body: "One team across pre-production, shoot and post. We plan the shoot, run the day and keep you in the loop — nothing gets lost in a handoff between agencies.",
+    body: "You get one team across pre-production, shoot, and post. We plan the shoot, run the day, and keep you in the loop so nothing gets lost in a handoff between agencies.",
     points: ["Pre-production & planning", "Direction & filming", "Edit, color & sound"],
   },
   {
@@ -307,7 +307,7 @@ export const processSteps = [
   },
 ]
 
-/** Pricing anchors — tiers, not exact prices. */
+/** Pricing anchors: tiers, not exact prices. */
 export type Package = {
   name: string
   positioning: string
@@ -322,7 +322,7 @@ export const packages: Package[] = [
     name: "Starter",
     positioning: "One film, done right",
     anchor: "Single project",
-    description: "A focused, one-off film for a single goal — perfect for a first project or a one-time launch.",
+    description: "A focused, one-off film for a single goal. It is perfect for a first project or a one-time launch.",
     features: [
       "One shoot day",
       "One finished film",
@@ -335,7 +335,7 @@ export const packages: Package[] = [
     name: "Standard",
     positioning: "A campaign, not a clip",
     anchor: "Multi-deliverable",
-    description: "Our most-chosen tier — a proper production day turned into a hero film and a full set of cutdowns.",
+    description: "This is our most-chosen tier, turning a proper production day into a hero film and a full set of cutdowns.",
     features: [
       "Multi-day shoot",
       "Up to 3 finished films",
@@ -366,7 +366,7 @@ export const packages: Package[] = [
 export const serviceFaqs = [
   {
     q: "How much does a video cost?",
-    a: "It depends on scope — a single social cutdown and a multi-day brand campaign aren't the same project. Our tiers give you a sense of the range, and after a quick consultation you'll get a clear, fixed quote before anything is booked.",
+    a: "It depends on the scope, as a single social cutdown and a multi-day brand campaign aren't the same project. Our tiers give you a sense of the range, and after a quick consultation you'll get a clear, fixed quote before anything is booked.",
   },
   {
     q: "How long does a project take?",
@@ -378,7 +378,7 @@ export const serviceFaqs = [
   },
   {
     q: "Do you handle concept and scripting?",
-    a: "Always. Direction is the whole point. We can take a finished brief or build the concept, script and storyboard with you from scratch — whatever the project needs.",
+    a: "Always. Direction is the whole point. We can take a finished brief or build the concept, script and storyboard with you from scratch, depending on whatever the project needs.",
   },
   {
     q: "Who owns the final footage?",
@@ -395,7 +395,7 @@ export const locations = [
   { city: "Berlin", country: "DE", status: "soon" as const },
 ]
 
-/** The rest of the site — linked from the home page, built later */
+/** The rest of the site: linked from the home page, built later */
 export const sitePages = [
   {
     index: "01",
@@ -419,13 +419,13 @@ export const sitePages = [
     index: "04",
     title: "Locations",
     href: "/locations",
-    blurb: "Johannesburg, Jeddah and Lagos — Riyadh and Berlin soon.",
+    blurb: "We are currently in Johannesburg, Jeddah, and Lagos, with Riyadh and Berlin coming soon.",
   },
   {
     index: "05",
     title: "Case Studies",
     href: "/case-studies",
-    blurb: "Not just the films — what they did for the client.",
+    blurb: "We don't just focus on the films, but also on what they achieve for the client.",
   },
   {
     index: "06",

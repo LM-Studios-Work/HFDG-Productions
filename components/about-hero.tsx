@@ -2,14 +2,14 @@ import { Play } from "lucide-react"
 import { RecordDot, FilmCorners } from "@/components/film-ui"
 
 /** About hero. Mobile: media full-width at top, headline overlaps its
- *  bottom edge, body follows. Desktop: split — copy left, tall film right. */
+ *  bottom edge, body follows. Desktop: split: copy left, tall film right. */
 export function AboutHero() {
   return (
     <section className="relative scroll-mt-20">
 
       {/* ── MOBILE layout (< lg): media → headline → body → stats ── */}
       <div className="lg:hidden">
-        {/* Media — contained square with side padding, sits below navbar */}
+        {/* Media: contained square with side padding, sits below navbar */}
         <div className="group relative px-5 pt-20">
           <div className="relative overflow-hidden border-2 border-foreground bg-card aspect-square w-full">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -80,7 +80,7 @@ export function AboutHero() {
       {/* ── DESKTOP layout (lg+): split columns ── */}
       <div className="hidden lg:block px-8 pt-24 pb-16">
         <div className="mx-auto grid max-w-[1600px] grid-cols-12 items-center gap-16">
-          {/* Left — copy */}
+          {/* Left: copy */}
           <div className="col-span-6">
             <h1 className="text-pretty font-heading text-7xl font-extrabold uppercase leading-[0.9] tracking-tight xl:text-8xl">
               Ten years
@@ -117,7 +117,7 @@ export function AboutHero() {
             </dl>
           </div>
 
-          {/* Right — tall film */}
+          {/* Right: tall film */}
           <div className="col-span-6 flex items-center justify-center">
             <div className="group relative w-full flex justify-center">
               <div

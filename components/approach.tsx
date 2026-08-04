@@ -10,7 +10,7 @@ export function Approach() {
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
-              <span className="font-bold text-accent">003</span> — What we do
+              <span className="font-bold text-accent">003</span>: What we do
             </p>
             <h2 className="mt-4 max-w-2xl text-pretty text-4xl font-extrabold uppercase tracking-tight md:text-5xl">
               From the first idea to the final frame.

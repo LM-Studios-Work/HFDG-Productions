@@ -27,7 +27,7 @@ const shots = [
   },
 ]
 
-/** About — Behind the scenes gallery. */
+/** About: Behind the scenes gallery. */
 export function AboutGallery() {
   return (
     <section className="scroll-mt-20 border-t-2 border-foreground px-5 py-24 lg:px-8 lg:py-32">

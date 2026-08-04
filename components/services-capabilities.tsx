@@ -7,13 +7,13 @@ import { ServiceIcon } from "@/components/service-icons";
 import { serviceDetails, type ServiceDetail } from "@/lib/site-data";
 
 /** The full capability breakdown as an accordion list.
- *  Every item expands inline — works identically on mobile and desktop.
+ *  Every item expands inline: works identically on mobile and desktop.
  *  Reads the URL hash on mount so hero links open the right item. */
 export function ServicesCapabilities() {
   const [openSlug, setOpenSlug] = useState<string | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
-  // On mount / hash change / custom event — open the matching service
+  // On mount / hash change / custom event: open the matching service
   useEffect(() => {
     const activateFromHash = () => {
       const hash = window.location.hash.replace("#", "");
@@ -171,7 +171,7 @@ function AccordionItem({
 function ServiceDetailPanel({ s }: { s: ServiceDetail }) {
   return (
     <div className="svc-panel-in flex flex-col gap-8 px-5 py-10 lg:flex-row lg:items-start lg:gap-16 lg:px-8 lg:py-14">
-      {/* Left — icon viewfinder */}
+      {/* Left: icon viewfinder */}
       <div className="w-full shrink-0 lg:w-72">
         <div className="relative flex aspect-[4/3] w-full items-center justify-center border-2 border-foreground/15 bg-background lg:aspect-square">
           <FilmCorners size={20} inset={12} thickness={2} />
@@ -179,7 +179,7 @@ function ServiceDetailPanel({ s }: { s: ServiceDetail }) {
         </div>
       </div>
 
-      {/* Right — copy + deliverables */}
+      {/* Right: copy + deliverables */}
       <div className="flex flex-col gap-6">
         {/* Ledger header */}
         <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">

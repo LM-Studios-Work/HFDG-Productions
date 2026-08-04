@@ -1,7 +1,7 @@
 import { Reveal } from "@/components/reveal"
 import { ArrowRight } from "lucide-react"
 
-/** Closing CTA — mirrors the About page's sign-off, tuned for services. */
+/** Closing CTA: mirrors the About page's sign-off, tuned for services. */
 export function ServicesClosing() {
   return (
     <section className="scroll-mt-20 border-t-2 border-foreground px-5 py-24 text-center lg:px-8 lg:py-32">
@@ -15,7 +15,7 @@ export function ServicesClosing() {
           </h2>
           <p className="mx-auto mt-6 max-w-xl leading-relaxed text-muted-foreground">
             Tell us what you&apos;re building. We&apos;ll tell you exactly how
-            we&apos;d shoot it — and which package fits.
+            we&apos;d shoot it, and which package fits.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a

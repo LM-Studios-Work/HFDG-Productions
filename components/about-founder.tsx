@@ -21,7 +21,7 @@ const team = [
   },
 ]
 
-/** About — Team grid. Duotone-washed portraits, 2-col mobile, 3-col desktop. */
+/** About: Team grid. Duotone-washed portraits, 2-col mobile, 3-col desktop. */
 export function AboutFounder() {
   return (
     <section className="scroll-mt-20 border-t-2 border-foreground px-5 py-24 lg:px-8 lg:py-32">
@@ -50,7 +50,7 @@ export function AboutFounder() {
                         className="size-full object-cover grayscale transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                       />
                     </div>
-                    {/* duotone colour wash — accent tint */}
+                    {/* duotone colour wash: accent tint */}
                     <div
                       className={`absolute inset-0 mix-blend-multiply ${member.tint} transition-opacity duration-300 group-hover:opacity-80`}
                       aria-hidden="true"

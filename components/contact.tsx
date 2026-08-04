@@ -29,7 +29,7 @@ export function Contact() {
         <div>
           <Reveal>
             <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
-              <span className="font-bold text-accent">004</span> — Get in touch
+              <span className="font-bold text-accent">004</span>: Get in touch
             </p>
             <h2 className="mt-6 text-pretty text-5xl font-extrabold uppercase leading-[0.95] tracking-tight md:text-7xl">
               Book a

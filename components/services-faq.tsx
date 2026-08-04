@@ -2,7 +2,7 @@ import { Reveal } from "@/components/reveal"
 import { Plus } from "lucide-react";
 import { serviceFaqs } from "@/lib/site-data";
 
-/** Frequently asked — sticky label left, accordion right. */
+/** Frequently asked: sticky label left, accordion right. */
 export function ServicesFaq() {
   return (
     <section
@@ -10,7 +10,7 @@ export function ServicesFaq() {
       className="scroll-mt-20 border-t-2 border-foreground px-5 py-12 lg:px-8 lg:py-16"
     >
       <div className="mx-auto grid max-w-[1600px] grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
-        {/* Left — sticky label */}
+        {/* Left: sticky label */}
         <div className="lg:col-span-4">
           <div className="lg:sticky lg:top-28">
             <Reveal>
@@ -23,7 +23,7 @@ export function ServicesFaq() {
           </div>
         </div>
 
-        {/* Right — accordion */}
+        {/* Right: accordion */}
         <div className="lg:col-span-8">
           <div className="border-t-2 border-foreground">
             {serviceFaqs.map((faq, i) => (

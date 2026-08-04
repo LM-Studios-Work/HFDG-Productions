@@ -5,7 +5,7 @@ import Lenis from "lenis"
 
 /**
  * Global smooth-scroll provider using Lenis.
- * Heavy, slow, cinematic scroll feel — the kind premium production studios use.
+ * Heavy, slow, cinematic scroll feel: the kind premium production studios use.
  */
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
   const lenisRef = useRef<Lenis | null>(null)

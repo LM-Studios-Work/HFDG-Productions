@@ -13,7 +13,7 @@ export function LocationsStrip() {
           <Reveal>
             <div>
               <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
-                <span className="font-bold text-accent">003</span> — Where we shoot
+                <span className="font-bold text-accent">003</span>: Where we shoot
               </p>
               <h2 className="mt-4 max-w-2xl text-pretty text-4xl font-extrabold uppercase tracking-tight md:text-5xl">
                 Three cities, one crew.

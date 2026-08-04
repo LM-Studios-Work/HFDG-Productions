@@ -2,7 +2,7 @@ import { Reveal } from "@/components/reveal"
 import { Check } from "lucide-react";
 import { processSteps } from "@/lib/site-data";
 
-/** How We Work — three connected steps (Consult / Produce / Deliver).
+/** How We Work: three connected steps (Consult / Produce / Deliver).
  *  A ruled "timeline" with tick marks on desktop, a vertical spine on mobile. */
 export function ServicesProcess() {
   return (
@@ -24,13 +24,13 @@ export function ServicesProcess() {
         </Reveal>
 
         {/* Timeline */}
-        <ol className="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-lg border-2 border-foreground bg-foreground md:grid-cols-3">
+        <ol className="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-lg border-2 border-foreground bg-foreground lg:grid-cols-3">
           {processSteps.map((step, i) => (
             <Reveal key={step.step} delay={i * 0.1} className="contents">
               <li
-                className="relative flex flex-col bg-card p-8 lg:p-10"
+                className="relative flex h-full grow w-full flex-col bg-card p-8 lg:p-10"
               >
-                {/* Step marker row — ruler ticks between steps (last step: no ruler) */}
+                {/* Step marker row: ruler ticks between steps (last step: no ruler) */}
                 <div className="flex items-center gap-4">
                   <span className="inline-flex size-12 shrink-0 items-center justify-center rounded-full border-2 border-foreground font-heading text-lg font-extrabold">
                     {step.step}

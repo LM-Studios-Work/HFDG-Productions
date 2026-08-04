@@ -24,7 +24,7 @@ export function ContactPageFaq() {
   return (
     <section className="border-t-2 border-foreground px-5 py-24 lg:px-8 lg:py-32">
       <div className="mx-auto grid max-w-[1600px] grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
-        {/* Left — sticky label */}
+        {/* Left: sticky label */}
         <div className="lg:col-span-4">
           <div className="lg:sticky lg:top-32">
             <Reveal>
@@ -40,7 +40,7 @@ export function ContactPageFaq() {
           </div>
         </div>
 
-        {/* Right — accordion */}
+        {/* Right: accordion */}
         <div className="lg:col-span-8">
           <div className="border-t-2 border-foreground">
             {contactFaqs.map((faq, i) => (

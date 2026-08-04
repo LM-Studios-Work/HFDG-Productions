@@ -3,7 +3,7 @@
 import { ArrowDown } from "lucide-react"
 import { serviceDetails } from "@/lib/site-data"
 
-/** Services hero — text-led, no top-corner film brackets.
+/** Services hero: text-led, no top-corner film brackets.
  *  Headline on the left, a "contents sheet" of every capability on the right
  *  that doubles as in-page jump navigation. Clicking an item scrolls to it
  *  and also opens the accordion for that service. */
@@ -11,7 +11,7 @@ export function ServicesIntro() {
   const handleServiceClick = (slug: string) => {
     // Set the hash (triggers hashchange + scroll to element)
     window.location.hash = slug
-    // Also dispatch a custom event — handles re-clicks on the same hash
+    // Also dispatch a custom event: handles re-clicks on the same hash
     window.dispatchEvent(new CustomEvent("open-service", { detail: slug }))
   }
 
@@ -19,7 +19,7 @@ export function ServicesIntro() {
     <section id="top" className="scroll-mt-20 px-5 pt-28 pb-16 lg:px-8 lg:pt-36 lg:pb-24">
       <div className="mx-auto max-w-[1600px]">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
-          {/* Left — the statement */}
+          {/* Left: the statement */}
           <div className="lg:col-span-7">
             <h1 className="text-pretty font-heading text-[2.75rem] font-extrabold uppercase leading-[0.9] tracking-tight sm:text-6xl lg:text-7xl xl:text-8xl">
               Every kind
@@ -35,7 +35,7 @@ export function ServicesIntro() {
               </span>
             </h1>
             <p className="mt-10 max-w-xl text-xl font-semibold leading-snug text-foreground">
-              From a single hero film to a full monthly content engine — planned,
+              From a single hero film to a full monthly content engine, all planned,
               shot and finished under one roof.
             </p>
             <p className="mt-5 max-w-lg leading-relaxed text-muted-foreground">
@@ -45,7 +45,7 @@ export function ServicesIntro() {
             </p>
           </div>
 
-          {/* Right — contents sheet / jump nav */}
+          {/* Right: contents sheet / jump nav */}
           <div className="hidden lg:block lg:col-span-5">
             <div className="rounded-lg border-2 border-foreground">
               <p className="flex items-center justify-between border-b-2 border-foreground px-5 py-3.5 font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">

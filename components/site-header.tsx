@@ -16,11 +16,11 @@ const mobileNavLinks = [
   ...navLinks,
 ]
 
-/** The HFDG logo mark — viewfinder brackets + wordmark, DGC-style */
+/** The HFDG logo mark: viewfinder brackets + wordmark, DGC-style */
 function Logo() {
   return (
     <a href="/#top" className="group flex items-center gap-3" aria-label="HFDG Productions home">
-      {/* Bracketed logo — thin corner brackets with blinking red dot */}
+      {/* Bracketed logo: thin corner brackets with blinking red dot */}
       <span className="relative flex items-center justify-center">
         <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="size-8 text-foreground">
           {/* TL bracket */}
@@ -31,7 +31,7 @@ function Logo() {
           <path d="M2 23 L2 30 L9 30" stroke="currentColor" strokeWidth="2" strokeLinecap="square" />
           {/* BR bracket */}
           <path d="M23 30 L30 30 L30 23" stroke="currentColor" strokeWidth="2" strokeLinecap="square" />
-          {/* Red dot — always blinking */}
+          {/* Red dot: always blinking */}
           <circle cx="16" cy="16" r="4" className="fill-accent animate-blink-dot" />
         </svg>
       </span>
@@ -124,7 +124,7 @@ export function SiteHeader() {
         </div>
       </header>
 
-      {/* Mobile menu — full-screen black overlay above everything */}
+      {/* Mobile menu: full-screen black overlay above everything */}
       {open && (
         <div className="fixed inset-0 z-[200] flex flex-col bg-black md:hidden">
           {/* Top bar inside overlay: logo on left, close button on right */}

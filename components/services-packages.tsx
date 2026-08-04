@@ -2,7 +2,7 @@ import { Reveal } from "@/components/reveal"
 import { Check, ArrowRight } from "lucide-react";
 import { packages } from "@/lib/site-data";
 
-/** Pricing anchors — three tiers, no exact prices. */
+/** Pricing anchors: three tiers, no exact prices. */
 export function ServicesPackages() {
   return (
     <section
@@ -22,11 +22,11 @@ export function ServicesPackages() {
           </div>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-lg border-2 border-foreground bg-foreground md:grid-cols-3">
+        <div className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-lg border-2 border-foreground bg-foreground lg:grid-cols-3">
           {packages.map((pkg, i) => (
             <Reveal key={pkg.name} delay={i * 0.1} className="contents">
               <div
-                className={`relative flex flex-col p-8 lg:p-10 ${
+                className={`relative flex h-full grow w-full flex-col p-8 lg:p-10 ${
                   pkg.featured
                     ? "bg-accent text-accent-foreground"
                     : "bg-background"

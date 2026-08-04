@@ -9,13 +9,13 @@ export function StudioStatement({ videoUrl }: { videoUrl?: string }) {
       id="studio"
       className="scroll-mt-20 border-t-2 border-foreground"
     >
-      {/* Second video — full width, flush above the copy */}
+      {/* Second video: full width, flush above the copy */}
       <Reveal>
         <div className="group relative overflow-hidden border-b-2 border-foreground">
           <div className="w-full overflow-hidden bg-card aspect-[16/9] md:aspect-[2.65/1] max-h-[600px]">
             <AutoPlayVideo
               src={videoUrl || "/api/media/file/Fight%20Sports%20Centre.mp4"}
-              title="Behind the scenes — HFDG Productions crew on set"
+              title="Behind the scenes with the HFDG Productions crew on set"
               className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
             />
           </div>
@@ -27,11 +27,11 @@ export function StudioStatement({ videoUrl }: { videoUrl?: string }) {
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <Reveal>
             <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
-              <span className="font-bold text-accent">002</span> — The studio
+              <span className="font-bold text-accent">002</span>: The studio
             </p>
           </Reveal>
 
-          {/* See more about us — right-aligned on md+ */}
+          {/* See more about us: right-aligned on md+ */}
           <Reveal delay={0.15} direction="right">
             <a
               href="/about"
