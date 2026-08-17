@@ -33,8 +33,8 @@ export async function GET() {
         video: potAroundMedia.id,
         order: 1,
         credits: [
-          { role: 'VFX', names: 'Matt Wauhkonen, Wade Ivy' },
-          { role: 'Graphic Designer', names: 'Darby Faccinto' },
+          { role: 'Director of Photography', names: 'Matt Wauhkonen, Wade Ivy' },
+          { role: 'Edited by', names: 'Darby Faccinto' },
         ]
       })
     }
@@ -60,7 +60,7 @@ export async function GET() {
         order: 3,
         credits: [
           { role: 'Director', names: 'Jane Doe' },
-          { role: 'VFX', names: 'John Smith' },
+          { role: 'Director of Photography', names: 'John Smith' },
         ]
       })
     }

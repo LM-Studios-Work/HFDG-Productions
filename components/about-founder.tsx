@@ -1,28 +1,45 @@
 import { Reveal, RevealGroup, RevealItem } from "@/components/reveal"
 
-const team = [
+const defaultTeam = [
   {
     name: "HFDG Founder",
     role: "Director · DP",
-    query: "cinematic+director+portrait+studio+dark+background+moody",
+    photoUrl: undefined,
     tint: "bg-accent/60",
   },
   {
     name: "Lead Editor",
     role: "Post Production",
-    query: "filmmaker+editor+portrait+studio+neutral",
+    photoUrl: undefined,
     tint: "bg-foreground/40",
   },
   {
     name: "Camera Operator",
     role: "Director of Photography",
-    query: "cinematographer+portrait+studio+on+set",
+    photoUrl: undefined,
     tint: "bg-foreground/30",
   },
 ]
 
-/** About: Team grid. Duotone-washed portraits, 2-col mobile, 3-col desktop. */
-export function AboutFounder() {
+const fallbackTints = ["bg-accent/60", "bg-foreground/40", "bg-foreground/30", "bg-accent/40"]
+
+export function AboutFounder({ teamMembers = [] }: { teamMembers?: { name: string; role: string; photoUrl?: string }[] }) {
+  // Merge CMS team with defaults so users can replace placeholders one by one
+  const team = defaultTeam.map((member, index) => {
+    const cmsMember = teamMembers[index];
+    if (cmsMember) {
+      return {
+        ...member,
+        ...cmsMember,
+        // keep the default tint
+      };
+    }
+    return member;
+  });
+  if (teamMembers.length > defaultTeam.length) {
+    team.push(...teamMembers.slice(defaultTeam.length).map(m => ({ ...m, tint: fallbackTints[0] })));
+  }
+
   return (
     <section className="scroll-mt-20 border-t-2 border-foreground px-5 py-24 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-[1600px]">
@@ -37,24 +54,26 @@ export function AboutFounder() {
 
         <RevealGroup stagger={0.12} className="mt-14">
           <ul className="grid grid-cols-2 gap-6 lg:grid-cols-3">
-            {team.map((member) => (
-              <RevealItem key={member.name}>
+            {team.map((member, i) => (
+              <RevealItem key={`${member.name}-${i}`}>
                 <li className="group">
                   {/* Portrait with duotone wash overlay */}
                   <div className="relative overflow-hidden border-2 border-foreground bg-card">
-                    <div className="aspect-[3/4] w-full overflow-hidden">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={`/placeholder.svg?height=800&width=600&query=${member.query}`}
-                        alt={member.name}
-                        className="size-full object-cover grayscale transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                      />
+                    <div className="aspect-[3/4] w-full overflow-hidden bg-[#111111]">
+                      {member.photoUrl ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={member.photoUrl}
+                          alt={member.name}
+                          className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                        />
+                      ) : (
+                        <div className="size-full flex items-center justify-center opacity-10">
+                           {/* Solid colour fallback pattern */}
+                        </div>
+                      )}
                     </div>
-                    {/* duotone colour wash: accent tint */}
-                    <div
-                      className={`absolute inset-0 mix-blend-multiply ${member.tint} transition-opacity duration-300 group-hover:opacity-80`}
-                      aria-hidden="true"
-                    />
+
                   </div>
 
                   {/* Name + role */}

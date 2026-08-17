@@ -80,8 +80,8 @@ export function ProjectsGallery({ projects }: ProjectsGalleryProps) {
                   const displayCredits = project.credits && project.credits.length > 0 
                     ? project.credits 
                     : [
-                        { id: 'p1', role: 'VFX', names: 'Matt Wauhkonen, Wade Ivy' },
-                        { id: 'p2', role: 'Graphic Designer', names: 'Darby Faccinto' },
+                        { id: 'p1', role: 'Director of Photography', names: 'Matt Wauhkonen, Wade Ivy' },
+                        { id: 'p2', role: 'Edited by', names: 'Darby Faccinto' },
                         { id: 'p3', role: 'Director', names: 'Seth Worley' },
                         { id: 'p4', role: 'Producer', names: 'Chris Lee' },
                       ]

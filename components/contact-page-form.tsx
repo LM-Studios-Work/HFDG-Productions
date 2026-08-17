@@ -28,7 +28,7 @@ export function ContactPageForm() {
         <div className="flex flex-col justify-between">
           <div>
             <Reveal>
-              <h2 className="text-pretty text-5xl font-extrabold uppercase leading-[0.95] tracking-tight md:text-7xl">
+              <h2 className="text-pretty text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-extrabold uppercase leading-[0.95] tracking-tight">
                 Book a
                 <br />
                 consultation.

@@ -1,34 +1,21 @@
 import { Reveal } from "@/components/reveal"
 
-const shots = [
-  {
-    q: "film+crew+setting+up+camera+rig+on+location+golden+hour",
-    alt: "Crew setting up a camera rig on location",
-    span: "md:col-span-2 md:row-span-2",
-    ratio: "aspect-[4/5] md:aspect-auto md:h-full",
-  },
-  {
-    q: "cinematographer+checking+monitor+on+set+moody+lighting",
-    alt: "Cinematographer checking the monitor on set",
-    span: "",
-    ratio: "aspect-square",
-  },
-  {
-    q: "drone+aerial+shoot+over+city+skyline+production",
-    alt: "Aerial drone shoot over a city skyline",
-    span: "",
-    ratio: "aspect-square",
-  },
-  {
-    q: "editor+color+grading+suite+studio+screens+dark+room",
-    alt: "Editor in the color grading suite",
-    span: "md:col-span-2",
-    ratio: "aspect-[2/1]",
-  },
+const defaultShots = [
+  { imageUrl: "/placeholder.svg?height=900&width=720&query=film+crew+setting+up+camera", description: "Crew setting up a camera rig on location" },
+  { imageUrl: "/placeholder.svg?height=900&width=900&query=cinematographer+checking+monitor", description: "Cinematographer checking the monitor on set" },
+  { imageUrl: "/placeholder.svg?height=900&width=900&query=drone+aerial+shoot+over+city", description: "Aerial drone shoot over a city skyline" },
+  { imageUrl: "/placeholder.svg?height=900&width=1800&query=editor+color+grading+suite", description: "Editor in the color grading suite" },
 ]
 
-/** About: Behind the scenes gallery. */
-export function AboutGallery() {
+export function AboutGallery({ gallery = [] }: { gallery?: { imageUrl: string; description?: string }[] }) {
+  // Merge CMS images with defaults so users can replace placeholders one by one
+  const images = defaultShots.map((shot, index) => {
+    return gallery[index] ? gallery[index] : shot;
+  });
+  if (gallery.length > defaultShots.length) {
+    images.push(...gallery.slice(defaultShots.length));
+  }
+
   return (
     <section className="scroll-mt-20 border-t-2 border-foreground px-5 py-24 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-[1600px]">
@@ -48,42 +35,44 @@ export function AboutGallery() {
           </div>
         </Reveal>
 
-        {/* ── MOBILE: horizontal swipe carousel ── */}
-        <div className="mt-10 md:hidden flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-5 px-[12.5vw] scrollbar-none">
-          {shots.map((s, i) => (
-            <Reveal key={s.q} delay={i * 0.05} className="snap-center shrink-0 w-[75vw]">
-              <div className="group relative overflow-hidden border-2 border-foreground bg-card">
-                <div className="aspect-[4/5] w-full overflow-hidden">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={`/placeholder.svg?height=900&width=720&query=${s.q}`}
-                    alt={s.alt}
-                    className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                  />
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        {/* ── HORIZONTAL SCROLLING BENTO LAYOUT ── */}
+        <div className="mt-14 w-full overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-none flex -mx-5 px-5 lg:-mx-8 lg:px-8">
+          <div className="grid grid-rows-2 grid-flow-col-dense auto-cols-[60vw] sm:auto-cols-[300px] md:auto-cols-[350px] lg:auto-cols-[400px] gap-4 h-[60vh] min-h-[400px] max-h-[800px] w-max shrink-0">
+            {images.map((s, i) => {
+              // Perfect tessellation pattern for 2-row horizontal grid
+              const patternIndex = i % 6
+              let spanClass = "row-span-1 col-span-1"
 
-        {/* ── DESKTOP: bento grid ── */}
-        <div className="mt-14 hidden md:grid grid-cols-4 auto-rows-[minmax(0,1fr)] gap-4">
-          {shots.map((s, i) => (
-            <Reveal key={s.q} delay={i * 0.08} className={s.span}>
-              <div
-                className="group relative overflow-hidden border-2 border-foreground bg-card h-full"
-              >
-                <div className={`w-full overflow-hidden ${s.ratio}`}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={`/placeholder.svg?height=900&width=900&query=${s.q}`}
-                    alt={s.alt}
-                    className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                  />
-                </div>
-              </div>
-            </Reveal>
-          ))}
+              if (patternIndex === 0) {
+                spanClass = "row-span-2 col-span-2"
+              } else if (patternIndex === 3) {
+                spanClass = "row-span-1 col-span-2"
+              }
+
+              return (
+                <Reveal key={i} delay={(i % 6) * 0.05} className={`${spanClass} snap-center`}>
+                  <div className="group relative overflow-hidden border-2 border-foreground bg-card h-full w-full">
+                    <div className="w-full h-full overflow-hidden">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={s.imageUrl}
+                        alt={s.description || "Behind the scenes"}
+                        className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                      />
+                    </div>
+                    {/* Hover overlay for description */}
+                    {s.description && (
+                      <div className="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6 text-center">
+                        <p className="font-heading text-xl font-bold uppercase tracking-tight text-foreground">
+                          {s.description}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </Reveal>
+              )
+            })}
+          </div>
         </div>
       </div>
     </section>

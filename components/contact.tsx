@@ -31,7 +31,7 @@ export function Contact() {
             <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
               <span className="font-bold text-accent">004</span>: Get in touch
             </p>
-            <h2 className="mt-6 text-pretty text-5xl font-extrabold uppercase leading-[0.95] tracking-tight md:text-7xl">
+            <h2 className="mt-6 text-pretty text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-extrabold uppercase leading-[0.95] tracking-tight">
               Book a
               <br />
               consultation.
