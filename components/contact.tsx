@@ -48,7 +48,7 @@ export function Contact() {
             <RevealItem direction="left">
               <a
                 href="mailto:hello@hfdgproductions.com"
-                className="group flex items-center gap-2 font-heading text-2xl font-extrabold tracking-tight md:text-3xl"
+                className="group flex w-fit items-center gap-2 font-heading text-2xl font-extrabold tracking-tight md:text-3xl"
               >
                 hello@hfdgproductions.com
                 <ArrowUpRight className="size-6 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
@@ -59,7 +59,7 @@ export function Contact() {
                 href="https://wa.me/27000000000"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border-2 border-foreground px-6 py-3 text-sm font-extrabold uppercase tracking-tight transition-colors hover:bg-foreground hover:text-background"
+                className="inline-flex w-fit items-center gap-2 rounded-full border-2 border-foreground px-6 py-3 text-sm font-extrabold uppercase tracking-tight transition-colors hover:bg-foreground hover:text-background"
               >
                 <WhatsAppIcon className="size-4" />
                 Message us on WhatsApp

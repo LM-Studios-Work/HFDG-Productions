@@ -84,7 +84,7 @@ export function SiteHeader() {
           <div className="mx-auto flex h-16 max-w-[1600px] items-center justify-between gap-4 px-5 lg:px-8">
             <Logo />
 
-            <nav className="hidden flex-1 max-w-3xl mx-12 lg:mx-20 items-center justify-between md:flex" aria-label="Primary">
+            <nav className="hidden flex-1 max-w-3xl mx-12 lg:mx-20 items-center justify-between lg:flex" aria-label="Primary">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href))
                 return (
@@ -101,7 +101,7 @@ export function SiteHeader() {
               })}
             </nav>
 
-            <div className="hidden md:block">
+            <div className="hidden lg:block">
               <a
                 href="/contact"
                 className="inline-flex items-center gap-2.5 text-sm font-extrabold uppercase tracking-widest text-foreground transition-colors hover:text-accent"
@@ -114,7 +114,7 @@ export function SiteHeader() {
             <button
               type="button"
               onClick={() => setOpen((v) => !v)}
-              className="inline-flex size-10 items-center justify-center rounded-md border-2 border-foreground md:hidden"
+              className="inline-flex size-10 items-center justify-center rounded-md border-2 border-foreground lg:hidden"
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
             >
@@ -126,7 +126,7 @@ export function SiteHeader() {
 
       {/* Mobile menu: full-screen black overlay above everything */}
       {open && (
-        <div className="fixed inset-0 z-[200] flex flex-col bg-black md:hidden">
+        <div className="fixed inset-0 z-[200] flex flex-col bg-black lg:hidden">
           {/* Top bar inside overlay: logo on left, close button on right */}
           <div className="flex items-center justify-between px-5 h-16 shrink-0">
             <Logo />

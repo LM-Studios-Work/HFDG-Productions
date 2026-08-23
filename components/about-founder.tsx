@@ -52,10 +52,13 @@ export function AboutFounder({ teamMembers = [] }: { teamMembers?: { name: strin
           </h2>
         </Reveal>
 
-        <RevealGroup stagger={0.12} className="mt-14">
-          <ul className="grid grid-cols-2 gap-6 lg:grid-cols-3">
+        <RevealGroup stagger={0.12} className="mt-14 w-full">
+          <ul className="grid grid-cols-2 gap-6 lg:flex lg:flex-nowrap lg:overflow-x-auto lg:pb-8 lg:snap-x lg:snap-mandatory lg:scrollbar-none lg:-mx-8 lg:px-8">
             {team.map((member, i) => (
-              <RevealItem key={`${member.name}-${i}`}>
+              <RevealItem 
+                key={`${member.name}-${i}`} 
+                className="lg:w-[350px] lg:shrink-0 lg:snap-start"
+              >
                 <li className="group">
                   {/* Portrait with duotone wash overlay */}
                   <div className="relative overflow-hidden border-2 border-foreground bg-card">

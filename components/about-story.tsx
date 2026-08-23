@@ -11,16 +11,15 @@ export function AboutStory() {
           <div className="lg:sticky lg:top-28">
             <Reveal>
               <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
-                Our story
+                Our Name
               </p>
               <h2 className="mt-4 text-pretty font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight md:text-5xl">
-                How we
+                Have Faith
                 <br />
-                got here.
+                & Do Good.
               </h2>
               <p className="mt-6 max-w-xs leading-relaxed text-muted-foreground">
-                No agency middlemen. No committee edits. Filmmakers who learned
-                the craft the long way.
+                HAVE FAITH AND DO GOOD FILM PRODUCTION. That is what HFDG stands for, and it is the standard we bring to every set and every edit.
               </p>
             </Reveal>
           </div>
