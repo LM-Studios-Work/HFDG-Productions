@@ -201,9 +201,9 @@ function ServiceDetailPanel({
   isOpen: boolean;
 }) {
   return (
-    <div className="svc-panel-in flex flex-col gap-8 px-5 py-10 lg:flex-row lg:items-start lg:gap-16 lg:px-8 lg:py-14">
-      {/* Left: icon viewfinder OR rectangle video frame */}
-      <div className="w-full shrink-0 sm:w-72 lg:w-72">
+    <div className="svc-panel-in flex flex-col gap-6 px-5 py-6 sm:py-8 lg:flex-row lg:items-center lg:gap-10 lg:px-8 lg:py-8 xl:gap-12">
+      {/* Left: icon viewfinder OR proportional rectangle video frame */}
+      <div className={`w-full shrink-0 ${videoUrl ? "md:w-[420px] lg:w-[460px] xl:w-[500px]" : "sm:w-64 lg:w-72"}`}>
         {videoUrl ? (
           <ServiceVideoFrame videoUrl={videoUrl} title={s.title} isOpen={isOpen} />
         ) : (
@@ -215,7 +215,7 @@ function ServiceDetailPanel({
       </div>
 
       {/* Right: copy + deliverables */}
-      <div className="flex flex-1 flex-col gap-6">
+      <div className="flex flex-1 flex-col gap-5">
         {/* Ledger header */}
         <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
           <span className="flex items-center gap-2.5">
