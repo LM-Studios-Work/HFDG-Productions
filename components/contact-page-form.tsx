@@ -44,14 +44,14 @@ export function ContactPageForm() {
             <div className="mt-12 space-y-8">
               <Reveal delay={0.15} direction="left">
                 <a
-                  href="mailto:hello@hfdgproductions.com"
+                  href="mailto:info@hfdgproductions.com"
                   className="group flex flex-col gap-1"
                 >
                   <span className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground transition-colors group-hover:text-foreground">
                     <Mail className="size-3.5" /> Email us
                   </span>
                   <span className="font-heading text-2xl font-extrabold tracking-tight transition-colors group-hover:text-accent">
-                    hello@hfdgproductions.com
+                    info@hfdgproductions.com
                   </span>
                 </a>
               </Reveal>

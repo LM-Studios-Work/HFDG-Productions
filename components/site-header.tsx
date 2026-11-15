@@ -165,6 +165,18 @@ export function SiteHeader() {
               Get in touch
               <ArrowRight className="size-4" />
             </a>
+
+            <div className="mt-8 pt-6 border-t border-white/10 flex flex-col gap-1.5">
+              <span className="font-mono text-[10px] uppercase tracking-widest text-white/50">
+                Direct Email
+              </span>
+              <a
+                href="mailto:info@hfdgproductions.com"
+                className="font-mono text-sm text-white/80 hover:text-accent transition-colors"
+              >
+                info@hfdgproductions.com
+              </a>
+            </div>
           </nav>
         </div>
       )}

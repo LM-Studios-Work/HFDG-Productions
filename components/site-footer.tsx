@@ -118,6 +118,14 @@ export function SiteFooter() {
                 A video production studio making corporate, real estate and
                 commercial work for brands across Africa and the Middle East.
               </p>
+              <div className="mt-6">
+                <a
+                  href="mailto:info@hfdgproductions.com"
+                  className="font-mono text-sm text-foreground/80 transition-colors hover:text-accent"
+                >
+                  info@hfdgproductions.com
+                </a>
+              </div>
             </RevealItem>
 
             {columns.map((col) => (

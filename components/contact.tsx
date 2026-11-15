@@ -47,10 +47,10 @@ export function Contact() {
           <RevealGroup stagger={0.1} className="mt-10 space-y-6">
             <RevealItem direction="left">
               <a
-                href="mailto:hello@hfdgproductions.com"
+                href="mailto:info@hfdgproductions.com"
                 className="group flex w-fit items-center gap-2 font-heading text-2xl font-extrabold tracking-tight md:text-3xl"
               >
-                hello@hfdgproductions.com
+                info@hfdgproductions.com
                 <ArrowUpRight className="size-6 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
               </a>
             </RevealItem>
