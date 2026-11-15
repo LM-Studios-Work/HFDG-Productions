@@ -1,6 +1,11 @@
 import { Reveal, RevealGroup, RevealItem } from "@/components/reveal"
 
-const defaultTeam = [
+const defaultTeam: {
+  name: string
+  role: string
+  photoUrl?: string
+  tint: string
+}[] = [
   {
     name: "HFDG Founder",
     role: "Director · DP",

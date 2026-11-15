@@ -4,12 +4,17 @@ import { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { FilmCorners, RecordDot } from "@/components/film-ui";
 import { ServiceIcon } from "@/components/service-icons";
+import { ServiceVideoFrame } from "@/components/service-video-frame";
 import { serviceDetails, type ServiceDetail } from "@/lib/site-data";
 
 /** The full capability breakdown as an accordion list.
  *  Every item expands inline: works identically on mobile and desktop.
  *  Reads the URL hash on mount so hero links open the right item. */
-export function ServicesCapabilities() {
+export function ServicesCapabilities({
+  serviceVideos = {},
+}: {
+  serviceVideos?: Record<string, string>;
+}) {
   const [openSlug, setOpenSlug] = useState<string | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -61,6 +66,7 @@ export function ServicesCapabilities() {
               <AccordionItem
                 key={s.slug}
                 s={s}
+                videoUrl={serviceVideos[s.slug]}
                 isOpen={isOpen}
                 isLast={i === serviceDetails.length - 1}
                 onToggle={() => toggle(s.slug)}
@@ -75,21 +81,34 @@ export function ServicesCapabilities() {
 
 function AccordionItem({
   s,
+  videoUrl,
   isOpen,
   isLast,
   onToggle,
 }: {
   s: ServiceDetail;
+  videoUrl?: string;
   isOpen: boolean;
   isLast: boolean;
   onToggle: () => void;
 }) {
   const panelRef = useRef<HTMLDivElement>(null);
-  const [height, setHeight] = useState(0);
+  const [height, setHeight] = useState<number | string>(0);
 
   useEffect(() => {
     if (!panelRef.current) return;
-    setHeight(isOpen ? panelRef.current.scrollHeight : 0);
+    if (isOpen) {
+      setHeight(panelRef.current.scrollHeight);
+      const timer = setTimeout(() => {
+        setHeight("auto");
+      }, 350);
+      return () => clearTimeout(timer);
+    } else {
+      setHeight(panelRef.current.scrollHeight);
+      requestAnimationFrame(() => {
+        setHeight(0);
+      });
+    }
   }, [isOpen]);
 
   return (
@@ -157,10 +176,14 @@ function AccordionItem({
         id={`panel-${s.slug}`}
         role="region"
         aria-labelledby={s.slug}
-        style={{ height, overflow: "hidden", transition: "height 300ms ease" }}
+        style={{
+          height,
+          overflow: height === "auto" ? "visible" : "hidden",
+          transition: height === "auto" ? "none" : "height 300ms ease",
+        }}
       >
         <div ref={panelRef} className="border-t-2 border-foreground">
-          <ServiceDetailPanel s={s} />
+          <ServiceDetailPanel s={s} videoUrl={videoUrl} isOpen={isOpen} />
         </div>
       </div>
     </li>
@@ -168,19 +191,31 @@ function AccordionItem({
 }
 
 /** Detail content shown inside the expanded accordion row. */
-function ServiceDetailPanel({ s }: { s: ServiceDetail }) {
+function ServiceDetailPanel({
+  s,
+  videoUrl,
+  isOpen,
+}: {
+  s: ServiceDetail;
+  videoUrl?: string;
+  isOpen: boolean;
+}) {
   return (
     <div className="svc-panel-in flex flex-col gap-8 px-5 py-10 lg:flex-row lg:items-start lg:gap-16 lg:px-8 lg:py-14">
-      {/* Left: icon viewfinder */}
-      <div className="w-full shrink-0 lg:w-72">
-        <div className="relative flex aspect-[4/3] w-full items-center justify-center border-2 border-foreground/15 bg-background lg:aspect-square">
-          <FilmCorners size={20} inset={12} thickness={2} />
-          <ServiceIcon slug={s.slug} size={100} className="text-accent" animate />
-        </div>
+      {/* Left: icon viewfinder OR rectangle video frame */}
+      <div className="w-full shrink-0 sm:w-72 lg:w-72">
+        {videoUrl ? (
+          <ServiceVideoFrame videoUrl={videoUrl} title={s.title} isOpen={isOpen} />
+        ) : (
+          <div className="relative flex aspect-[4/3] w-full items-center justify-center border-2 border-foreground/15 bg-background lg:aspect-square">
+            <FilmCorners size={20} inset={12} thickness={2} />
+            <ServiceIcon slug={s.slug} size={100} className="text-accent" animate={isOpen} />
+          </div>
+        )}
       </div>
 
       {/* Right: copy + deliverables */}
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-1 flex-col gap-6">
         {/* Ledger header */}
         <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
           <span className="flex items-center gap-2.5">

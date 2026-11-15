@@ -77,6 +77,21 @@ async function seed() {
     console.log(`Created project: ${p.title}`)
   }
 
+  try {
+    const musicVid = agentsMedia || potAroundMedia
+    if (musicVid) {
+      await payload.updateGlobal({
+        slug: 'services-page',
+        data: {
+          musicVideo: musicVid.id,
+        },
+      })
+      console.log('Seeded services-page global!')
+    }
+  } catch (err) {
+    console.log('services-page global update note:', err)
+  }
+
   console.log('Done seeding projects!')
   process.exit(0)
 }

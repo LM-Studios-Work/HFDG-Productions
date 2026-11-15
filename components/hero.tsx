@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { FocusScale, RecordDot, FilmCorners } from "@/components/film-ui"
+import { AutoPlayVideo } from "@/components/autoplay-video"
 
 /** The HFDG film-frame icon: a camera viewfinder bracket with a blinking red dot.
  *  Inspired by the DGC bracketed logo style. Used as the studio's signature mark. */
@@ -46,9 +46,10 @@ function useLiveClock() {
   return time
 }
 
-export function Hero() {
+export function Hero({ videoUrl }: { videoUrl?: string }) {
   const containerRef = useRef<HTMLDivElement>(null)
   const clock = useLiveClock()
+  const activeVideo = videoUrl || "/api/media/file/PotAround.mp4"
 
   return (
     <section
@@ -57,8 +58,6 @@ export function Hero() {
       className="relative flex min-h-[100svh] w-full flex-col items-center justify-center overflow-hidden bg-background pt-20"
       aria-label="Home Hero"
     >
-
-
       {/* Massive Parallax Typography */}
       <div 
         className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none px-4 select-none"
@@ -75,35 +74,15 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Central Showreel Container */}
+      {/* Central Showreel Container - Just the video playing with no text on it */}
       <div
-        className="relative z-20 w-[92vw] sm:w-[85vw] md:w-[75vw] lg:w-[65vw] max-w-6xl aspect-[4/5] sm:aspect-video lg:aspect-[21/9] bg-zinc-950 border border-white/10 shadow-2xl overflow-hidden group cursor-pointer animate-in fade-in slide-in-from-bottom-16 duration-1000 delay-200 ease-out fill-mode-both"
+        className="relative z-20 w-[92vw] sm:w-[85vw] md:w-[75vw] lg:w-[65vw] max-w-6xl aspect-[4/5] sm:aspect-video lg:aspect-[21/9] bg-zinc-950 border border-white/10 shadow-2xl overflow-hidden animate-in fade-in slide-in-from-bottom-16 duration-1000 delay-200 ease-out fill-mode-both"
       >
-        <img 
-          src="/placeholder.svg" 
-          alt="Showreel placeholder" 
-          className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out grayscale group-hover:grayscale-0" 
+        <AutoPlayVideo
+          src={activeVideo}
+          title="Pot Around Showreel"
+          className="size-full object-cover"
         />
-        
-        {/* Play Button Overlay */}
-        <div className="absolute inset-0 flex items-center justify-center z-20">
-          <div className="flex h-20 w-20 sm:h-24 sm:w-24 items-center justify-center rounded-full border border-white/20 bg-black/40 backdrop-blur-md transition-all duration-500 group-hover:scale-110 group-hover:border-accent/50 group-hover:bg-accent/20">
-            <div className="ml-2 w-0 h-0 border-y-[10px] sm:border-y-[12px] border-y-transparent border-l-[16px] sm:border-l-[20px] border-l-white transition-colors group-hover:border-l-white" />
-          </div>
-        </div>
-
-        {/* Cinematic Inner Corners */}
-        <FilmCorners size={32} inset={16} thickness={2} className="opacity-50 transition-opacity duration-500 group-hover:opacity-100 text-white" />
-
-        {/* Viewfinder elements inside the reel */}
-        <div className="absolute top-5 left-6 sm:top-8 sm:left-8 flex items-center gap-3 z-20">
-          <RecordDot className="group-hover:animate-blink-dot" />
-          <span className="font-mono text-[10px] sm:text-xs text-white/80 tracking-[0.2em] uppercase drop-shadow-md">Rec</span>
-        </div>
-        
-        <div className="absolute bottom-5 right-6 sm:bottom-8 sm:right-8 z-20">
-          <FocusScale className="scale-75 sm:scale-100 origin-bottom-right opacity-60 transition-opacity duration-500 group-hover:opacity-100 text-white drop-shadow-md" />
-        </div>
       </div>
 
       {/* Hero Intro Text */}
